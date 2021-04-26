@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://example.com/playlist/index.html</loc>
+    
+    <lastmod>2021-04-26T10:50:32.203Z</lastmod>
+    
+    <date>1619429303000</date>
+    <title>音乐 | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/index.html</loc>
+    
+    <lastmod>2021-04-26T08:17:44.066Z</lastmod>
+    
+    <date>1619425064066</date>
+    <title>categories | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/index.html</loc>
+    
+    <lastmod>2021-04-26T08:14:16.637Z</lastmod>
+    
+    <date>1619424856637</date>
+    <title>tags | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/04/25/test-my-site/</loc>
+    
+    <lastmod>2021-04-26T06:32:18.485Z</lastmod>
+    
+    <date>1619343289000</date>
+    <title>test_my_site | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/04/25/hello-world/</loc>
+    
+    <lastmod>2021-04-26T06:31:31.887Z</lastmod>
+    
+    <date>1619342914291</date>
+    <title>Hello World | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+</urlset>
