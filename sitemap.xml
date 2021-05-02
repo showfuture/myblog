@@ -2,9 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.showbyte.cn/2021/05/02/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day2/</loc>
+    
+    <lastmod>2021-05-02T13:49:37.447Z</lastmod>
+    
+    <date>1619962908330</date>
+    <title>Vue.js - Day2 | 冯晟的博客</title>
+    
+    <desc>Vue基本的语法和概念二： Vue 指令之v-if v-for Vue 自定义指令：全局指令、私有指令 Vue 自定义全局按键修饰符 Vue 自定义过滤器：全局过滤器、私有过滤器 Vue 生命周期演示 Vue vue-resource 实现 get, post, jsonp请求 Vue 键盘修饰符以及自定义键盘修饰符 Vue 配置本地数据库和数据接口API Vue Vue中的动画</desc>
+  </url>
+  
+  <url>
     <loc>http://www.showbyte.cn/2021/05/02/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day1/</loc>
     
-    <lastmod>2021-05-02T05:21:24.774Z</lastmod>
+    <lastmod>2021-05-02T13:45:06.539Z</lastmod>
     
     <date>1619930802054</date>
     <title>Vue.js - Day1 | 冯晟的博客</title>
