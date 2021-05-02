@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.showbyte.cn/2021/05/02/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day1/</loc>
+    
+    <lastmod>2021-05-02T05:21:24.774Z</lastmod>
+    
+    <date>1619930802054</date>
+    <title>Vue.js - Day1 | 冯晟的博客</title>
+    
+    <desc>Vue基本的语法和概念一： Vue 指令之v-cloak 、v-text、v-html、v-bind、v-on和事件修饰符、v-model和双向数据绑定 Vue 使用样式：使用class样式、使用内联样式 Vue 指令之`v-for`和`key`属性 Vue 指令之`v-if`和`v-show` Vue 调试工具`vue-devtools`的安装步骤和使用 Vue 过滤器 Vue 键盘修饰符以及自</desc>
+  </url>
+  
+  <url>
     <loc>http://www.showbyte.cn/2021/04/25/hello-world/</loc>
     
     <lastmod>2021-04-26T12:51:30.225Z</lastmod>
