@@ -20,17 +20,28 @@
     var CONFIG = {"hostname":"www.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://www.showbyte.cn/categories/index.html">
+  <meta name="description" content="本文主要介绍python中的深拷贝和浅拷贝究竟从底层ID来看是怎么回事">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅析深拷贝浅拷贝">
+<meta property="og:url" content="http://www.showbyte.cn/2021/05/04/python/%E6%B5%85%E6%9E%90%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/index.html">
 <meta property="og:site_name" content="冯晟的博客">
+<meta property="og:description" content="本文主要介绍python中的深拷贝和浅拷贝究竟从底层ID来看是怎么回事">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-26T08:17:44.066Z">
-<meta property="article:modified_time" content="2021-04-26T08:17:44.066Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/28568478/117002717-80663600-ad16-11eb-9151-ccd5e05a538b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/28568478/117002786-94119c80-ad16-11eb-9c19-dd44d0494db8.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/28568478/117002798-996ee700-ad16-11eb-9a72-4cbcdd780596.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/28568478/117002811-9e339b00-ad16-11eb-9c55-2555f7bfc671.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/28568478/117002821-a2f84f00-ad16-11eb-8d56-7d4aa3dde512.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/28568478/117002835-a7246c80-ad16-11eb-8ce6-85764cfff7fe.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/28568478/117002847-abe92080-ad16-11eb-95f5-a8381a3042f4.png">
+<meta property="article:published_time" content="2021-05-04T12:16:37.920Z">
+<meta property="article:modified_time" content="2021-05-04T12:26:02.178Z">
 <meta property="article:author" content="show">
+<meta property="article:tag" content="python 深拷贝浅拷贝">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/28568478/117002717-80663600-ad16-11eb-9151-ccd5e05a538b.png">
 
-<link rel="canonical" href="http://www.showbyte.cn/categories/">
+<link rel="canonical" href="http://www.showbyte.cn/2021/05/04/python/%E6%B5%85%E6%9E%90%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/">
 
 
 <script id="page-configurations">
@@ -38,13 +49,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>categories | 冯晟的博客
-</title>
+  <title>浅析深拷贝浅拷贝 | 冯晟的博客</title>
   
 
 
@@ -186,51 +196,127 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">categories
-</h1>
-
-<div class="post-meta">
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/python/%E6%B5%85%E6%9E%90%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/">
 
-</div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
 
-</header>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浅析深拷贝浅拷贝
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-04 20:16:37 / 修改时间：20:26:02" itemprop="dateCreated datePublished" datetime="2021-05-04T20:16:37+08:00">2021-05-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>35</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <p>本文主要介绍python中的深拷贝和浅拷贝究竟从底层ID来看是怎么回事</p>
+<span id="more"></span>
+<p><img src="https://user-images.githubusercontent.com/28568478/117002717-80663600-ad16-11eb-9151-ccd5e05a538b.png"></p>
+<p><img src="https://user-images.githubusercontent.com/28568478/117002786-94119c80-ad16-11eb-9c19-dd44d0494db8.png" alt="image"><br><img src="https://user-images.githubusercontent.com/28568478/117002798-996ee700-ad16-11eb-9a72-4cbcdd780596.png" alt="image"><br><img src="https://user-images.githubusercontent.com/28568478/117002811-9e339b00-ad16-11eb-9c55-2555f7bfc671.png" alt="image"><br><img src="https://user-images.githubusercontent.com/28568478/117002821-a2f84f00-ad16-11eb-8d56-7d4aa3dde512.png" alt="image"><br><img src="https://user-images.githubusercontent.com/28568478/117002835-a7246c80-ad16-11eb-8ce6-85764cfff7fe.png" alt="image"><br><img src="https://user-images.githubusercontent.com/28568478/117002847-abe92080-ad16-11eb-95f5-a8381a3042f4.png" alt="image"></p>
+
+    </div>
+
+    <div>
       
-      
-      <div class="post-body">
-          <div class="category-all-page">
-            <div class="category-all-title">
-              目前共计 2 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/">vue2.0基础课程</a><span class="category-list-count">4</span></li></ul>
-            </div>
-          </div>
-        
-      </div>
-      
-      
+          <div style="text-align:center;color: #ccc;font-size:14px;">
+              ------------- 本文结束 <i class="fa fa-heart-o"></i> 感谢您的阅读-------------
+        </div>
       
     </div>
-    
 
     
     
     
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag"> <!--fa fa-tag --> python 深拷贝浅拷贝</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/04/python/Python%E4%B8%AD%E5%AD%97%E5%85%B8%E7%9A%84%E9%94%AE%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" rel="prev" title="Python中字典的键为什么要是不可变类型">
+      <i class="fa fa-chevron-left"></i> Python中字典的键为什么要是不可变类型
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/04/python/python%20%E5%88%97%E8%A1%A8%E5%8A%A0%E6%B3%95%22+%22%E5%92%8C%22extend%22%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="next" title="python 列表加法"+"和"extend"的区别">
+      python 列表加法"+"和"extend"的区别 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
 
 
           </div>
@@ -566,7 +652,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'myblog_comments',
       owner       : 'showfuture',
       admin       : ['showfuture'],
-      id          : 'a676607444a8bc8b150c9a3aff884e61',
+      id          : 'fdc859c445600257598b6b9baae36d57',
         language: 'zh-CN',
       distractionFreeMode: true
     });
