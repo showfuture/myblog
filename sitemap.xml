@@ -2,6 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.showbyte.cn/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day5/</loc>
+    
+    <lastmod>2021-05-04T14:42:29.978Z</lastmod>
+    
+    <date>1620139163756</date>
+    <title>Vue.js - Day5 | 冯晟的博客</title>
+    
+    <desc>什么是webpack? webpack安装的两种方式 webpack的使用</desc>
+  </url>
+  
+  <url>
+    <loc>http://www.showbyte.cn/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day4/</loc>
+    
+    <lastmod>2021-05-04T14:39:53.930Z</lastmod>
+    
+    <date>1620124405646</date>
+    <title>Vue.js - Day4 | 冯晟的博客</title>
+    
+    <desc>Vue基本的语法和概念三： Vue 父组件向子组件传值 Vue 子组件向父组件传值 Vue 组件中data和props的区别 Vue 什么是路由 Vue 使用 `children` 属性实现路由嵌套 Vue 命名视图实现经典布局 Vue `watch`、 `computed`计算属性的使用 nrm的安装使用</desc>
+  </url>
+  
+  <url>
     <loc>http://www.showbyte.cn/2021/05/04/python/%E5%AE%89%E8%A3%85Python/</loc>
     
     <lastmod>2021-05-04T12:32:49.263Z</lastmod>
@@ -98,17 +120,6 @@
     <title>Python中tuple+=赋值的四个问题 | 冯晟的博客</title>
     
     <desc></desc>
-  </url>
-  
-  <url>
-    <loc>http://www.showbyte.cn/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day4/</loc>
-    
-    <lastmod>2021-05-04T10:37:00.908Z</lastmod>
-    
-    <date>1620124405646</date>
-    <title>Vue.js - Day3 | 冯晟的博客</title>
-    
-    <desc>Vue基本的语法和概念三： Vue 父组件向子组件传值 Vue 子组件向父组件传值 Vue 组件中data和props的区别 Vue 什么是路由 Vue 使用 `children` 属性实现路由嵌套 Vue 命名视图实现经典布局 Vue `watch`、 `computed`计算属性的使用</desc>
   </url>
   
   <url>
