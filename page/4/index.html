@@ -118,17 +118,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">39</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">43</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">62</span></a>
 
   </li>
         <li class="menu-item menu-item-playlist">
@@ -192,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/python/%E5%AE%89%E8%A3%85Python/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Ubuntu18.04%20%E5%AE%89%E8%A3%85redis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -206,7 +206,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/04/python/%E5%AE%89%E8%A3%85Python/" class="post-title-link" itemprop="url">安装Python</a>
+            <a href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Ubuntu18.04%20%E5%AE%89%E8%A3%85redis/" class="post-title-link" itemprop="url">Ubuntu18.04 安装redis</a>
         </h2>
 
         <div class="post-meta">
@@ -217,7 +217,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-04 20:29:30 / 修改时间：20:32:49" itemprop="dateCreated datePublished" datetime="2021-05-04T20:29:30+08:00">2021-05-04</time>
+              <time title="创建时间：2021-05-07 10:55:58 / 修改时间：10:57:23" itemprop="dateCreated datePublished" datetime="2021-05-07T10:55:58+08:00">2021-05-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -225,7 +225,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
             </span>
 
@@ -235,7 +235,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>837</span>
+              <span>284</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -254,11 +254,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="How-to-Install-Python"><a href="#How-to-Install-Python" class="headerlink" title="How to Install Python"></a><a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-install-python-3-7-on-ubuntu-18-04/">How to Install Python</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">apt-get install zlib1g-dev libbz2-dev libssl-dev libncurses5-dev  libsqlite3-dev libreadline-dev tk-dev libgdbm-dev libdb-dev libpcap-dev xz-utils libexpat1-dev   liblzma-dev libffi-dev  libc6-dev</span><br><span class="line"></span><br><span class="line">1. 下载源码包</span><br><span class="line">     wget   https:&#x2F;&#x2F;www.python.org&#x2F;ftp&#x2F;python&#x2F;3.7.3&#x2F;Python-3.7.3.tgz</span><br><span class="line">2. mkdir -p &#x2F;usr&#x2F;local&#x2F;python3</span><br><span class="line">3. mv Python-3.7.3.tgz &#x2F;usr&#x2F;local&#x2F;python3</span><br><span class="line">4. tar -zxf Python-3.7.3.tgz</span><br><span class="line">5. cd python3.7.3</span><br><span class="line">6. .&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;python3 --with-ssl  --enable-optimizations</span><br><span class="line">7. make</span><br><span class="line">8. make install</span><br></pre></td></tr></table></figure>
+          <h3 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install redis   # 安装redis</span><br><span class="line"></span><br><span class="line">cd &#x2F;etc&#x2F;redis&#x2F;redis.conf # 变更配置</span><br><span class="line">注释bind 127.0.0.1 ::1</span><br><span class="line">加 bind 0.0.0.0</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;python3&#x2F;bin&#x2F;python3 &#x2F;usr&#x2F;bin&#x2F;python3 [#确认是否是需要的版本]</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;python3&#x2F;bin&#x2F;pip3.7 &#x2F;usr&#x2F;bin&#x2F;pip3</span><br><span class="line"></span><br><span class="line">安装pip3 apt-get install python3-pip</span><br></pre></td></tr></table></figure>
-
-<h3 id="mac-安装python"><a href="#mac-安装python" class="headerlink" title="mac 安装python"></a>mac 安装python</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install python</span><br><span class="line">brew install python@3.9 # 安装指定版本</span><br></pre></td></tr></table></figure>
+<h3 id="二、命令"><a href="#二、命令" class="headerlink" title="二、命令"></a>二、命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;sh &#x2F;etc&#x2F;init.d&#x2F;redis-server start&#x2F;stop&#x2F;restart</span><br><span class="line">systemctl start&#x2F;stop&#x2F;restart redis-server</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;redis-server # 只是启动</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -282,7 +280,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/python/python%20%E5%88%97%E8%A1%A8%E5%8A%A0%E6%B3%95%22+%22%E5%92%8C%22extend%22%E7%9A%84%E5%8C%BA%E5%88%AB/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Ubuntu%2018.04%20%E5%AE%89%E8%A3%85MongoDB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -296,7 +294,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/04/python/python%20%E5%88%97%E8%A1%A8%E5%8A%A0%E6%B3%95%22+%22%E5%92%8C%22extend%22%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">python 列表加法"+"和"extend"的区别</a>
+            <a href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Ubuntu%2018.04%20%E5%AE%89%E8%A3%85MongoDB/" class="post-title-link" itemprop="url">Ubuntu 18.04 安装MongoDB</a>
         </h2>
 
         <div class="post-meta">
@@ -307,7 +305,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-04 20:26:32 / 修改时间：20:28:36" itemprop="dateCreated datePublished" datetime="2021-05-04T20:26:32+08:00">2021-05-04</time>
+              <time title="创建时间：2021-05-07 10:54:45 / 修改时间：11:16:40" itemprop="dateCreated datePublished" datetime="2021-05-07T10:54:45+08:00">2021-05-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -315,7 +313,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
             </span>
 
@@ -325,7 +323,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>95</span>
+              <span>788</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -344,18 +342,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="相同点"><a href="#相同点" class="headerlink" title="相同点:"></a>相同点:</h3><ul>
-<li> “+”和”extend”都能将两个列表成员拼接到到一起</li>
-</ul>
-<h3 id="不同点"><a href="#不同点" class="headerlink" title="不同点:"></a>不同点:</h3><ul>
-<li><p> + : 生成的是一个新列表(id改变)</p>
-</li>
-<li><p>extend : 是将一个列表的成员一个个取出添加到原列表中 , 改变的是原列表的值 , id不变</p>
-</li>
-</ul>
+          <h3 id="第1步-–-导入公钥"><a href="#第1步-–-导入公钥" class="headerlink" title="第1步 – 导入公钥"></a>第1步 – 导入公钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --keyserver hkp:&#x2F;&#x2F;keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6</span><br></pre></td></tr></table></figure>
+<h3 id="第2步-–-创建源列表文件MongoDB"><a href="#第2步-–-创建源列表文件MongoDB" class="headerlink" title="第2步 – 创建源列表文件MongoDB"></a>第2步 – 创建源列表文件MongoDB</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;deb [ arch&#x3D;amd64,arm64 ] http:&#x2F;&#x2F;repo.mongodb.org&#x2F;apt&#x2F;ubuntu xenial&#x2F;mongodb-org&#x2F;3.4 multiverse&quot; | sudo tee &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;mongodb-org-3.4.list</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/04/python/python%20%E5%88%97%E8%A1%A8%E5%8A%A0%E6%B3%95%22+%22%E5%92%8C%22extend%22%E7%9A%84%E5%8C%BA%E5%88%AB/#more" rel="contents">
+              <a class="btn" href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Ubuntu%2018.04%20%E5%AE%89%E8%A3%85MongoDB/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -383,7 +374,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/python/%E6%B5%85%E6%9E%90%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%A7%E5%B0%8F(%E6%95%B0%E6%8D%AE%E5%BA%93%E7%89%88%E6%9C%AC%E4%B8%BA5.7%E4%BB%A5%E4%B8%8A)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -397,7 +388,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/04/python/%E6%B5%85%E6%9E%90%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="post-title-link" itemprop="url">浅析深拷贝浅拷贝</a>
+            <a href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%A7%E5%B0%8F(%E6%95%B0%E6%8D%AE%E5%BA%93%E7%89%88%E6%9C%AC%E4%B8%BA5.7%E4%BB%A5%E4%B8%8A)/" class="post-title-link" itemprop="url">Mysql命令行查看数据库大小(数据库版本为5.7以上)</a>
         </h2>
 
         <div class="post-meta">
@@ -408,7 +399,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-04 20:16:37 / 修改时间：20:26:02" itemprop="dateCreated datePublished" datetime="2021-05-04T20:16:37+08:00">2021-05-04</time>
+              <time title="创建时间：2021-05-07 10:52:42 / 修改时间：10:53:38" itemprop="dateCreated datePublished" datetime="2021-05-07T10:52:42+08:00">2021-05-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -416,7 +407,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
             </span>
 
@@ -426,7 +417,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>35</span>
+              <span>571</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -445,15 +436,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本文主要介绍python中的深拷贝和浅拷贝究竟从底层ID来看是怎么回事</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/04/python/%E6%B5%85%E6%9E%90%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <p>数据库版本为5.7以上<br>1、选择数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use mydb1;</span><br></pre></td></tr></table></figure>
+<p>2、查看指定数据库表结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from information_schema.TABLES where information_schema.TABLES.TABLE_SCHEMA&#x3D;&#39;mydb1&#39;;</span><br></pre></td></tr></table></figure>
+<p>3、查看指定数据库的大小<br>比如说 数据库mydb1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select concat(round(sum(DATA_LENGTH&#x2F;1024&#x2F;1024),2), &#39;MB&#39;) as data from information_schema.TABLES where information_schema.TABLES.TABLE_SCHEMA&#x3D;&#39;mydb1&#39;;</span><br></pre></td></tr></table></figure>
+<p>4、查看指定数据库的表的大小<br>比如说 数据库mydb1中b1表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select concat(round(sum(DATA_LENGTH&#x2F;1024&#x2F;1024),2), &#39;MB&#39;) as data from information_schema.TABLES where information_schema.TABLES.TABLE_SCHEMA&#x3D;&#39;mydb1&#39; and TABLE_NAME&#x3D;&#39;b1&#39;;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -476,7 +467,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/python/Python%E4%B8%AD%E5%AD%97%E5%85%B8%E7%9A%84%E9%94%AE%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E7%9A%84%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D%E5%8C%BA%E5%88%AB---like,rlike,regexpx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -490,7 +481,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/04/python/Python%E4%B8%AD%E5%AD%97%E5%85%B8%E7%9A%84%E9%94%AE%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">Python中字典的键为什么要是不可变类型</a>
+            <a href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E7%9A%84%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D%E5%8C%BA%E5%88%AB---like,rlike,regexpx/" class="post-title-link" itemprop="url">SQL的模糊匹配区别---like,rlike,regexpx</a>
         </h2>
 
         <div class="post-meta">
@@ -501,7 +492,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-04 20:12:30 / 修改时间：20:21:49" itemprop="dateCreated datePublished" datetime="2021-05-04T20:12:30+08:00">2021-05-04</time>
+              <time title="创建时间：2021-05-07 10:47:36 / 修改时间：10:54:08" itemprop="dateCreated datePublished" datetime="2021-05-07T10:47:36+08:00">2021-05-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -509,7 +500,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
             </span>
 
@@ -519,7 +510,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -538,10 +529,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>很多python初学者经常会有这样的疑问，为什么Python有tuple（元组）和list（列表）两种类型？为什么tuple可以作为字典的key，list不可以？要理解这个问题，首先要明白python的字典工作原理。</p>
+          <h2 id="一、主要区别"><a href="#一、主要区别" class="headerlink" title="一、主要区别"></a>一、主要区别</h2><ul>
+<li><p>(1) like的内容不是正则，而是通配符。像mysql中的”like”,但是建议使用高级函数”instr”效率更高。</p>
+</li>
+<li><p>(2) rlike的内容可以是正则，正则的写法与java一样。需要转义，例如’\m’需要使用’\m’</p>
+</li>
+<li><p>(3) regexp == rlike 同义词 not like not regexp</p>
+</li>
+</ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/04/python/Python%E4%B8%AD%E5%AD%97%E5%85%B8%E7%9A%84%E9%94%AE%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/#more" rel="contents">
+              <a class="btn" href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E7%9A%84%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D%E5%8C%BA%E5%88%AB---like,rlike,regexpx/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -569,7 +567,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/python/python%20%E7%94%9F%E6%88%90%E5%99%A8%E5%92%8C%E8%BF%AD%E4%BB%A3%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/macOS%20pip%20%E5%AE%89%E8%A3%85%20mysqlclient%20%E6%8A%A5%E9%94%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -583,7 +581,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/04/python/python%20%E7%94%9F%E6%88%90%E5%99%A8%E5%92%8C%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="post-title-link" itemprop="url">python 生成器和迭代器</a>
+            <a href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/macOS%20pip%20%E5%AE%89%E8%A3%85%20mysqlclient%20%E6%8A%A5%E9%94%99/" class="post-title-link" itemprop="url">macOS pip 安装 mysqlclient 报错</a>
         </h2>
 
         <div class="post-meta">
@@ -594,7 +592,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-04 20:09:51 / 修改时间：20:12:12" itemprop="dateCreated datePublished" datetime="2021-05-04T20:09:51+08:00">2021-05-04</time>
+              <time title="创建时间：2021-05-07 10:46:35 / 修改时间：10:47:15" itemprop="dateCreated datePublished" datetime="2021-05-07T10:46:35+08:00">2021-05-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -602,7 +600,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
             </span>
 
@@ -612,14 +610,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>9.9k</span>
+              <span>245</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -631,19 +629,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本节主要记录一下列表生成式，生成器和迭代器的知识点</p>
-<h3 id="列表生成器"><a href="#列表生成器" class="headerlink" title="列表生成器"></a><strong>列表生成器</strong></h3><p><strong>首先举个例子</strong></p>
-<p>现在有个需求，看列表 [0，1，2，3，4，5，6，7，8，9]，要求你把列表里面的每个值加1，你怎么实现呢？</p>
-<p>方法一（简单）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">info &#x3D; [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line">b &#x3D; []</span><br><span class="line"># for index,i in enumerate(info):</span><br><span class="line">#     print(i+1)</span><br><span class="line">#     b.append(i+1)</span><br><span class="line"># print(b)</span><br><span class="line">for index,i in enumerate(info):</span><br><span class="line">    info[index] +&#x3D;1</span><br><span class="line">print(info)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/04/python/python%20%E7%94%9F%E6%88%90%E5%99%A8%E5%92%8C%E8%BF%AD%E4%BB%A3%E5%99%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ld: library not found for -lssl</span><br><span class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</span><br><span class="line">error: command &#39;clang&#39; failed with exit status 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export LIBRARY_PATH&#x3D;$LIBRARY_PATH:&#x2F;usr&#x2F;local&#x2F;opt&#x2F;openssl&#x2F;lib&#x2F;</span><br></pre></td></tr></table></figure>
+<p>然后再安装</p>
+
       
     </div>
 
@@ -666,7 +655,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/python/Python%E4%B8%ADtuple+=%E8%B5%8B%E5%80%BC%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%20%20show%20slave%20status%20%E7%8A%B6%E6%80%81%E8%AF%A6%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -680,7 +669,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/04/python/Python%E4%B8%ADtuple+=%E8%B5%8B%E5%80%BC%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Python中tuple+=赋值的四个问题</a>
+            <a href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%20%20show%20slave%20status%20%E7%8A%B6%E6%80%81%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">mysql  show slave status 状态详解</a>
         </h2>
 
         <div class="post-meta">
@@ -691,7 +680,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-04 19:49:43 / 修改时间：20:08:56" itemprop="dateCreated datePublished" datetime="2021-05-04T19:49:43+08:00">2021-05-04</time>
+              <time title="创建时间：2021-05-07 10:43:59 / 修改时间：10:46:17" itemprop="dateCreated datePublished" datetime="2021-05-07T10:43:59+08:00">2021-05-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -699,7 +688,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
             </span>
 
@@ -709,7 +698,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.6k</span>
+              <span>4.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -728,13 +717,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>首先看第一个问题, 如下面的代码段:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;&gt;&gt; t &#x3D; (1,2, [30,40])</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; t[2] +&#x3D; [50,60]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>会产生什么结果呢？ 给出了四个选项:<br>1. <code>t</code> 变成 <code>[1,2, [30,40,50,60]</code> <br>2. <code>TypeError is raised with the message &#39;tuple&#39; object does not support item assignment</code> <br>3. Neither 1 nor 2<br>4. Both 1 and 2</p>
-<p>按照之前的理解, <code>tuple</code>里面的元素是不能被修改的，因此会选<code>2</code>. 如果真是这样的话，这篇笔记就没必要了，Fluent Python中也就不会拿出一节来讲了。 正确答案是<code>4</code></p>
+          <p>MySQL同步功能由3个线程(master上1个，slave上2个)来实现。执行 DE&gt;START SLAVEDE&gt; 语句后，slave就创建一个I/O线程。I/O线程连接到master上，并请求master发送二进制日志中的语句。master创建一个线程来把日志的内容发送到slave上。这个线程在master上执行 DE&gt;SHOW PROCESSLISTDE&gt; 语句后的结果中的 DE&gt;Binlog DumpDE&gt; 线程便是。slave上的I/O线程读取master的 DE&gt;Binlog DumpDE&gt; 线程发送的语句，并且把它们拷贝到其数据目录下的中继日志(relay logs)中。第三个是SQL线程，salve用它来读取中继日志，然后执行它们来更新数据。</p>
+<p>如上所述，每个master/slave上都有3个线程。每个master上有多个线程，它为每个slave连接都创建一个线程，每个slave只有I/O和SQL线程。</p>
+<p>show slave master 用于提供有关从属服务器线程的关键参数的信息:</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/04/python/Python%E4%B8%ADtuple+=%E8%B5%8B%E5%80%BC%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%97%AE%E9%A2%98/#more" rel="contents">
+              <a class="btn" href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%20%20show%20slave%20status%20%E7%8A%B6%E6%80%81%E8%AF%A6%E8%A7%A3/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -762,7 +750,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/python/Python3%20%E5%88%A9%E7%94%A8string%E6%A8%A1%E5%9D%97%E7%94%9F%E6%88%90%E5%AF%86%E7%A0%81/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/tools/percona-toolkit%E5%B7%A5%E5%85%B7%EF%BC%88%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E7%9B%91%E6%B5%8B%E3%80%81%E5%BB%B6%E8%BF%9F%E7%9B%91%E6%8E%A7%EF%BC%89%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -776,7 +764,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/04/python/Python3%20%E5%88%A9%E7%94%A8string%E6%A8%A1%E5%9D%97%E7%94%9F%E6%88%90%E5%AF%86%E7%A0%81/" class="post-title-link" itemprop="url">Python3 利用string模块生成密码</a>
+            <a href="/2021/05/07/tools/percona-toolkit%E5%B7%A5%E5%85%B7%EF%BC%88%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E7%9B%91%E6%B5%8B%E3%80%81%E5%BB%B6%E8%BF%9F%E7%9B%91%E6%8E%A7%EF%BC%89%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/" class="post-title-link" itemprop="url">percona-toolkit工具（数据一致性监测、延迟监控）使用梳理</a>
         </h2>
 
         <div class="post-meta">
@@ -787,7 +775,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-04 19:47:48 / 修改时间：20:09:30" itemprop="dateCreated datePublished" datetime="2021-05-04T19:47:48+08:00">2021-05-04</time>
+              <time title="创建时间：2021-05-07 10:42:49 / 修改时间：10:43:42" itemprop="dateCreated datePublished" datetime="2021-05-07T10:42:49+08:00">2021-05-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -795,7 +783,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
                 </span>
             </span>
 
@@ -805,7 +793,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>945</span>
+              <span>53</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -824,19 +812,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>string模块中定义了一些常用的属性，包含所有数字、字母、可打印的所有ascii码等</p>
-<p>实例</p>
-<ol>
-<li>ascii_letters 生成所有大小写字母（a-z A-Z）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import string</span><br><span class="line"></span><br><span class="line">letters &#x3D; string.ascii_letters</span><br><span class="line">print(letters)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br></pre></td></tr></table></figure></li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/04/python/Python3%20%E5%88%A9%E7%94%A8string%E6%A8%A1%E5%9D%97%E7%94%9F%E6%88%90%E5%AF%86%E7%A0%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/kevingrace/p/6261091.html">原文链接: MySQL 主从同步(3)-percona-toolkit工具（数据一致性监测、延迟监控）使用梳理
+</a></p>
+
       
     </div>
 
@@ -859,7 +837,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/python/paramiko%20%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/django/Django%E7%9A%84Model%E4%B8%AD%E4%B8%8D%E5%88%9B%E5%BB%BA%E8%A1%A8%E6%A0%BC%EF%BC%8C%E5%B9%B6%E8%AE%BE%E4%B8%BA%E5%9F%BA%E7%B1%BB%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -873,7 +851,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/04/python/paramiko%20%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">paramiko 远程执行命令</a>
+            <a href="/2021/05/07/django/Django%E7%9A%84Model%E4%B8%AD%E4%B8%8D%E5%88%9B%E5%BB%BA%E8%A1%A8%E6%A0%BC%EF%BC%8C%E5%B9%B6%E8%AE%BE%E4%B8%BA%E5%9F%BA%E7%B1%BB%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Django的Model中不创建表格，并设为基类方法</a>
         </h2>
 
         <div class="post-meta">
@@ -884,7 +862,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-04 19:45:31 / 修改时间：20:09:23" itemprop="dateCreated datePublished" datetime="2021-05-04T19:45:31+08:00">2021-05-04</time>
+              <time title="创建时间：2021-05-07 10:37:57 / 修改时间：14:13:40" itemprop="dateCreated datePublished" datetime="2021-05-07T10:37:57+08:00">2021-05-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -892,7 +870,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                  <a href="/categories/django/" itemprop="url" rel="index"><span itemprop="name">django</span></a>
                 </span>
             </span>
 
@@ -902,14 +880,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.6k</span>
+              <span>3.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -921,17 +899,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Python学习总结-06-paramiko-远程执行命令"><a href="#Python学习总结-06-paramiko-远程执行命令" class="headerlink" title="Python学习总结 06 paramiko 远程执行命令"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangshuo1/p/6265360.html">Python学习总结 06 paramiko 远程执行命令</a></h1><p>  有时会需要在远程的机器上执行一个命令，并获得其返回结果。对于这种情况，python 可以很容易的实现。</p>
-<h1 id="1-工具"><a href="#1-工具" class="headerlink" title="1 工具"></a>1 工具</h1><p>Python paramiko</p>
-<ol>
-<li>Paramiko模块安装</li>
-</ol>
-<p>　　在Linux的Terminal中，直接输入pip install paramiko 命令安装。</p>
-<p>2）确定paramiko安装成功</p>
-<p>　　在python命令行输入import paramiko，确认是否安装成功，没报错就没问题。</p>
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class UserInfo(models.Model):</span><br><span class="line">    &quot;&quot;&quot;用户表&quot;&quot;&quot;</span><br><span class="line">    name &#x3D; models.CharField(verbose_name&#x3D;&#39;用户名&#39;, max_length&#x3D;32)</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    class Meta:</span><br><span class="line">        # 此类可以当做父类，被其他model继承。字段自动过度给，继承的model</span><br><span class="line">        abstract &#x3D; True  # 【django以后做数据库迁移时， 不再为UserInfo类创建相关的表以及表结构了】</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># app01&#x2F;models.py</span><br><span class="line">class UserInfo(RbacUserInfo):  # 继承上面那个userinfo</span><br><span class="line">    &quot;&quot;&quot;用户表&quot;&quot;&quot;</span><br><span class="line">    phone &#x3D; models.CharField(verbose_name&#x3D;&#39;联系方式&#39;, max_length&#x3D;32)</span><br><span class="line">    depart &#x3D; models.ForeignKey(verbose_name&#x3D;&#39;部门&#39;, to&#x3D;&#39;Department&#39;, on_delete&#x3D;models.CASCADE)</span><br></pre></td></tr></table></figure>
+<p>首先介绍下django的模型有哪些属性：</p>
+<p>先看例子：</p>
+<p>Django 模型类的Meta是一个内部类，它用于定义一些Django模型类的行为特性。以下对此作一总结：</p>
+<p>abstract<br> 这个属性是定义当前的模型类是不是一个抽象类。所谓抽象类是不会对应数据库表的。一般我们用它来归纳一些公共属性字段，然后继承它的子类可以继承这些字段。比如下面的代码中Human是一个抽象类，Employee是一个继承了Human的子类，那么在运行syncdb命令时，不会生成Human表，但是会生成一个Employee表，它包含了Human中继承来的字段，以后如果再添加一个Customer模型类，它可以同样继承Human的公共属性：<br>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/04/python/paramiko%20%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/#more" rel="contents">
+              <a class="btn" href="/2021/05/07/django/Django%E7%9A%84Model%E4%B8%AD%E4%B8%8D%E5%88%9B%E5%BB%BA%E8%A1%A8%E6%A0%BC%EF%BC%8C%E5%B9%B6%E8%AE%BE%E4%B8%BA%E5%9F%BA%E7%B1%BB%E6%96%B9%E6%B3%95/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -959,7 +934,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/python/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0-%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%87%BD%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux%20web/supervisor%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -973,7 +948,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/04/python/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0-%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">python内置函数-排列组合函数</a>
+            <a href="/2021/05/07/Linux%20web/supervisor%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">supervisor安装、配置及常用命令</a>
         </h2>
 
         <div class="post-meta">
@@ -984,7 +959,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-04 19:42:57 / 修改时间：20:09:32" itemprop="dateCreated datePublished" datetime="2021-05-04T19:42:57+08:00">2021-05-04</time>
+              <time title="创建时间：2021-05-07 10:32:37 / 修改时间：15:13:39" itemprop="dateCreated datePublished" datetime="2021-05-07T10:32:37+08:00">2021-05-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -992,7 +967,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                  <a href="/categories/Linux-web/" itemprop="url" rel="index"><span itemprop="name">Linux web</span></a>
                 </span>
             </span>
 
@@ -1002,7 +977,101 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>15k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>13 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>在 web 应用部署到线上后，需要保证应用一直处于运行状态，在遇到程序异常、报错等情况，导致 web 应用终止时，需要保证程序可以立刻重启，继续提供服务。</p>
+<p>而Supervisor 就是解决这种问题的工具，可以提供程序崩溃后，重新把程序启动起来等功能。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/07/Linux%20web/supervisor%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux%20web/apache%20%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/Linux%20web/apache%20%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91/" class="post-title-link" itemprop="url">apache 代理转发</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 10:30:27 / 修改时间：15:20:25" itemprop="dateCreated datePublished" datetime="2021-05-07T10:30:27+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux-web/" itemprop="url" rel="index"><span itemprop="name">Linux web</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1021,106 +1090,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>product 笛卡尔积　　（有放回抽样排列）</p>
-<p>permutations 排列　　（不放回抽样排列）</p>
-<p>combinations 组合,没有重复　　（不放回抽样组合）</p>
-<p>combinations_with_replacement 组合,有重复　　（有放回抽样组合）</p>
+          <h2 id="一、转发时需开启如下："><a href="#一、转发时需开启如下：" class="headerlink" title="一、转发时需开启如下："></a>一、转发时需开启如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod proxy</span><br><span class="line">sudo a2enmod proxy_http</span><br><span class="line">sudo a2enmod proxy_ajp</span><br><span class="line">sudo a2enmod proxy_balancer</span><br><span class="line">sudo a2enmod proxy_connect</span><br><span class="line">sudo a2enmod proxy_html</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://superuser.com/questions/1287647/apache2-not-starting-error-invalid-command-proxyrequests">参考链接</a></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/04/python/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0-%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E5%87%BD%E6%95%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="show">
-      <meta itemprop="description" content="ShowByte">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="冯晟的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day4/" class="post-title-link" itemprop="url">Vue.js - Day4</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-04 18:33:25 / 修改时间：22:53:23" itemprop="dateCreated datePublished" datetime="2021-05-04T18:33:25+08:00">2021-05-04</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">vue2.0基础课程</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>11k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>10 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Vue基本的语法和概念三：<br> Vue 父组件向子组件传值<br> Vue 子组件向父组件传值<br> Vue 组件中data和props的区别<br> Vue 什么是路由<br> Vue 使用 `children` 属性实现路由嵌套<br> Vue 命名视图实现经典布局<br> Vue `watch`、 `computed`计算属性的使用<br> nrm的安装使用</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day4/">
+              <a class="btn" href="/2021/05/07/Linux%20web/apache%20%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1147,7 +1121,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1213,20 +1187,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">57</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1263,7 +1237,7 @@ translateInitilization();
         <h3 class="widget-title">标签云</h3>
         <div id="myCanvasContainer" class="widget tagcloud">
           <canvas width="250" height="250" id="resCanvas" style="width:100%">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/abstract/" rel="tag">abstract</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cryptography/" rel="tag">cryptography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free/" rel="tag">free</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gen-secret/" rel="tag">gen-secret</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netstat/" rel="tag">netstat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nohup/" rel="tag">nohup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paramiko/" rel="tag">paramiko</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/percona-toolkit/" rel="tag">percona-toolkit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">python 深拷贝浅拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" rel="tag">python内置函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">python生成器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" rel="tag">python迭代器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/" rel="tag">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" rel="tag">vue2.0基础课程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E8%87%B4%E6%80%A7/" rel="tag">一致性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" rel="tag">不可变类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81/" rel="tag">密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%9C%BA/" rel="tag">开机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" rel="tag">抽象类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag">监测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD/" rel="tag">硬盘挂载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/abstract/" rel="tag">abstract</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/" rel="tag">aws</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cryptography/" rel="tag">cryptography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etcd/" rel="tag">etcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free/" rel="tag">free</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gen-secret/" rel="tag">gen-secret</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netstat/" rel="tag">netstat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nohup/" rel="tag">nohup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overlay2/" rel="tag">overlay2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paramiko/" rel="tag">paramiko</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/percona-toolkit/" rel="tag">percona-toolkit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycharm/" rel="tag">pycharm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">python 深拷贝浅拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" rel="tag">python内置函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">python生成器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" rel="tag">python迭代器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rz-sz/" rel="tag">rz sz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/" rel="tag">struct</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/" rel="tag">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" rel="tag">vue2.0基础课程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E8%87%B4%E6%80%A7/" rel="tag">一致性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" rel="tag">不可变类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E6%A0%87/" rel="tag">图标</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81/" rel="tag">密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%9C%BA/" rel="tag">开机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" rel="tag">抽象类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%85%E7%90%86/" rel="tag">清理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag">监测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD/" rel="tag">硬盘挂载</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%81%E4%B9%A6/" rel="tag">证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%95%9C%E5%83%8F/" rel="tag">镜像</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%95%9C%E5%83%8F%E6%BA%90/" rel="tag">镜像源</a><span class="tag-list-count">1</span></li></ul>
           </canvas>
         </div>
       </div>
@@ -1298,12 +1272,12 @@ translateInitilization();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">132k</span>
+    <span title="站点总字数">154k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:01</span>
+    <span title="站点阅读时长">2:20</span>
 </div>
 
 

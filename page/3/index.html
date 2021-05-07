@@ -118,17 +118,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">39</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">43</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">62</span></a>
 
   </li>
         <li class="menu-item menu-item-playlist">
@@ -192,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/apache%20%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8C%82%E8%BD%BD%E5%A4%A7%E4%BA%8E2T%E7%9A%84%E7%A1%AC%E7%9B%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -206,7 +206,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/07/Linux/apache%20%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91/" class="post-title-link" itemprop="url">apache 代理转发</a>
+            <a href="/2021/05/07/Linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8C%82%E8%BD%BD%E5%A4%A7%E4%BA%8E2T%E7%9A%84%E7%A1%AC%E7%9B%98/" class="post-title-link" itemprop="url">服务器挂载大于2T的硬盘</a>
         </h2>
 
         <div class="post-meta">
@@ -217,7 +217,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-07 10:30:27 / 修改时间：10:35:25" itemprop="dateCreated datePublished" datetime="2021-05-07T10:30:27+08:00">2021-05-07</time>
+              <time title="创建时间：2021-05-07 11:35:22 / 修改时间：15:14:48" itemprop="dateCreated datePublished" datetime="2021-05-07T11:35:22+08:00">2021-05-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,792 +226,6 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="一、转发时需开启如下："><a href="#一、转发时需开启如下：" class="headerlink" title="一、转发时需开启如下："></a>一、转发时需开启如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod proxy</span><br><span class="line">sudo a2enmod proxy_http</span><br><span class="line">sudo a2enmod proxy_ajp</span><br><span class="line">sudo a2enmod proxy_balancer</span><br><span class="line">sudo a2enmod proxy_connect</span><br><span class="line">sudo a2enmod proxy_html</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://superuser.com/questions/1287647/apache2-not-starting-error-invalid-command-proxyrequests">参考链接</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/07/Linux/apache%20%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/nginx%20%E5%8F%AA%E9%85%8D%E7%BD%AE%E4%BA%86%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%EF%BC%8C%E7%BB%93%E6%9E%9C%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E4%B9%9F%E8%83%BD%E8%AE%BF%E9%97%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="show">
-      <meta itemprop="description" content="ShowByte">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="冯晟的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/07/Linux/nginx%20%E5%8F%AA%E9%85%8D%E7%BD%AE%E4%BA%86%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%EF%BC%8C%E7%BB%93%E6%9E%9C%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E4%B9%9F%E8%83%BD%E8%AE%BF%E9%97%AE/" class="post-title-link" itemprop="url">nginx 只配置了一个域名，结果另一个域名也能访问</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-07 10:28:27 / 修改时间：10:29:30" itemprop="dateCreated datePublished" datetime="2021-05-07T10:28:27+08:00">2021-05-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>937</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今天自己在部署业务的时候， 一个同事说他用另一个域名访问到了我这个域名下的网页, 看来我自己的Nginx的配置，感觉没什么问题！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">           listen 80;</span><br><span class="line">           server_name www.hehe.com;</span><br><span class="line">           root &#x2F;data1&#x2F;htdocs&#x2F;kaixuan.hehe.com&#x2F;;</span><br><span class="line">           location ~ \.php$ &#123;</span><br><span class="line">                fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">                fastcgi_index  index.php;</span><br><span class="line">                fastcgi_param  SCRIPT_FILENAME  $document_root&#x2F;$fastcgi_script_name;</span><br><span class="line">                include        fastcgi_params;</span><br><span class="line">           &#125;</span><br><span class="line">           location &#x2F; &#123;</span><br><span class="line">                 index index.html;</span><br><span class="line">           &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>后来网上查了一下，发现如果当所有server的规则都不匹配时，nginx会采用第一条server配置，所以一般第一条server会使用阻止页面。这样的话，就需要在server上边再加一条server，加一条默认的阻挡。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen  80 default;</span><br><span class="line">    listen  [::]:80 default;</span><br><span class="line">    server_name  _;</span><br><span class="line"></span><br><span class="line">    return 403;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">           listen 80;</span><br><span class="line">           server_name www.hehe.com;</span><br><span class="line">           root &#x2F;data1&#x2F;htdocs&#x2F;kaixuan.hehe.com&#x2F;;</span><br><span class="line">           location ~ \.php$ &#123;</span><br><span class="line">                fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">                fastcgi_index  index.php;</span><br><span class="line">                fastcgi_param  SCRIPT_FILENAME  $document_root&#x2F;$fastcgi_script_name;</span><br><span class="line">                include        fastcgi_params;</span><br><span class="line">           &#125;</span><br><span class="line">           location &#x2F; &#123;</span><br><span class="line">                 index index.html;</span><br><span class="line">           &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/netstat%20%E5%8F%82%E6%95%B0%20%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="show">
-      <meta itemprop="description" content="ShowByte">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="冯晟的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/07/Linux/netstat%20%E5%8F%82%E6%95%B0%20%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">netstat 参数 及常用命令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-07 10:27:02 / 修改时间：10:36:39" itemprop="dateCreated datePublished" datetime="2021-05-07T10:27:02+08:00">2021-05-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/%E5%91%BD%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">命令</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>###netstat 中参数选项</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">-a或--all：显示所有连线中的Socket；</span><br><span class="line">-A&lt;网络类型&gt;或--&lt;网络类型&gt;：列出该网络类型连线中的相关地址；</span><br><span class="line">-c或--continuous：持续列出网络状态；</span><br><span class="line">-C或--cache：显示路由器配置的快取信息；</span><br><span class="line">-e或--extend：显示网络其他相关信息；</span><br><span class="line">-F或--fib：显示FIB；</span><br><span class="line">-g或--groups：显示多重广播功能群组组员名单；</span><br><span class="line">-h或--help：在线帮助；</span><br><span class="line">-i或--interfaces：显示网络界面信息表单；</span><br><span class="line">-l或--listening：显示监控中的服务器的Socket；</span><br><span class="line">-M或--masquerade：显示伪装的网络连线；</span><br><span class="line">-n或--numeric：直接使用ip地址，而不通过域名服务器；</span><br><span class="line">-N或--netlink或--symbolic：显示网络硬件外围设备的符号连接名称；</span><br><span class="line">-o或--timers：显示计时器；</span><br><span class="line">-p或--programs：显示正在使用Socket的程序识别码和程序名称；</span><br><span class="line">-r或--route：显示Routing Table；</span><br><span class="line">-s或--statistice：显示网络工作信息统计表；</span><br><span class="line">-t或--tcp：显示TCP传输协议的连线状况；</span><br><span class="line">-u或--udp：显示UDP传输协议的连线状况；</span><br><span class="line">-v或--verbose：显示指令执行过程；</span><br><span class="line">-V或--version：显示版本信息；</span><br><span class="line">-w或--raw：显示RAW传输协议的连线状况；</span><br><span class="line">-x或--unix：此参数的效果和指定&quot;-A unix&quot;参数相同；</span><br><span class="line">--ip或--inet：此参数的效果和指定&quot;-A inet&quot;参数相同。</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/07/Linux/netstat%20%E5%8F%82%E6%95%B0%20%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/ubuntu%2016.04%20%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="show">
-      <meta itemprop="description" content="ShowByte">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="冯晟的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/07/Linux/ubuntu%2016.04%20%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/" class="post-title-link" itemprop="url">ubuntu 16.04 忘记root密码</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-07 10:25:41 / 修改时间：10:36:50" itemprop="dateCreated datePublished" datetime="2021-05-07T10:25:41+08:00">2021-05-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/%E5%91%BD%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">命令</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>457</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>阅读目录</strong></p>
-<p>虚拟机中安装的ubuntu 16.04。</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>如果用户具有sudo权限，那么直接可以运行如下命令： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo su root</span><br><span class="line">#输入当前用户的密码</span><br><span class="line">passwd</span><br><span class="line">#输入密码</span><br><span class="line">#再次输入密码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/5818745-5861cfa5048c516e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/07/Linux/ubuntu%2016.04%20%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/Linux%E5%A2%9E%E5%8A%A0%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E9%A1%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="show">
-      <meta itemprop="description" content="ShowByte">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="冯晟的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/07/Linux/Linux%E5%A2%9E%E5%8A%A0%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E9%A1%B9/" class="post-title-link" itemprop="url">Linux增加开机启动项</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-07 10:24:25 / 修改时间：10:35:36" itemprop="dateCreated datePublished" datetime="2021-05-07T10:24:25+08:00">2021-05-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>155</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li>vi /etc/rc.local</li>
-<li>按i键进入编辑模式，然后在最后一行加入需要开机启动的命令  例如:</li>
-<li>ssserver -c /etc/shadowsocks/config.json -d start  –log-file /etc/shadowsocks/ss.log –pid-file /etc/shadowsocks/ss.pid</li>
-</ul>
-
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/linux%E4%B8%8Bfree%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="show">
-      <meta itemprop="description" content="ShowByte">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="冯晟的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/07/Linux/linux%E4%B8%8Bfree%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">linux下free命令详解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-07 10:22:32 / 修改时间：10:36:34" itemprop="dateCreated datePublished" datetime="2021-05-07T10:22:32+08:00">2021-05-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/%E5%91%BD%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">命令</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>free 命令显示系统内存的使用情况，包括物理内存、交换内存(swap)和内核缓冲区内存。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/5818745-93402368b565b074.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
-<p>如果加上 -h 选项，输出的结果会友好很多：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/5818745-2d772074def94405.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/07/Linux/linux%E4%B8%8Bfree%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/%E6%89%B9%E9%87%8F%E5%85%B3%E9%97%ADlinux%E8%BF%9B%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="show">
-      <meta itemprop="description" content="ShowByte">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="冯晟的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/07/Linux/%E6%89%B9%E9%87%8F%E5%85%B3%E9%97%ADlinux%E8%BF%9B%E7%A8%8B/" class="post-title-link" itemprop="url">批量关闭linux进程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-07 10:21:44 / 修改时间：10:35:22" itemprop="dateCreated datePublished" datetime="2021-05-07T10:21:44+08:00">2021-05-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>491</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="批量关闭linux进程"><a href="#批量关闭linux进程" class="headerlink" title="批量关闭linux进程"></a>批量关闭linux进程</h1><p>你是否经常遇到需要批量杀死很多进程的情况？而你是否还在一个一个的<code>kill</code>。</p>
-<p>接下来我教你一个小秘诀吧。</p>
-<p>1、首先我们查看当前的进程列表。</p>
-<p>我们以查看<code>nginx</code>进程为例，通过<code>ps -ef</code>显示当前机器运行的所有进程，再通过<code>grep nginx</code>过滤出包含<code>nginx</code>字符串的进程。完成命令为<code>ps -ef|grep nginx</code>。<br><img src="https://upload-images.jianshu.io/upload_images/5818745-6df491a2ab00280c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/07/Linux/%E6%89%B9%E9%87%8F%E5%85%B3%E9%97%ADlinux%E8%BF%9B%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/nohup%20%E8%AF%A6%E8%A7%A3%20Python%E4%B8%8D%E6%8C%82%E6%96%AD%E8%BF%90%E8%A1%8C%E5%90%8E%E5%8F%B0%E7%A8%8B%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="show">
-      <meta itemprop="description" content="ShowByte">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="冯晟的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/07/Linux/nohup%20%E8%AF%A6%E8%A7%A3%20Python%E4%B8%8D%E6%8C%82%E6%96%AD%E8%BF%90%E8%A1%8C%E5%90%8E%E5%8F%B0%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">nohup详解 Python不挂断运行后台程序</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-07 10:16:57 / 修改时间：10:36:46" itemprop="dateCreated datePublished" datetime="2021-05-07T10:16:57+08:00">2021-05-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/%E5%91%BD%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">命令</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="nohup-详解"><a href="#nohup-详解" class="headerlink" title="nohup 详解"></a>nohup 详解</h1><h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><p>nohup 命令运行由 Command参数和任何相关的 Arg参数指定的命令，忽略所有挂断（SIGHUP）信号。在注销后使用 nohup 命令运行后台中的程序。要运行后台中的 nohup 命令，添加 &amp; （ 表示“and”的符号）到命令的尾部。</p>
-<p>nohup 是 no hang up 的缩写，就是不挂断的意思。</p>
-<p>nohup命令：如果你正在运行一个进程，而且你觉得在退出帐户时该进程还不会结束，那么可以使用nohup命令。该命令可以在你退出帐户/关闭终端之后继续运行相应的进程。</p>
-<p>在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/07/Linux/nohup%20%E8%AF%A6%E8%A7%A3%20Python%E4%B8%8D%E6%8C%82%E6%96%AD%E8%BF%90%E8%A1%8C%E5%90%8E%E5%8F%B0%E7%A8%8B%E5%BA%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/proxy/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%20shadowsocks/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="show">
-      <meta itemprop="description" content="ShowByte">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="冯晟的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/07/proxy/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%20shadowsocks/" class="post-title-link" itemprop="url">linux服务器搭建 shadowsocks</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-07 10:15:15 / 修改时间：10:15:47" itemprop="dateCreated datePublished" datetime="2021-05-07T10:15:15+08:00">2021-05-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/proxy/" itemprop="url" rel="index"><span itemprop="name">proxy</span></a>
                 </span>
             </span>
 
@@ -1040,14 +254,198 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update    # 更新软件源列表</span><br><span class="line">sudo apt-get -y install python-gevent python-pip  # 安装所需服务</span><br><span class="line">sudo apt-get -y install python-m2crypto</span><br><span class="line">sudo pip install shadowsocks   # 安装影梭</span><br></pre></td></tr></table></figure>
+          <h3 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h3><ul>
+<li>服务器购买的时候带了一个5T硬盘，当使用fdisk进行格式化挂载到文件夹下，发现只有2T！！！后来网上查询发现fdisk只能处理2T以下的硬盘,需要使用parted处理大于2T  以上的硬盘!!<br><img src="https://user-images.githubusercontent.com/28568478/117395390-60a75b80-af2a-11eb-9acd-ac5bdc4e0ee8.png" alt="image"><br><img src="https://user-images.githubusercontent.com/28568478/117395399-69982d00-af2a-11eb-9bfc-9308c3cb3f0b.png" alt="image"></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/07/Linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8C%82%E8%BD%BD%E5%A4%A7%E4%BA%8E2T%E7%9A%84%E7%A1%AC%E7%9B%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
-<p>shadowsocks安装完毕后，可以查看使用ssserver命令进行查看。如下：<br>ssserver -h</p>
-<p>在 /etc/shadowsocks/ 下写入以 .json结尾的配置文件 如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;server&quot;:&quot;0.0.0.0&quot;,</span><br><span class="line">    &quot;server_port&quot;:443,  #普通用户目录下 采用大于1024的端口 root目录下可以使用443</span><br><span class="line">    &quot;local_address&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">    &quot;local_port&quot;:1080,</span><br><span class="line">    &quot;password&quot;:&quot;你的密码&quot;,</span><br><span class="line">    &quot;timeout&quot;:300,</span><br><span class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;,</span><br><span class="line">    &quot;fast_open&quot;:false,</span><br><span class="line">    &quot;workers&quot;: 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <div>
+      
+    </div>
 
-<p>常用命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 启动</span><br><span class="line">ssserver -c &#x2F;etc&#x2F;shadowsocks&#x2F;ss.json -d start</span><br><span class="line"># 停止</span><br><span class="line">ssserver -c &#x2F;etc&#x2F;shadowsocks&#x2F;ss.json -d stop</span><br><span class="line"># 重启</span><br><span class="line">ssserver -c &#x2F;etc&#x2F;shadowsocks&#x2F;ss.json -d restart</span><br><span class="line">-d  后台启动  及日志记录</span><br><span class="line">ssserver -c &#x2F;etc&#x2F;shadowsocks&#x2F;config.json -d start  --log-file .&#x2F;ss.log --pid-file .&#x2F;ss.pid</span><br><span class="line"></span><br><span class="line">netstat -tunlp 查看服务是否启动</span><br><span class="line"></span><br><span class="line">vi &#x2F;etc&#x2F;rc.local</span><br><span class="line">按i键进入编辑模式，然后在最后一行加入</span><br><span class="line">ssserver -c &#x2F;etc&#x2F;shadowsocks&#x2F;config.json -d start  --log-file &#x2F;etc&#x2F;shadowsocks&#x2F;ss.log --pid-file &#x2F;etc&#x2F;shadowsocks&#x2F;ss.pid</span><br></pre></td></tr></table></figure>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/linux%20%E6%96%B0%E6%B7%BB%E5%8A%A0%E7%9A%84%E7%A1%AC%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B9%B6%E6%8C%82%E8%BD%BD%E5%88%B0%E7%9B%AE%E5%BD%95%E4%B8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/Linux/linux%20%E6%96%B0%E6%B7%BB%E5%8A%A0%E7%9A%84%E7%A1%AC%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B9%B6%E6%8C%82%E8%BD%BD%E5%88%B0%E7%9B%AE%E5%BD%95%E4%B8%8B/" class="post-title-link" itemprop="url">linux 新添加的硬盘格式化并挂载到目录下</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 11:34:07 / 修改时间：11:59:44" itemprop="dateCreated datePublished" datetime="2021-05-07T11:34:07+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>需求: 新增加一块硬盘sdb，将sdb分区，只分一个区，格式化，挂载到目录/ssd下。</p>
+<h3 id="1、-查看现在已有的分区状态"><a href="#1、-查看现在已有的分区状态" class="headerlink" title="1、  查看现在已有的分区状态"></a>1、  查看现在已有的分区状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df –l</span><br><span class="line">df -h</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/28568478/117395814-491ca280-af2b-11eb-8e34-b84381e67aa8.png" alt="image"></p>
+<p>图中显示，没有看到sdb硬盘</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/07/Linux/linux%20%E6%96%B0%E6%B7%BB%E5%8A%A0%E7%9A%84%E7%A1%AC%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B9%B6%E6%8C%82%E8%BD%BD%E5%88%B0%E7%9B%AE%E5%BD%95%E4%B8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/tools/Navicat%20Premium%2015.0.21%20%E5%BC%BA%E5%A4%A7%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7(Big%20Sur%20%E5%8F%AF%E7%94%A8)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/tools/Navicat%20Premium%2015.0.21%20%E5%BC%BA%E5%A4%A7%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7(Big%20Sur%20%E5%8F%AF%E7%94%A8)/" class="post-title-link" itemprop="url">Navicat Premium 15.0.21 强大的数据库管理工具(Big Sur 可用)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 11:30:01 / 修改时间：11:30:50" itemprop="dateCreated datePublished" datetime="2021-05-07T11:30:01+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>96</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Navicat Premium 15.0.21 强大的数据库管理工具(Big Sur 可用)<br>链接： <a target="_blank" rel="noopener" href="https://xclient.info/s/navicat-premium.html#versions">https://xclient.info/s/navicat-premium.html#versions</a></p>
 
       
     </div>
@@ -1071,7 +469,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day5/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql5.7%E4%BD%BF%E7%94%A8group%20by%E6%9F%A5%E8%AF%A2%E6%97%B6order%20by%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1085,7 +483,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day5/" class="post-title-link" itemprop="url">Vue.js - Day5</a>
+            <a href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql5.7%E4%BD%BF%E7%94%A8group%20by%E6%9F%A5%E8%AF%A2%E6%97%B6order%20by%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Mysql5.7使用group by查询时order by无效问题</a>
         </h2>
 
         <div class="post-meta">
@@ -1094,23 +492,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-05-04 22:39:23" itemprop="dateCreated datePublished" datetime="2021-05-04T22:39:23+08:00">2021-05-04</time>
+              <time title="创建时间：2021-05-07 11:25:00 / 修改时间：11:26:50" itemprop="dateCreated datePublished" datetime="2021-05-07T11:25:00+08:00">2021-05-07</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-06 11:35:54" itemprop="dateModified" datetime="2021-05-06T11:35:54+08:00">2021-05-06</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">vue2.0基础课程</span></a>
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
             </span>
 
@@ -1120,14 +512,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.7k</span>
+              <span>939</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -1139,10 +531,583 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>什么是webpack?<br> webpack安装的两种方式<br> webpack的使用<br></p>
+          <p>Mysql5.7使用group by查询时order by无效问题<br>第一种写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	*</span><br><span class="line">FROM</span><br><span class="line">	user_paper_relation</span><br><span class="line">WHERE</span><br><span class="line">	paper_id &#x3D; &quot;&quot;</span><br><span class="line">GROUP BY</span><br><span class="line">	examer_id</span><br><span class="line">ORDER BY</span><br><span class="line">	total_score DESC</span><br></pre></td></tr></table></figure>
+<p>问题：发现先执行的group by，后执行order by，我要的结果是先排序再分组。</p>
+<p>第二种写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	*</span><br><span class="line">FROM</span><br><span class="line">	( SELECT * FROM user_paper_relation WHERE paper_id &#x3D; &quot;&quot;  ORDER BY consuming_time DESC ) u</span><br><span class="line">GROUP BY</span><br><span class="line">	u.examer_id</span><br></pre></td></tr></table></figure>
+<p>问题：本以为将排序写成一个子查询应该会先排序后分组，执行后发现问题同第一种写法一样。</p>
+<p>第三种写法（最终解决的写法）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	a.*</span><br><span class="line">FROM</span><br><span class="line">	(</span><br><span class="line">	SELECT</span><br><span class="line">		*</span><br><span class="line">	FROM</span><br><span class="line">		user_paper_relation</span><br><span class="line">	WHERE</span><br><span class="line">		paper_id &#x3D; &quot;&quot;</span><br><span class="line">	ORDER BY</span><br><span class="line">		consuming_time</span><br><span class="line">		LIMIT 0,</span><br><span class="line">		300</span><br><span class="line">	) a</span><br><span class="line">GROUP BY</span><br><span class="line">	a.examer_id</span><br></pre></td></tr></table></figure>
+<p>解决方式：在子查询中添加LIMIT 0,300则可使子查询语句即排序执行完再进行分组。</p>
+<p>问题原因</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">原因：在mysql5.7中，如果不加limit，系统会把order by优化掉。</span><br><span class="line">在mysql5.7手册的8.2.2.1中有解释：</span><br><span class="line">子查询的优化是使用半连接的策略完成的(The optimizer uses semi-join strategies to improve subquery execution)</span><br><span class="line">使用半连接进行优化，子查询语句必须满足一些标准(In MySQL, a subquery must satisfy these criteria to be handled as a semi-join)。</span><br><span class="line">其中一个标准是:必须不是一个包含了limit和order by的语句(It must not have ORDER BY with LIMIT.)</span><br></pre></td></tr></table></figure>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weiwoyonzhe/article/details/82888281">https://blog.csdn.net/weiwoyonzhe/article/details/82888281</a></p>
+
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Can't%20connect%20to%20local%20MySQL%20server%20through/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Can't%20connect%20to%20local%20MySQL%20server%20through/" class="post-title-link" itemprop="url">Can't connect to local MySQL server through socket'/var/run/mysqld/mysqld.sock' (2)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 11:23:22 / 修改时间：11:24:24" itemprop="dateCreated datePublished" datetime="2021-05-07T11:23:22+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>216</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>启动命令mysql时报错：</p>
+<p>ERROR2002 (HY000): Can’t connect to local MySQL server through socket’/var/run/mysqld/mysqld.sock’ (2)</p>
+<p>解决方法：</p>
+<p>找到配置文件/etc/mysql/conf.d/mysql.cnf添加</p>
+<p>[mysql]</p>
+<p>protocol=tcp</p>
+<p>参考文献：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhao123h/p/5207622.html">https://www.cnblogs.com/zhao123h/p/5207622.html</a></p>
+
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/linux%E5%AE%89%E8%A3%85redis%20%E5%AE%8C%E6%95%B4%E6%AD%A5%E9%AA%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/linux%E5%AE%89%E8%A3%85redis%20%E5%AE%8C%E6%95%B4%E6%AD%A5%E9%AA%A4/" class="post-title-link" itemprop="url">linux安装redis 完整步骤</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 11:19:45 / 修改时间：11:22:21" itemprop="dateCreated datePublished" datetime="2021-05-07T11:19:45+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h2><h3 id="1-获取redis资源"><a href="#1-获取redis资源" class="headerlink" title="1.获取redis资源"></a>1.获取redis资源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-4.0.8.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="2-解压"><a href="#2-解压" class="headerlink" title="2.解压"></a>2.解压</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　tar xzvf redis-4.0.8.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　　cd redis-4.0.8</span><br><span class="line"></span><br><span class="line">　　make</span><br><span class="line"></span><br><span class="line">　　cd src</span><br><span class="line"></span><br><span class="line">　　make install PREFIX&#x3D;&#x2F;usr&#x2F;local&#x2F;redis</span><br></pre></td></tr></table></figure>
+<h3 id="4-移动配置文件到安装目录下"><a href="#4-移动配置文件到安装目录下" class="headerlink" title="4.移动配置文件到安装目录下"></a>4.移动配置文件到安装目录下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　cd ..&#x2F;</span><br><span class="line"></span><br><span class="line">　　mkdir &#x2F;usr&#x2F;local&#x2F;redis&#x2F;etc</span><br><span class="line"></span><br><span class="line">　　mv redis.conf &#x2F;usr&#x2F;local&#x2F;redis&#x2F;etc</span><br></pre></td></tr></table></figure>
+<h3 id="5-配置redis为后台启动"><a href="#5-配置redis为后台启动" class="headerlink" title="5.配置redis为后台启动"></a>5.配置redis为后台启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;usr&#x2F;local&#x2F;redis&#x2F;etc&#x2F;redis.conf &#x2F;&#x2F; 将daemonize no 改成daemonize yes</span><br></pre></td></tr></table></figure>
+<h3 id="6-将redis加入到开机启动"><a href="#6-将redis加入到开机启动" class="headerlink" title="6.将redis加入到开机启动"></a>6.将redis加入到开机启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　vi &#x2F;etc&#x2F;rc.local &#x2F;&#x2F; 在里面添加内容：&#x2F;usr&#x2F;local&#x2F;redis&#x2F;bin&#x2F;redis-server &#x2F;usr&#x2F;local&#x2F;redis&#x2F;etc&#x2F;redis.conf (意思就是开机调用这段开启redis的命令)</span><br></pre></td></tr></table></figure>
+<h3 id="7-开启redis"><a href="#7-开启redis" class="headerlink" title="7.开启redis"></a>7.开启redis</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　&#x2F;usr&#x2F;local&#x2F;redis&#x2F;bin&#x2F;redis-server &#x2F;usr&#x2F;local&#x2F;redis&#x2F;etc&#x2F;redis.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">常用命令</span><br><span class="line"></span><br><span class="line">　　redis-server &#x2F;usr&#x2F;local&#x2F;redis&#x2F;etc&#x2F;redis.conf &#x2F;&#x2F;启动redis</span><br><span class="line"></span><br><span class="line">　　pkill redis  &#x2F;&#x2F;停止redis</span><br><span class="line"></span><br><span class="line">卸载redis：</span><br><span class="line"></span><br><span class="line">　　rm -rf &#x2F;usr&#x2F;local&#x2F;redis &#x2F;&#x2F;删除安装目录</span><br><span class="line"></span><br><span class="line">　　rm -rf &#x2F;usr&#x2F;bin&#x2F;redis-* &#x2F;&#x2F;删除所有redis相关命令脚本</span><br><span class="line"></span><br><span class="line">　　rm -rf &#x2F;root&#x2F;download&#x2F;redis-4.0.4 &#x2F;&#x2F;删除redis解压文件夹</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Linux%E5%AE%89%E8%A3%85MySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Linux%E5%AE%89%E8%A3%85MySQL/" class="post-title-link" itemprop="url">Linux安装MySQL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 11:10:20 / 修改时间：11:12:54" itemprop="dateCreated datePublished" datetime="2021-05-07T11:10:20+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><p>sudo apt update</p>
+<p>sudo apt-get install mysql-server  # 安装MySQL服务端</p>
+<p>以上两个命令 即安装成功</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day5/">
+              <a class="btn" href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Linux%E5%AE%89%E8%A3%85MySQL/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Mac%E4%B8%8BMySQL-python%E5%AE%89%E8%A3%85%E5%8F%8AEnvironmentError:%20mysql_config%20not%20found%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Mac%E4%B8%8BMySQL-python%E5%AE%89%E8%A3%85%E5%8F%8AEnvironmentError:%20mysql_config%20not%20found%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-title-link" itemprop="url">Mac下MySQL-python安装及EnvironmentError mysql_config not found的解决办法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 11:07:52 / 修改时间：11:19:01" itemprop="dateCreated datePublished" datetime="2021-05-07T11:07:52+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>562</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天  pip install MySQL-python==1.2.5  报如下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EnvironmentError: mysql_config not found</span><br><span class="line"></span><br><span class="line">Command &quot;python setup.py egg_info&quot; failed with error code 1 in &#x2F;private&#x2F;var&#x2F;folders&#x2F;6h&#x2F;hchh3z9d6b33h11qh0wh__dh0000gn&#x2F;T&#x2F;pip-install-Rm43Qv&#x2F;MySQL-python&#x2F;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/28568478/117392434-a6f9bc00-af24-11eb-836c-f51c7a67ae47.png" alt="image"></p>
+<p>解决方法如下：</p>
+<p>1）首先需要进行Python的安装</p>
+<p>（2）进行mysql的安装，多种方式，偷懒一些可以直接使用brew指令</p>
+<p>brew install mysql</p>
+<p>（3）mysql_config not found的造成原因就是因为我们默认安装的路径没有被填加进去，所以使用export命令来设置下环境变量：</p>
+<p>export PATH=$PATH:/usr/local/mysql/bin</p>
+<p>（4）进行MySQL-Python的安装：</p>
+<p>pip install MySQL-Python</p>
+<p>原文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Megustas_JJC/article/details/78955958">https://blog.csdn.net/Megustas_JJC/article/details/78955958</a></p>
+
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/mac%20%E5%AE%89%E8%A3%85redis%E3%80%81mysql%E3%80%81MongoDB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/mac%20%E5%AE%89%E8%A3%85redis%E3%80%81mysql%E3%80%81MongoDB/" class="post-title-link" itemprop="url">mac 安装redis、mysql、MongoDB</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 10:58:44 / 修改时间：14:09:20" itemprop="dateCreated datePublished" datetime="2021-05-07T10:58:44+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>685</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="redis-安装"><a href="#redis-安装" class="headerlink" title="redis 安装"></a>redis 安装</h2><ul>
+<li>brew install redis<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4></li>
+<li>brew services start redis（后台启动）</li>
+<li>redis-server /usr/local/etc/redis.conf （非后台启动）</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/mac%20%E5%AE%89%E8%A3%85redis%E3%80%81mysql%E3%80%81MongoDB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Ubuntu18.04%20%E5%AE%89%E8%A3%85mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Ubuntu18.04%20%E5%AE%89%E8%A3%85mysql/" class="post-title-link" itemprop="url">Ubuntu18.04 安装mysql</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 10:57:10 / 修改时间：14:10:52" itemprop="dateCreated datePublished" datetime="2021-05-07T10:57:10+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一、安装方法"><a href="#一、安装方法" class="headerlink" title="一、安装方法"></a>一、安装方法</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/opsprobe/p/9126864.html">Ubuntu18.04下安装MySQL</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/Ubuntu18.04%20%E5%AE%89%E8%A3%85mysql/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1169,7 +1134,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1235,20 +1200,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">57</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1285,7 +1250,7 @@ translateInitilization();
         <h3 class="widget-title">标签云</h3>
         <div id="myCanvasContainer" class="widget tagcloud">
           <canvas width="250" height="250" id="resCanvas" style="width:100%">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/abstract/" rel="tag">abstract</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cryptography/" rel="tag">cryptography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free/" rel="tag">free</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gen-secret/" rel="tag">gen-secret</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netstat/" rel="tag">netstat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nohup/" rel="tag">nohup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paramiko/" rel="tag">paramiko</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/percona-toolkit/" rel="tag">percona-toolkit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">python 深拷贝浅拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" rel="tag">python内置函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">python生成器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" rel="tag">python迭代器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/" rel="tag">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" rel="tag">vue2.0基础课程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E8%87%B4%E6%80%A7/" rel="tag">一致性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" rel="tag">不可变类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81/" rel="tag">密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%9C%BA/" rel="tag">开机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" rel="tag">抽象类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag">监测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD/" rel="tag">硬盘挂载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/abstract/" rel="tag">abstract</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/" rel="tag">aws</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cryptography/" rel="tag">cryptography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etcd/" rel="tag">etcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free/" rel="tag">free</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gen-secret/" rel="tag">gen-secret</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netstat/" rel="tag">netstat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nohup/" rel="tag">nohup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overlay2/" rel="tag">overlay2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paramiko/" rel="tag">paramiko</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/percona-toolkit/" rel="tag">percona-toolkit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycharm/" rel="tag">pycharm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">python 深拷贝浅拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" rel="tag">python内置函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">python生成器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" rel="tag">python迭代器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rz-sz/" rel="tag">rz sz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/" rel="tag">struct</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/" rel="tag">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" rel="tag">vue2.0基础课程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E8%87%B4%E6%80%A7/" rel="tag">一致性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" rel="tag">不可变类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E6%A0%87/" rel="tag">图标</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81/" rel="tag">密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%9C%BA/" rel="tag">开机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" rel="tag">抽象类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%85%E7%90%86/" rel="tag">清理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag">监测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD/" rel="tag">硬盘挂载</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%81%E4%B9%A6/" rel="tag">证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%95%9C%E5%83%8F/" rel="tag">镜像</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%95%9C%E5%83%8F%E6%BA%90/" rel="tag">镜像源</a><span class="tag-list-count">1</span></li></ul>
           </canvas>
         </div>
       </div>
@@ -1320,12 +1285,12 @@ translateInitilization();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">132k</span>
+    <span title="站点总字数">154k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:01</span>
+    <span title="站点阅读时长">2:20</span>
 </div>
 
 

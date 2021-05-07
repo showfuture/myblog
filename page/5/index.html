@@ -118,17 +118,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">39</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">43</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">62</span></a>
 
   </li>
         <li class="menu-item menu-item-playlist">
@@ -192,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day3/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux%20web/nginx%20%E5%8F%AA%E9%85%8D%E7%BD%AE%E4%BA%86%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%EF%BC%8C%E7%BB%93%E6%9E%9C%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E4%B9%9F%E8%83%BD%E8%AE%BF%E9%97%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -206,7 +206,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day3/" class="post-title-link" itemprop="url">Vue.js - Day3</a>
+            <a href="/2021/05/07/Linux%20web/nginx%20%E5%8F%AA%E9%85%8D%E7%BD%AE%E4%BA%86%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%EF%BC%8C%E7%BB%93%E6%9E%9C%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E4%B9%9F%E8%83%BD%E8%AE%BF%E9%97%AE/" class="post-title-link" itemprop="url">nginx 只配置了一个域名，结果另一个域名也能访问</a>
         </h2>
 
         <div class="post-meta">
@@ -217,7 +217,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-04 11:28:43 / 修改时间：18:34:39" itemprop="dateCreated datePublished" datetime="2021-05-04T11:28:43+08:00">2021-05-04</time>
+              <time title="创建时间：2021-05-07 10:28:27 / 修改时间：15:13:16" itemprop="dateCreated datePublished" datetime="2021-05-07T10:28:27+08:00">2021-05-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -225,7 +225,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">vue2.0基础课程</span></a>
+                  <a href="/categories/Linux-web/" itemprop="url" rel="index"><span itemprop="name">Linux web</span></a>
                 </span>
             </span>
 
@@ -235,14 +235,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>15k</span>
+              <span>937</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>14 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -254,10 +254,100 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Vue基本的语法和概念三：<br> Vue 定义组件-全局组件和局部组件<br> Vue 使用`:is`属性来切换不同的子组件,并添加切换动画<br> Vue 父组件和子组件互相传值<br> Vue 如何使用路由<br> Vue `watch`、`computed`和`methods`之间的对比<br> Vue `nrm`的安装使用<br></p>
+          <p>今天自己在部署业务的时候， 一个同事说他用另一个域名访问到了我这个域名下的网页, 看来我自己的Nginx的配置，感觉没什么问题！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">           listen 80;</span><br><span class="line">           server_name www.hehe.com;</span><br><span class="line">           root &#x2F;data1&#x2F;htdocs&#x2F;kaixuan.hehe.com&#x2F;;</span><br><span class="line">           location ~ \.php$ &#123;</span><br><span class="line">                fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">                fastcgi_index  index.php;</span><br><span class="line">                fastcgi_param  SCRIPT_FILENAME  $document_root&#x2F;$fastcgi_script_name;</span><br><span class="line">                include        fastcgi_params;</span><br><span class="line">           &#125;</span><br><span class="line">           location &#x2F; &#123;</span><br><span class="line">                 index index.html;</span><br><span class="line">           &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>后来网上查了一下，发现如果当所有server的规则都不匹配时，nginx会采用第一条server配置，所以一般第一条server会使用阻止页面。这样的话，就需要在server上边再加一条server，加一条默认的阻挡。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen  80 default;</span><br><span class="line">    listen  [::]:80 default;</span><br><span class="line">    server_name  _;</span><br><span class="line"></span><br><span class="line">    return 403;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">           listen 80;</span><br><span class="line">           server_name www.hehe.com;</span><br><span class="line">           root &#x2F;data1&#x2F;htdocs&#x2F;kaixuan.hehe.com&#x2F;;</span><br><span class="line">           location ~ \.php$ &#123;</span><br><span class="line">                fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">                fastcgi_index  index.php;</span><br><span class="line">                fastcgi_param  SCRIPT_FILENAME  $document_root&#x2F;$fastcgi_script_name;</span><br><span class="line">                include        fastcgi_params;</span><br><span class="line">           &#125;</span><br><span class="line">           location &#x2F; &#123;</span><br><span class="line">                 index index.html;</span><br><span class="line">           &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/netstat%20%E5%8F%82%E6%95%B0%20%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/Linux/netstat%20%E5%8F%82%E6%95%B0%20%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">netstat 参数 及常用命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 10:27:02 / 修改时间：15:13:51" itemprop="dateCreated datePublished" datetime="2021-05-07T10:27:02+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="netstat-中参数选项"><a href="#netstat-中参数选项" class="headerlink" title="netstat 中参数选项"></a>netstat 中参数选项</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">-a或--all：显示所有连线中的Socket；</span><br><span class="line">-A&lt;网络类型&gt;或--&lt;网络类型&gt;：列出该网络类型连线中的相关地址；</span><br><span class="line">-c或--continuous：持续列出网络状态；</span><br><span class="line">-C或--cache：显示路由器配置的快取信息；</span><br><span class="line">-e或--extend：显示网络其他相关信息；</span><br><span class="line">-F或--fib：显示FIB；</span><br><span class="line">-g或--groups：显示多重广播功能群组组员名单；</span><br><span class="line">-h或--help：在线帮助；</span><br><span class="line">-i或--interfaces：显示网络界面信息表单；</span><br><span class="line">-l或--listening：显示监控中的服务器的Socket；</span><br><span class="line">-M或--masquerade：显示伪装的网络连线；</span><br><span class="line">-n或--numeric：直接使用ip地址，而不通过域名服务器；</span><br><span class="line">-N或--netlink或--symbolic：显示网络硬件外围设备的符号连接名称；</span><br><span class="line">-o或--timers：显示计时器；</span><br><span class="line">-p或--programs：显示正在使用Socket的程序识别码和程序名称；</span><br><span class="line">-r或--route：显示Routing Table；</span><br><span class="line">-s或--statistice：显示网络工作信息统计表；</span><br><span class="line">-t或--tcp：显示TCP传输协议的连线状况；</span><br><span class="line">-u或--udp：显示UDP传输协议的连线状况；</span><br><span class="line">-v或--verbose：显示指令执行过程；</span><br><span class="line">-V或--version：显示版本信息；</span><br><span class="line">-w或--raw：显示RAW传输协议的连线状况；</span><br><span class="line">-x或--unix：此参数的效果和指定&quot;-A unix&quot;参数相同；</span><br><span class="line">--ip或--inet：此参数的效果和指定&quot;-A inet&quot;参数相同。</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day3/">
+              <a class="btn" href="/2021/05/07/Linux/netstat%20%E5%8F%82%E6%95%B0%20%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -285,7 +375,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/02/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day2/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/ubuntu%2016.04%20%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -299,7 +389,576 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/02/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day2/" class="post-title-link" itemprop="url">Vue.js - Day2</a>
+            <a href="/2021/05/07/Linux/ubuntu%2016.04%20%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/" class="post-title-link" itemprop="url">ubuntu 16.04 忘记root密码</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 10:25:41 / 修改时间：15:13:46" itemprop="dateCreated datePublished" datetime="2021-05-07T10:25:41+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>457</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>阅读目录</strong></p>
+<p>虚拟机中安装的ubuntu 16.04。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>如果用户具有sudo权限，那么直接可以运行如下命令： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo su root</span><br><span class="line">#输入当前用户的密码</span><br><span class="line">passwd</span><br><span class="line">#输入密码</span><br><span class="line">#再次输入密码</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/28568478/117405988-0a90e300-af3f-11eb-90d1-041c5b6914de.png" alt="image"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/07/Linux/ubuntu%2016.04%20%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux%20web/Linux%E5%A2%9E%E5%8A%A0%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E9%A1%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/Linux%20web/Linux%E5%A2%9E%E5%8A%A0%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E9%A1%B9/" class="post-title-link" itemprop="url">Linux增加开机启动项</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 10:24:25 / 修改时间：15:14:07" itemprop="dateCreated datePublished" datetime="2021-05-07T10:24:25+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux-web/" itemprop="url" rel="index"><span itemprop="name">Linux web</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>155</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>vi /etc/rc.local</li>
+<li>按i键进入编辑模式，然后在最后一行加入需要开机启动的命令  例如:</li>
+<li>ssserver -c /etc/shadowsocks/config.json -d start  –log-file /etc/shadowsocks/ss.log –pid-file /etc/shadowsocks/ss.pid</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/linux%E4%B8%8Bfree%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/Linux/linux%E4%B8%8Bfree%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">linux下free命令详解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 10:22:32 / 修改时间：15:14:55" itemprop="dateCreated datePublished" datetime="2021-05-07T10:22:32+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>free 命令显示系统内存的使用情况，包括物理内存、交换内存(swap)和内核缓冲区内存。</p>
+<p><img src="https://user-images.githubusercontent.com/28568478/117406270-6e1b1080-af3f-11eb-82b0-07b44528dcc8.png" alt="image"></p>
+<p>如果加上 -h 选项，输出的结果会友好很多：</p>
+<p><img src="https://user-images.githubusercontent.com/28568478/117406278-71ae9780-af3f-11eb-8dc8-937a2f08fb00.png" alt="image"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/07/Linux/linux%E4%B8%8Bfree%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux%20web/%E6%89%B9%E9%87%8F%E5%85%B3%E9%97%ADlinux%E8%BF%9B%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/Linux%20web/%E6%89%B9%E9%87%8F%E5%85%B3%E9%97%ADlinux%E8%BF%9B%E7%A8%8B/" class="post-title-link" itemprop="url">批量关闭linux进程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 10:21:44 / 修改时间：15:14:39" itemprop="dateCreated datePublished" datetime="2021-05-07T10:21:44+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux-web/" itemprop="url" rel="index"><span itemprop="name">Linux web</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>491</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="批量关闭linux进程"><a href="#批量关闭linux进程" class="headerlink" title="批量关闭linux进程"></a>批量关闭linux进程</h1><p>你是否经常遇到需要批量杀死很多进程的情况？而你是否还在一个一个的<code>kill</code>。</p>
+<p>接下来我教你一个小秘诀吧。</p>
+<p>1、首先我们查看当前的进程列表。</p>
+<p>我们以查看<code>nginx</code>进程为例，通过<code>ps -ef</code>显示当前机器运行的所有进程，再通过<code>grep nginx</code>过滤出包含<code>nginx</code>字符串的进程。完成命令为<code>ps -ef|grep nginx</code>。<br><img src="https://user-images.githubusercontent.com/28568478/117406501-ba665080-af3f-11eb-8030-bf89ef6e6b26.png" alt="image"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/07/Linux%20web/%E6%89%B9%E9%87%8F%E5%85%B3%E9%97%ADlinux%E8%BF%9B%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux%20web/nohup%20%E8%AF%A6%E8%A7%A3%20Python%E4%B8%8D%E6%8C%82%E6%96%AD%E8%BF%90%E8%A1%8C%E5%90%8E%E5%8F%B0%E7%A8%8B%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/Linux%20web/nohup%20%E8%AF%A6%E8%A7%A3%20Python%E4%B8%8D%E6%8C%82%E6%96%AD%E8%BF%90%E8%A1%8C%E5%90%8E%E5%8F%B0%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">nohup详解 Python不挂断运行后台程序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 10:16:57 / 修改时间：15:13:29" itemprop="dateCreated datePublished" datetime="2021-05-07T10:16:57+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux-web/" itemprop="url" rel="index"><span itemprop="name">Linux web</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="nohup-详解"><a href="#nohup-详解" class="headerlink" title="nohup 详解"></a>nohup 详解</h1><h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><p>nohup 命令运行由 Command参数和任何相关的 Arg参数指定的命令，忽略所有挂断（SIGHUP）信号。在注销后使用 nohup 命令运行后台中的程序。要运行后台中的 nohup 命令，添加 &amp; （ 表示“and”的符号）到命令的尾部。</p>
+<p>nohup 是 no hang up 的缩写，就是不挂断的意思。</p>
+<p>nohup命令：如果你正在运行一个进程，而且你觉得在退出帐户时该进程还不会结束，那么可以使用nohup命令。该命令可以在你退出帐户/关闭终端之后继续运行相应的进程。</p>
+<p>在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/07/Linux%20web/nohup%20%E8%AF%A6%E8%A7%A3%20Python%E4%B8%8D%E6%8C%82%E6%96%AD%E8%BF%90%E8%A1%8C%E5%90%8E%E5%8F%B0%E7%A8%8B%E5%BA%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/proxy/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%20shadowsocks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/proxy/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%20shadowsocks/" class="post-title-link" itemprop="url">linux服务器搭建 shadowsocks</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 10:15:15 / 修改时间：10:15:47" itemprop="dateCreated datePublished" datetime="2021-05-07T10:15:15+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/proxy/" itemprop="url" rel="index"><span itemprop="name">proxy</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update    # 更新软件源列表</span><br><span class="line">sudo apt-get -y install python-gevent python-pip  # 安装所需服务</span><br><span class="line">sudo apt-get -y install python-m2crypto</span><br><span class="line">sudo pip install shadowsocks   # 安装影梭</span><br></pre></td></tr></table></figure>
+
+<p>shadowsocks安装完毕后，可以查看使用ssserver命令进行查看。如下：<br>ssserver -h</p>
+<p>在 /etc/shadowsocks/ 下写入以 .json结尾的配置文件 如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;server&quot;:&quot;0.0.0.0&quot;,</span><br><span class="line">    &quot;server_port&quot;:443,  #普通用户目录下 采用大于1024的端口 root目录下可以使用443</span><br><span class="line">    &quot;local_address&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">    &quot;local_port&quot;:1080,</span><br><span class="line">    &quot;password&quot;:&quot;你的密码&quot;,</span><br><span class="line">    &quot;timeout&quot;:300,</span><br><span class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;,</span><br><span class="line">    &quot;fast_open&quot;:false,</span><br><span class="line">    &quot;workers&quot;: 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>常用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 启动</span><br><span class="line">ssserver -c &#x2F;etc&#x2F;shadowsocks&#x2F;ss.json -d start</span><br><span class="line"># 停止</span><br><span class="line">ssserver -c &#x2F;etc&#x2F;shadowsocks&#x2F;ss.json -d stop</span><br><span class="line"># 重启</span><br><span class="line">ssserver -c &#x2F;etc&#x2F;shadowsocks&#x2F;ss.json -d restart</span><br><span class="line">-d  后台启动  及日志记录</span><br><span class="line">ssserver -c &#x2F;etc&#x2F;shadowsocks&#x2F;config.json -d start  --log-file .&#x2F;ss.log --pid-file .&#x2F;ss.pid</span><br><span class="line"></span><br><span class="line">netstat -tunlp 查看服务是否启动</span><br><span class="line"></span><br><span class="line">vi &#x2F;etc&#x2F;rc.local</span><br><span class="line">按i键进入编辑模式，然后在最后一行加入</span><br><span class="line">ssserver -c &#x2F;etc&#x2F;shadowsocks&#x2F;config.json -d start  --log-file &#x2F;etc&#x2F;shadowsocks&#x2F;ss.log --pid-file &#x2F;etc&#x2F;shadowsocks&#x2F;ss.pid</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day5/" class="post-title-link" itemprop="url">Vue.js - Day5</a>
         </h2>
 
         <div class="post-meta">
@@ -309,14 +968,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-02 21:41:48" itemprop="dateCreated datePublished" datetime="2021-05-02T21:41:48+08:00">2021-05-02</time>
+              <time title="创建时间：2021-05-04 22:39:23" itemprop="dateCreated datePublished" datetime="2021-05-04T22:39:23+08:00">2021-05-04</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-04 11:33:13" itemprop="dateModified" datetime="2021-05-04T11:33:13+08:00">2021-05-04</time>
+                <time title="修改时间：2021-05-06 11:35:54" itemprop="dateModified" datetime="2021-05-06T11:35:54+08:00">2021-05-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -334,14 +993,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>12k</span>
+              <span>5.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>11 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -353,10 +1012,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Vue基本的语法和概念二：<br> Vue 指令之v-if v-for<br> Vue 自定义指令：全局指令、私有指令<br> Vue 自定义全局按键修饰符<br> Vue 自定义过滤器：全局过滤器、私有过滤器<br> Vue 生命周期演示<br> Vue vue-resource 实现 get, post, jsonp请求<br> Vue 键盘修饰符以及自定义键盘修饰符<br> Vue 配置本地数据库和数据接口API<br> Vue Vue中的动画<br> Vue 使用第三方 CSS 动画库 animate.css<br> Vue 使用动画钩子函数<br></p>
+          <p>什么是webpack?<br> webpack安装的两种方式<br> webpack的使用<br></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/02/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day2/">
+              <a class="btn" href="/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day5/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -384,7 +1043,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/02/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day1/">
+    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/04/python/%E5%AE%89%E8%A3%85Python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -398,7 +1057,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/02/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day1/" class="post-title-link" itemprop="url">Vue.js - Day1</a>
+            <a href="/2021/05/04/python/%E5%AE%89%E8%A3%85Python/" class="post-title-link" itemprop="url">安装Python</a>
         </h2>
 
         <div class="post-meta">
@@ -409,7 +1068,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-02 12:46:42 / 修改时间：21:45:06" itemprop="dateCreated datePublished" datetime="2021-05-02T12:46:42+08:00">2021-05-02</time>
+              <time title="创建时间：2021-05-04 20:29:30 / 修改时间：20:32:49" itemprop="dateCreated datePublished" datetime="2021-05-04T20:29:30+08:00">2021-05-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -417,7 +1076,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">vue2.0基础课程</span></a>
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
                 </span>
             </span>
 
@@ -427,14 +1086,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>13k</span>
+              <span>837</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>12 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -446,15 +1105,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Vue基本的语法和概念一：<br> Vue 指令之v-cloak 、v-text、v-html、v-bind、v-on和事件修饰符、v-model和双向数据绑定<br> Vue 使用样式：使用class样式、使用内联样式<br> Vue 指令之`v-for`和`key`属性<br> Vue 指令之`v-if`和`v-show`<br> Vue 调试工具`vue-devtools`的安装步骤和使用<br> Vue 过滤器<br> Vue 键盘修饰符以及自定义键盘修饰符<br> Vue 自定义指令<br></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/02/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day1/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <h3 id="How-to-Install-Python"><a href="#How-to-Install-Python" class="headerlink" title="How to Install Python"></a><a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-install-python-3-7-on-ubuntu-18-04/">How to Install Python</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">apt-get install zlib1g-dev libbz2-dev libssl-dev libncurses5-dev  libsqlite3-dev libreadline-dev tk-dev libgdbm-dev libdb-dev libpcap-dev xz-utils libexpat1-dev   liblzma-dev libffi-dev  libc6-dev</span><br><span class="line"></span><br><span class="line">1. 下载源码包</span><br><span class="line">     wget   https:&#x2F;&#x2F;www.python.org&#x2F;ftp&#x2F;python&#x2F;3.7.3&#x2F;Python-3.7.3.tgz</span><br><span class="line">2. mkdir -p &#x2F;usr&#x2F;local&#x2F;python3</span><br><span class="line">3. mv Python-3.7.3.tgz &#x2F;usr&#x2F;local&#x2F;python3</span><br><span class="line">4. tar -zxf Python-3.7.3.tgz</span><br><span class="line">5. cd python3.7.3</span><br><span class="line">6. .&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;python3 --with-ssl  --enable-optimizations</span><br><span class="line">7. make</span><br><span class="line">8. make install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;python3&#x2F;bin&#x2F;python3 &#x2F;usr&#x2F;bin&#x2F;python3 [#确认是否是需要的版本]</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;python3&#x2F;bin&#x2F;pip3.7 &#x2F;usr&#x2F;bin&#x2F;pip3</span><br><span class="line"></span><br><span class="line">安装pip3 apt-get install python3-pip</span><br></pre></td></tr></table></figure>
+
+<h3 id="mac-安装python"><a href="#mac-安装python" class="headerlink" title="mac 安装python"></a>mac 安装python</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install python</span><br><span class="line">brew install python@3.9 # 安装指定版本</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -476,7 +1132,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -542,20 +1198,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">57</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -592,7 +1248,7 @@ translateInitilization();
         <h3 class="widget-title">标签云</h3>
         <div id="myCanvasContainer" class="widget tagcloud">
           <canvas width="250" height="250" id="resCanvas" style="width:100%">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/abstract/" rel="tag">abstract</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cryptography/" rel="tag">cryptography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free/" rel="tag">free</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gen-secret/" rel="tag">gen-secret</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netstat/" rel="tag">netstat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nohup/" rel="tag">nohup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paramiko/" rel="tag">paramiko</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/percona-toolkit/" rel="tag">percona-toolkit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">python 深拷贝浅拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" rel="tag">python内置函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">python生成器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" rel="tag">python迭代器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/" rel="tag">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" rel="tag">vue2.0基础课程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E8%87%B4%E6%80%A7/" rel="tag">一致性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" rel="tag">不可变类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81/" rel="tag">密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%9C%BA/" rel="tag">开机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" rel="tag">抽象类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag">监测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD/" rel="tag">硬盘挂载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/abstract/" rel="tag">abstract</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/" rel="tag">aws</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cryptography/" rel="tag">cryptography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etcd/" rel="tag">etcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free/" rel="tag">free</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gen-secret/" rel="tag">gen-secret</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netstat/" rel="tag">netstat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nohup/" rel="tag">nohup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overlay2/" rel="tag">overlay2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paramiko/" rel="tag">paramiko</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/percona-toolkit/" rel="tag">percona-toolkit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycharm/" rel="tag">pycharm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">python 深拷贝浅拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" rel="tag">python内置函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">python生成器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" rel="tag">python迭代器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rz-sz/" rel="tag">rz sz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/" rel="tag">struct</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/" rel="tag">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" rel="tag">vue2.0基础课程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E8%87%B4%E6%80%A7/" rel="tag">一致性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" rel="tag">不可变类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E6%A0%87/" rel="tag">图标</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81/" rel="tag">密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%9C%BA/" rel="tag">开机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" rel="tag">抽象类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%85%E7%90%86/" rel="tag">清理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag">监测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD/" rel="tag">硬盘挂载</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%81%E4%B9%A6/" rel="tag">证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%95%9C%E5%83%8F/" rel="tag">镜像</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%95%9C%E5%83%8F%E6%BA%90/" rel="tag">镜像源</a><span class="tag-list-count">1</span></li></ul>
           </canvas>
         </div>
       </div>
@@ -627,12 +1283,12 @@ translateInitilization();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">132k</span>
+    <span title="站点总字数">154k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:01</span>
+    <span title="站点阅读时长">2:20</span>
 </div>
 
 
