@@ -217,7 +217,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-06-11 14:47:23 / 修改时间：15:11:32" itemprop="dateCreated datePublished" datetime="2021-06-11T14:47:23+08:00">2021-06-11</time>
+              <time title="创建时间：2021-06-11 14:47:23 / 修改时间：15:16:06" itemprop="dateCreated datePublished" datetime="2021-06-11T14:47:23+08:00">2021-06-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,176 +261,15 @@
 <li>用host上的文件夹内容覆盖container中的文件夹内容</li>
 </ul>
 <p><code>docker run -v /path-to-folder/A:/path-to-folder/B test-image</code></p>
-<h4 id="详细说明如下："><a href="#详细说明如下：" class="headerlink" title="详细说明如下："></a>详细说明如下：</h4><h5 id="1、host上文件夹存在，且非空"><a href="#1、host上文件夹存在，且非空" class="headerlink" title="1、host上文件夹存在，且非空"></a>1、host上文件夹存在，且非空</h5><table>
-<thead>
-<tr>
-<th align="left">host</th>
-<th align="left">container</th>
-<th align="left">mount result</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">存在的非空文件夹A</td>
-<td align="left">不存在的文件夹B</td>
-<td align="left">先在contanier中创建文件夹B，再将A文件夹中的所有文件copy到B中</td>
-</tr>
-<tr>
-<td align="left">存在的非空文件夹A</td>
-<td align="left">存在的非空文件夹B</td>
-<td align="left">先将container中文件夹B的原有内容清空，再将A中文件copy到B中</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>无论container中的文件夹B是否存在， A都会完全覆盖B的内容</p>
-</blockquote>
-<h5 id="2、host上文件夹存在，但为空"><a href="#2、host上文件夹存在，但为空" class="headerlink" title="2、host上文件夹存在，但为空"></a>2、host上文件夹存在，但为空</h5><table>
-<thead>
-<tr>
-<th align="left">host</th>
-<th align="left">container</th>
-<th align="left">mount result</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">存在的空文件夹A</td>
-<td align="left">存在的非空文件夹B</td>
-<td align="left">container中文件夹B的内容被清空</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>container中对应的文件夹内容被清空</p>
-</blockquote>
-<h5 id="3、host上文件夹不存在"><a href="#3、host上文件夹不存在" class="headerlink" title="3、host上文件夹不存在"></a>3、host上文件夹不存在</h5><table>
-<thead>
-<tr>
-<th align="left">host</th>
-<th align="left">container</th>
-<th align="left">mount result</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">不存在的文件夹A</td>
-<td align="left">存在的非空文件夹B</td>
-<td align="left">在host上创建文件夹A，container中文件夹B的内容被清空</td>
-</tr>
-<tr>
-<td align="left">不存在的文件夹A/B/C</td>
-<td align="left">存在的非空文件夹B</td>
-<td align="left">在host上创建文件夹A/B/C，container中文件夹B的内容被清空</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>container中对应的文件夹内容被清空</p>
-</blockquote>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h3><pre><code>host上文件夹一定会覆盖container中文件夹：
-</code></pre>
-<table>
-<thead>
-<tr>
-<th align="left">host</th>
-<th align="left">container</th>
-<th align="left">mount result</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">文件夹不存在/文件夹存在但为空</td>
-<td align="left">文件夹不存在/存在但为空/存在且不为空</td>
-<td align="left">container中文件被覆盖（清空）</td>
-</tr>
-<tr>
-<td align="left">文件夹存在且不为空</td>
-<td align="left">文件夹不存在/存在但为空/存在且不为空</td>
-<td align="left">container中文件夹内容被覆盖（原内容清空， 覆盖为host上文件夹内容）</td>
-</tr>
-</tbody></table>
-<h3 id="三、文件挂载"><a href="#三、文件挂载" class="headerlink" title="三、文件挂载"></a>三、文件挂载</h3><p>文件挂载与文件夹挂载最大的不同点在于：</p>
-<ul>
-<li>docker 禁止用主机上不存在的文件挂载到container中已经存在的文件</li>
-<li>文件挂载不会对同一文件夹下的其他文件产生任何影响</li>
-</ul>
-<p>除此之外， 其覆盖行为与文件夹挂载一致，即：</p>
-<ul>
-<li>用host上的文件的内容覆盖container中的文件的内容</li>
-</ul>
-<p><code>docker run -v /path-to-folder/non-existent-config.js:/path-to-folder/config.js test-image # forbidden</code></p>
-<h5 id="详细说明如下：-1"><a href="#详细说明如下：-1" class="headerlink" title="详细说明如下："></a>详细说明如下：</h5><h5 id="1、host上文件不存在"><a href="#1、host上文件不存在" class="headerlink" title="1、host上文件不存在"></a>1、host上文件不存在</h5><table>
-<thead>
-<tr>
-<th align="left">host</th>
-<th align="left">container</th>
-<th align="left">mount result</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="left">host</th>
-<th align="left">container</th>
-<th align="left">mount result</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">不存在的文件configA.js</td>
-<td align="left">已经存在的文件congfigB.js</td>
-<td align="left">报错，Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type. 同时会在host上生成两个空目录 configA.js 和 configB.js, 但是container无法启动</td>
-</tr>
-</tbody></table>
-<h5 id="2、host上文件存在"><a href="#2、host上文件存在" class="headerlink" title="2、host上文件存在"></a>2、host上文件存在</h5><table>
-<thead>
-<tr>
-<th align="left">host</th>
-<th align="left">container</th>
-<th align="left">mount result</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">存在的文件configA.js</td>
-<td align="left">存在的文件congfigB.js</td>
-<td align="left">container中文件名configB.js保持不变,但是文件内容被congfigA.js的内容覆盖了</td>
-</tr>
-<tr>
-<td align="left">存在的文件configA.js</td>
-<td align="left">不存在的文件congfigB.js</td>
-<td align="left">container中新建一个文件configB.js，其内容为configA.js的文件内容， configB.js所在文件下的所有其他文件维持不变</td>
-</tr>
-</tbody></table>
-<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结:"></a>总结:</h3><pre><code>host上文件一定会覆盖container中文件夹
-</code></pre>
-<table>
-<thead>
-<tr>
-<th align="left">host</th>
-<th align="left">container</th>
-<th align="left">mount result</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">不存在的文件</td>
-<td align="left">已经存在的文件</td>
-<td align="left">禁止行为</td>
-</tr>
-<tr>
-<td align="left">存在的文件</td>
-<td align="left">不存在的文件/已经存在的文件</td>
-<td align="left">新增/覆盖 （若目录不存在则会创建目录）</td>
-</tr>
-</tbody></table>
-<h3 id="四、结论"><a href="#四、结论" class="headerlink" title="四、结论:"></a>四、结论:</h3><h3 id="文件夹挂载"><a href="#文件夹挂载" class="headerlink" title="文件夹挂载"></a>文件夹挂载</h3><ul>
-<li>允许不存在的文件夹或者存在的空文件夹挂载进container, container中对应的文件夹将被清空</li>
-<li>非空文件夹挂载进container将会覆盖container中原有文件夹<h3 id="文件挂载"><a href="#文件挂载" class="headerlink" title="文件挂载"></a>文件挂载</h3></li>
-<li>禁止将不存在的文件挂载进container中已经存在的文件上</li>
-<li>存在的文件挂载进container中将会覆盖container中对应的文件， 若文件不存在则新建<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3></li>
-<li>从上面的分析可知，文件夹挂载以整个文件夹为单位进行文件覆盖，故可在需要将大量文件挂载进container时使用，另外，如果挂载一个空文件夹或者不存在的文件夹，一般是做逆向使用： 即容器启动后，可能会在容器内挂载点的文件夹下生成一些文件（如日志），此时，在对应的host上的文件夹内就能直接看到。</li>
-<li>文件挂载由于只会覆盖单个文件而不会影响container中同一文件夹下的其他文件，常常被用来挂载配置文件，以在运行时，动态的修改默认配置。</li>
-</ul>
-<p>参考：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/viafcccy/article/details/115514431">docker-compose:数据卷volumes挂载规则</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33953249/article/details/88759709">Docker volume 挂载时文件或文件夹不存在</a></p>
-
+<h4 id="详细说明如下："><a href="#详细说明如下：" class="headerlink" title="详细说明如下："></a>详细说明如下：</h4>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/11/docker/Docker%20volume%20%E6%8C%82%E8%BD%BD%E6%97%B6%E6%96%87%E4%BB%B6%E6%88%96%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8D%E5%AD%98%E5%9C%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -476,10 +315,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-05-28 10:03:19 / 修改时间：11:03:03" itemprop="dateCreated datePublished" datetime="2021-05-28T10:03:19+08:00">2021-05-28</time>
+              <time title="创建时间：2021-05-28 10:03:19" itemprop="dateCreated datePublished" datetime="2021-05-28T10:03:19+08:00">2021-05-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-11 15:16:25" itemprop="dateModified" datetime="2021-06-11T15:16:25+08:00">2021-06-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -528,37 +373,14 @@
 <h3 id="2、之后封装好你的项目api"><a href="#2、之后封装好你的项目api" class="headerlink" title="2、之后封装好你的项目api"></a>2、之后封装好你的项目api</h3><p>目录结构</p>
 <p>├─python-sdk<br>│  │  <code>README.md</code><br>│  │  <code>setup.py</code><br>│  └─<code>Demo</code><br>|&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  |  <code>demo.py</code><br>|&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│ <code>__init__.py</code><br>|</p>
 <p>Demo/demo.py.py中只有一个输出函数demo（），这里可以自行封装自己的api</p>
-<h3 id="3、编写setup-py文件，用于安装Demo包"><a href="#3、编写setup-py文件，用于安装Demo包" class="headerlink" title="3、编写setup.py文件，用于安装Demo包"></a>3、编写setup.py文件，用于安装Demo包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">setup.py各参数介绍：</span><br><span class="line">    --name 包名称</span><br><span class="line">    --version (-V) 包版本</span><br><span class="line">    --author 程序的作者</span><br><span class="line">    --author_email 程序的作者的邮箱地址</span><br><span class="line">    --maintainer 维护者</span><br><span class="line">    --maintainer_email 维护者的邮箱地址</span><br><span class="line">    --url 程序的官网地址</span><br><span class="line">    --license 程序的授权信息</span><br><span class="line">    --description 程序的简单描述</span><br><span class="line">    --long_description 程序的详细描述</span><br><span class="line">    --platforms 程序适用的软件平台列表</span><br><span class="line">    --classifiers 程序的所属分类列表</span><br><span class="line">    --keywords 程序的关键字列表</span><br><span class="line">    --packages 需要处理的包目录（包含__init__.py的文件夹）</span><br><span class="line">    --py_modules 需要打包的python文件列表</span><br><span class="line">    --download_url 程序的下载地址</span><br><span class="line">    --cmdclass</span><br><span class="line">    --data_files 打包时需要打包的数据文件，如图片，配置文件等</span><br><span class="line">    --scripts 安装时需要执行的脚步列表</span><br><span class="line">    --package_dir 告诉setuptools哪些目录下的文件被映射到哪个源码包。一个例子：package_dir &#x3D; &#123;&#39;&#39;: &#39;lib&#39;&#125;，表示“root package”中的模块都在lib 目录中。</span><br><span class="line">    --requires 定义依赖哪些模块</span><br><span class="line">    --provides定义可以为哪些模块提供依赖</span><br><span class="line">    --find_packages() 对于简单工程来说，手动增加packages参数很容易，刚刚我们用到了这个函数，它默认在和setup.py同一目录下搜索各个含有 __init__.py的包。</span><br><span class="line"></span><br><span class="line">                        其实我们可以将包统一放在一个src目录中，另外，这个包内可能还有aaa.txt文件和data数据文件夹。另外，也可以排除一些特定的包</span><br><span class="line"></span><br><span class="line">                            find_packages(exclude&#x3D;[&quot;*.tests&quot;, &quot;*.tests.*&quot;, &quot;tests.*&quot;, &quot;tests&quot;])</span><br><span class="line"></span><br><span class="line">    --install_requires &#x3D; [&quot;requests&quot;] 需要安装的依赖包</span><br><span class="line">    --entry_points 动态发现服务和插件，下面详细讲</span><br></pre></td></tr></table></figure>
-<p>下列entry_points中： console_scripts 指明了命令行工具的名称；在“redis_run = RedisRun.redis_run:main”中，等号前面指明了工具包的名称，等号后面的内容指明了程序的入口地址。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 entry_points&#x3D;&#123;&#39;console_scripts&#39;: [</span><br><span class="line">2         &#39;redis_run &#x3D; RedisRun.redis_run:main&#39;,</span><br><span class="line">3 ]&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里可以有多条记录，这样一个项目就可以制作多个命令行工具了，比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1 setup(</span><br><span class="line">2     entry_points &#x3D; &#123;</span><br><span class="line">3         &#39;console_scripts&#39;: [</span><br><span class="line">4             &#39;foo &#x3D; demo:test&#39;,</span><br><span class="line">5             &#39;bar &#x3D; demo:test&#39;,</span><br><span class="line">6         ]&#125;</span><br><span class="line">7 ）</span><br></pre></td></tr></table></figure>
-
-<h4 id="1、setup-py的项目示例代码"><a href="#1、setup-py的项目示例代码" class="headerlink" title="1、setup.py的项目示例代码"></a>1、setup.py的项目示例代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">1 #!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line">2 # coding&#x3D;utf-8</span><br><span class="line">3</span><br><span class="line">4 from setuptools import setup</span><br><span class="line">5</span><br><span class="line">6 &#39;&#39;&#39;</span><br><span class="line">7 把redis服务打包成C:\Python27\Scripts下的exe文件</span><br><span class="line">8 &#39;&#39;&#39;</span><br><span class="line">9</span><br><span class="line">10 setup(</span><br><span class="line">11     name&#x3D;&quot;RedisRun&quot;,  #pypi中的名称，pip或者easy_install安装时使用的名称，或生成egg文件的名称</span><br><span class="line">12     version&#x3D;&quot;1.0&quot;,</span><br><span class="line">13     author&#x3D;&quot;Andreas Schroeder&quot;,</span><br><span class="line">14     author_email&#x3D;&quot;andreas@drqueue.org&quot;,</span><br><span class="line">15     description&#x3D;(&quot;This is a service of redis subscripe&quot;),</span><br><span class="line">16     license&#x3D;&quot;GPLv3&quot;,</span><br><span class="line">17     keywords&#x3D;&quot;redis subscripe&quot;,</span><br><span class="line">18     url&#x3D;&quot;https:&#x2F;&#x2F;ssl.xxx.org&#x2F;redmine&#x2F;projects&#x2F;RedisRun&quot;,</span><br><span class="line">19     packages&#x3D;[&#39;RedisRun&#39;],  # 需要打包的目录列表</span><br><span class="line">20</span><br><span class="line">21     # 需要安装的依赖</span><br><span class="line">22     install_requires&#x3D;[</span><br><span class="line">23         &#39;redis&gt;&#x3D;2.10.5&#39;,</span><br><span class="line">24         &#39;setuptools&gt;&#x3D;16.0&#39;,</span><br><span class="line">25     ],</span><br><span class="line">26</span><br><span class="line">27     # 添加这个选项，在windows下Python目录的scripts下生成exe文件</span><br><span class="line">28     # 注意：模块与函数之间是冒号:</span><br><span class="line">29     entry_points&#x3D;&#123;&#39;console_scripts&#39;: [</span><br><span class="line">30         &#39;redis_run &#x3D; RedisRun.redis_run:main&#39;,</span><br><span class="line">31     ]&#125;,</span><br><span class="line">32</span><br><span class="line">33     # long_description&#x3D;read(&#39;README.md&#39;),</span><br><span class="line">34     classifiers&#x3D;[  # 程序的所属分类列表</span><br><span class="line">35         &quot;Development Status :: 3 - Alpha&quot;,</span><br><span class="line">36         &quot;Topic :: Utilities&quot;,</span><br><span class="line">37         &quot;License :: OSI Approved :: GNU General Public License (GPL)&quot;,</span><br><span class="line">38     ],</span><br><span class="line">39     # 此项需要，否则卸载时报windows error</span><br><span class="line">40     zip_safe&#x3D;False</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="2、简单setup-py的项目示例代码"><a href="#2、简单setup-py的项目示例代码" class="headerlink" title="2、简单setup.py的项目示例代码"></a>2、简单setup.py的项目示例代码</h4><p>上边的setup.py比较复杂，参数较多，可根据自己的实际情况做删减，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import setuptools</span><br><span class="line"></span><br><span class="line">#  打包: python setup.py sdist</span><br><span class="line">#  对包进行检查: twine check dist&#x2F;*</span><br><span class="line">#  运行上传: twine upload dist&#x2F;* --config-file .pypirc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 读取项目的readme介绍</span><br><span class="line">with open(&quot;README.md&quot;, &quot;r&quot;) as fh:</span><br><span class="line">    long_description &#x3D; fh.read()</span><br><span class="line">setuptools.setup(</span><br><span class="line">    name&#x3D;&quot;******SDK&quot;,</span><br><span class="line">    version&#x3D;&quot;1.0.2&quot;,</span><br><span class="line">    author&#x3D;&quot;******&quot;,  # 项目作者</span><br><span class="line">    author_email&#x3D;&quot;******@qq.com&quot;,</span><br><span class="line">    description&#x3D;&quot;This is the official Python SDK for Niffler Analytics.&quot;,</span><br><span class="line">    long_description&#x3D;long_description,</span><br><span class="line">    long_description_content_type&#x3D;&quot;text&#x2F;markdown&quot;,</span><br><span class="line">    url&#x3D;&quot;******&quot;,</span><br><span class="line">    packages&#x3D;setuptools.find_packages(),</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h1 id="二、用Python将库打包发布到pypi"><a href="#二、用Python将库打包发布到pypi" class="headerlink" title="二、用Python将库打包发布到pypi"></a>二、用Python将库打包发布到pypi</h1><p>如果需要将自己写好的python打包，并发布到pypi，这样其他人就可以直接通过pip install来安装对应的包，可以参考如下教程</p>
-<h3 id="1-注册pypi账号并创建token"><a href="#1-注册pypi账号并创建token" class="headerlink" title="1. 注册pypi账号并创建token"></a>1. 注册pypi账号并创建token</h3><p><img src="https://img.jbzj.com/file_images/article/202104/2021041314454555.png"><br>然后选择API token-&gt;Add API token<br><img src="https://img.jbzj.com/file_images/article/202104/2021041314454556.png"></p>
-<p>输入token name并在Scope中选择Entire account（第一次需要选择Entire account）<br><img src="https://img.jbzj.com/file_images/article/202104/2021041314454557.png"><br>然后在本地，修改<code>.pypirc</code>文件<br>输入的内容为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[pypi]</span><br><span class="line">username &#x3D; __token__</span><br><span class="line">password &#x3D; &#123;token&#125;</span><br></pre></td></tr></table></figure>
-<p>只需要修改<code>&#123;token&#125;</code>为自己的token即可</p>
-<h3 id="2、打包"><a href="#2、打包" class="headerlink" title="2、打包"></a>2、打包</h3><p>打包命令为<code>python setup.py cmd</code><br>cmd可以取值为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bdist_wheel : create a wheel distribution</span><br><span class="line">bdist_egg : create an “egg” distribution</span><br><span class="line">sdist : create a source distribution (tarball, zip file, etc.)</span><br><span class="line">bdist : create a built (binary) distribution</span><br><span class="line">bdist_dumb : create a “dumb” built distribution</span><br><span class="line">bdist_rpm : create an RPM distribution</span><br><span class="line">bdist_wininst : create an executable installer for MS Windows</span><br></pre></td></tr></table></figure>
-<p>打包为tar.gz</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py sdist</span><br></pre></td></tr></table></figure>
-
-<h3 id="3、上传"><a href="#3、上传" class="headerlink" title="3、上传"></a>3、上传</h3><p>安装twine <code> pip install twine</code><br>可以首先使用<code>twine</code>对包进行检查</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">twine check dist&#x2F;*</span><br></pre></td></tr></table></figure>
-<p>输出如下<br><img src="https://img.jbzj.com/file_images/article/202104/2021041314454560.png"></p>
-<p>再运行上传命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">twine upload dist&#x2F;*</span><br></pre></td></tr></table></figure>
-<p>数据注册好的pypi的用户名密码即可，如果在<code>.pypirc</code>文件中配置了用户名密码，也可以直接指定这个文件为配置文件</p>
-<p>可以用Makefile来自动运行打包上传</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">upload: ## 编译dockerbase</span><br><span class="line">	@echo &quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;start...&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;</span><br><span class="line">	rm -rf .&#x2F;dist</span><br><span class="line">	rm -rf .&#x2F;NifflerAnalyticsSDK.egg-info</span><br><span class="line">	@echo &quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;python setup.py sdist...&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;</span><br><span class="line">	python setup.py sdist</span><br><span class="line">	@echo &quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;check...&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;</span><br><span class="line">	twine check dist&#x2F;*</span><br><span class="line">	@echo &quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;upload...&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;</span><br><span class="line">	twine upload dist&#x2F;* --config-file .pypirc</span><br><span class="line">	@echo &quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;finished...&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/28/python/%E5%88%9B%E5%BB%BApython%20SDK%20%E5%B9%B6%E4%B8%8A%E4%BC%A0%E8%87%B3pypi/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
