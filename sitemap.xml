@@ -2,6 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.showbyte.cn/2021/05/07/Linux/Linux%E8%AE%BF%E9%97%AE%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%96%87%E4%BB%B6%E2%80%94%E2%80%94NFS+mount%E6%8C%82%E8%BD%BD/</loc>
+    
+    <lastmod>2021-08-16T10:17:25.410Z</lastmod>
+    
+    <date>1620358522332</date>
+    <title>Linux访问远程服务器文件——NFS+mount挂载 | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://www.showbyte.cn/2021/08/16/Linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8C%82%E8%BD%BD%E5%A4%A7%E4%BA%8E2T%E7%9A%84%E7%A1%AC%E7%9B%98/</loc>
+    
+    <lastmod>2021-08-16T09:55:23.509Z</lastmod>
+    
+    <date>1629107483890</date>
+    <title>服务器挂载大于2T的硬盘 | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>http://www.showbyte.cn/2021/05/07/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/kafka-python/</loc>
     
     <lastmod>2021-07-01T09:59:47.978Z</lastmod>
@@ -52,17 +74,6 @@
     
     <date>1620370587510</date>
     <title>docker 命令 | 冯晟的博客</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>http://www.showbyte.cn/2021/05/07/Linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8C%82%E8%BD%BD%E5%A4%A7%E4%BA%8E2T%E7%9A%84%E7%A1%AC%E7%9B%98/</loc>
-    
-    <lastmod>2021-05-24T10:34:24.805Z</lastmod>
-    
-    <date>1620358522332</date>
-    <title>服务器挂载大于2T的硬盘 | 冯晟的博客</title>
     
     <desc></desc>
   </url>
