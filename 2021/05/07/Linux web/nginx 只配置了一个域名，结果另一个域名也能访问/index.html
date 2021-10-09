@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"blog.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="今天自己在部署业务的时候， 一个同事说他用另一个域名访问到了我这个域名下的网页, 看来我自己的Nginx的配置，感觉没什么问题！ 1234567891011121314server &amp;#123;           listen 80;           server_name www.hehe.com;           root &#x2F;data1&#x2F;htdocs&#x2F;k">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx 只配置了一个域名，结果另一个域名也能访问">
-<meta property="og:url" content="http://www.showbyte.cn/2021/05/07/Linux%20web/nginx%20%E5%8F%AA%E9%85%8D%E7%BD%AE%E4%BA%86%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%EF%BC%8C%E7%BB%93%E6%9E%9C%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E4%B9%9F%E8%83%BD%E8%AE%BF%E9%97%AE/index.html">
+<meta property="og:url" content="http://blog.showbyte.cn/2021/05/07/Linux%20web/nginx%20%E5%8F%AA%E9%85%8D%E7%BD%AE%E4%BA%86%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%EF%BC%8C%E7%BB%93%E6%9E%9C%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E4%B9%9F%E8%83%BD%E8%AE%BF%E9%97%AE/index.html">
 <meta property="og:site_name" content="冯晟的博客">
 <meta property="og:description" content="今天自己在部署业务的时候， 一个同事说他用另一个域名访问到了我这个域名下的网页, 看来我自己的Nginx的配置，感觉没什么问题！ 1234567891011121314server &amp;#123;           listen 80;           server_name www.hehe.com;           root &#x2F;data1&#x2F;htdocs&#x2F;k">
 <meta property="og:locale" content="zh_CN">
@@ -33,7 +33,7 @@
 <meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.showbyte.cn/2021/05/07/Linux%20web/nginx%20%E5%8F%AA%E9%85%8D%E7%BD%AE%E4%BA%86%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%EF%BC%8C%E7%BB%93%E6%9E%9C%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E4%B9%9F%E8%83%BD%E8%AE%BF%E9%97%AE/">
+<link rel="canonical" href="http://blog.showbyte.cn/2021/05/07/Linux%20web/nginx%20%E5%8F%AA%E9%85%8D%E7%BD%AE%E4%BA%86%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%EF%BC%8C%E7%BB%93%E6%9E%9C%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E4%B9%9F%E8%83%BD%E8%AE%BF%E9%97%AE/">
 
 
 <script id="page-configurations">
@@ -196,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux%20web/nginx%20%E5%8F%AA%E9%85%8D%E7%BD%AE%E4%BA%86%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%EF%BC%8C%E7%BB%93%E6%9E%9C%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E4%B9%9F%E8%83%BD%E8%AE%BF%E9%97%AE/">
+    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2021/05/07/Linux%20web/nginx%20%E5%8F%AA%E9%85%8D%E7%BD%AE%E4%BA%86%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%EF%BC%8C%E7%BB%93%E6%9E%9C%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E4%B9%9F%E8%83%BD%E8%AE%BF%E9%97%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">

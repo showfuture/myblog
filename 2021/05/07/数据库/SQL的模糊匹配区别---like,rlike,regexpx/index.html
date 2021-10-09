@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"blog.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="一、主要区别 (1) like的内容不是正则，而是通配符。像mysql中的”like”,但是建议使用高级函数”instr”效率更高。  (2) rlike的内容可以是正则，正则的写法与java一样。需要转义，例如’\m’需要使用’\m’  (3) regexp &#x3D;&#x3D; rlike 同义词 not like not regexp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL的模糊匹配区别---like,rlike,regexpx">
-<meta property="og:url" content="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E7%9A%84%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D%E5%8C%BA%E5%88%AB---like,rlike,regexpx/index.html">
+<meta property="og:url" content="http://blog.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E7%9A%84%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D%E5%8C%BA%E5%88%AB---like,rlike,regexpx/index.html">
 <meta property="og:site_name" content="冯晟的博客">
 <meta property="og:description" content="一、主要区别 (1) like的内容不是正则，而是通配符。像mysql中的”like”,但是建议使用高级函数”instr”效率更高。  (2) rlike的内容可以是正则，正则的写法与java一样。需要转义，例如’\m’需要使用’\m’  (3) regexp &#x3D;&#x3D; rlike 同义词 not like not regexp">
 <meta property="og:locale" content="zh_CN">
@@ -34,7 +34,7 @@
 <meta property="article:tag" content="sql">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E7%9A%84%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D%E5%8C%BA%E5%88%AB---like,rlike,regexpx/">
+<link rel="canonical" href="http://blog.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E7%9A%84%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D%E5%8C%BA%E5%88%AB---like,rlike,regexpx/">
 
 
 <script id="page-configurations">
@@ -197,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E7%9A%84%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D%E5%8C%BA%E5%88%AB---like,rlike,regexpx/">
+    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2021/05/07/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E7%9A%84%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D%E5%8C%BA%E5%88%AB---like,rlike,regexpx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">

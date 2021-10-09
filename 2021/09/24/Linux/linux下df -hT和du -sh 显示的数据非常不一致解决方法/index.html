@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"blog.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="使用lsof|grep delete命令查看正在使用的已删除的文件，发现存在多个这样的文件，kill掉进程，问题解决 1for i in &#96;lsof |grep deleted |awk &#39;&amp;#123; print $2 &amp;#125;&#39;&#96;; do kill -9 $i ;done">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux下df -hT和du -sh 显示的数据非常不一致解决方法">
-<meta property="og:url" content="http://www.showbyte.cn/2021/09/24/Linux/linux%E4%B8%8Bdf%20-hT%E5%92%8Cdu%20-sh%20%E6%98%BE%E7%A4%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9D%9E%E5%B8%B8%E4%B8%8D%E4%B8%80%E8%87%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:url" content="http://blog.showbyte.cn/2021/09/24/Linux/linux%E4%B8%8Bdf%20-hT%E5%92%8Cdu%20-sh%20%E6%98%BE%E7%A4%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9D%9E%E5%B8%B8%E4%B8%8D%E4%B8%80%E8%87%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="冯晟的博客">
 <meta property="og:description" content="使用lsof|grep delete命令查看正在使用的已删除的文件，发现存在多个这样的文件，kill掉进程，问题解决 1for i in &#96;lsof |grep deleted |awk &#39;&amp;#123; print $2 &amp;#125;&#39;&#96;; do kill -9 $i ;done">
 <meta property="og:locale" content="zh_CN">
@@ -34,7 +34,7 @@
 <meta property="article:tag" content="du">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.showbyte.cn/2021/09/24/Linux/linux%E4%B8%8Bdf%20-hT%E5%92%8Cdu%20-sh%20%E6%98%BE%E7%A4%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9D%9E%E5%B8%B8%E4%B8%8D%E4%B8%80%E8%87%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+<link rel="canonical" href="http://blog.showbyte.cn/2021/09/24/Linux/linux%E4%B8%8Bdf%20-hT%E5%92%8Cdu%20-sh%20%E6%98%BE%E7%A4%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9D%9E%E5%B8%B8%E4%B8%8D%E4%B8%80%E8%87%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
 
 
 <script id="page-configurations">
@@ -197,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/09/24/Linux/linux%E4%B8%8Bdf%20-hT%E5%92%8Cdu%20-sh%20%E6%98%BE%E7%A4%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9D%9E%E5%B8%B8%E4%B8%8D%E4%B8%80%E8%87%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2021/09/24/Linux/linux%E4%B8%8Bdf%20-hT%E5%92%8Cdu%20-sh%20%E6%98%BE%E7%A4%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9D%9E%E5%B8%B8%E4%B8%8D%E4%B8%80%E8%87%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">

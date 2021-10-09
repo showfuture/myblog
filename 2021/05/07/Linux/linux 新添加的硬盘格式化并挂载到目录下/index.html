@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"blog.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="需求: 新增加一块硬盘sdb，将sdb分区，只分一个区，格式化，挂载到目录&#x2F;ssd下。 1、  查看现在已有的分区状态12df –ldf -h  图中显示，没有看到sdb硬盘">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux 新添加的硬盘格式化并挂载到目录下">
-<meta property="og:url" content="http://www.showbyte.cn/2021/05/07/Linux/linux%20%E6%96%B0%E6%B7%BB%E5%8A%A0%E7%9A%84%E7%A1%AC%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B9%B6%E6%8C%82%E8%BD%BD%E5%88%B0%E7%9B%AE%E5%BD%95%E4%B8%8B/index.html">
+<meta property="og:url" content="http://blog.showbyte.cn/2021/05/07/Linux/linux%20%E6%96%B0%E6%B7%BB%E5%8A%A0%E7%9A%84%E7%A1%AC%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B9%B6%E6%8C%82%E8%BD%BD%E5%88%B0%E7%9B%AE%E5%BD%95%E4%B8%8B/index.html">
 <meta property="og:site_name" content="冯晟的博客">
 <meta property="og:description" content="需求: 新增加一块硬盘sdb，将sdb分区，只分一个区，格式化，挂载到目录&#x2F;ssd下。 1、  查看现在已有的分区状态12df –ldf -h  图中显示，没有看到sdb硬盘">
 <meta property="og:locale" content="zh_CN">
@@ -43,7 +43,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/28568478/117395814-491ca280-af2b-11eb-8e34-b84381e67aa8.png">
 
-<link rel="canonical" href="http://www.showbyte.cn/2021/05/07/Linux/linux%20%E6%96%B0%E6%B7%BB%E5%8A%A0%E7%9A%84%E7%A1%AC%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B9%B6%E6%8C%82%E8%BD%BD%E5%88%B0%E7%9B%AE%E5%BD%95%E4%B8%8B/">
+<link rel="canonical" href="http://blog.showbyte.cn/2021/05/07/Linux/linux%20%E6%96%B0%E6%B7%BB%E5%8A%A0%E7%9A%84%E7%A1%AC%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B9%B6%E6%8C%82%E8%BD%BD%E5%88%B0%E7%9B%AE%E5%BD%95%E4%B8%8B/">
 
 
 <script id="page-configurations">
@@ -206,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/linux%20%E6%96%B0%E6%B7%BB%E5%8A%A0%E7%9A%84%E7%A1%AC%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B9%B6%E6%8C%82%E8%BD%BD%E5%88%B0%E7%9B%AE%E5%BD%95%E4%B8%8B/">
+    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2021/05/07/Linux/linux%20%E6%96%B0%E6%B7%BB%E5%8A%A0%E7%9A%84%E7%A1%AC%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B9%B6%E6%8C%82%E8%BD%BD%E5%88%B0%E7%9B%AE%E5%BD%95%E4%B8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">

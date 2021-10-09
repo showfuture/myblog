@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"blog.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="引入： 错误 Reports assignments directly to a struct field of a map  1. 问题的产生这个问题在github上可以追溯到2012年提交的一个issue，链接为 https:&#x2F;&#x2F;github.com&#x2F;golang&#x2F;go&#x2F;issues&#x2F;3117 ；如上图，结构体作为map的元素时，不能够直接赋值给结构体的某个字段，也就是map中的struct中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go struct 类型的 map 结构体成员不能修改的问题">
-<meta property="og:url" content="http://www.showbyte.cn/2021/05/07/golang/Go%20struct%20%E7%B1%BB%E5%9E%8B%E7%9A%84%20map%20%E7%BB%93%E6%9E%84%E4%BD%93%E6%88%90%E5%91%98%E4%B8%8D%E8%83%BD%E4%BF%AE%E6%94%B9%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:url" content="http://blog.showbyte.cn/2021/05/07/golang/Go%20struct%20%E7%B1%BB%E5%9E%8B%E7%9A%84%20map%20%E7%BB%93%E6%9E%84%E4%BD%93%E6%88%90%E5%91%98%E4%B8%8D%E8%83%BD%E4%BF%AE%E6%94%B9%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="冯晟的博客">
 <meta property="og:description" content="引入： 错误 Reports assignments directly to a struct field of a map  1. 问题的产生这个问题在github上可以追溯到2012年提交的一个issue，链接为 https:&#x2F;&#x2F;github.com&#x2F;golang&#x2F;go&#x2F;issues&#x2F;3117 ；如上图，结构体作为map的元素时，不能够直接赋值给结构体的某个字段，也就是map中的struct中">
 <meta property="og:locale" content="zh_CN">
@@ -37,7 +37,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/28568478/117408509-a3752d80-af42-11eb-9267-d8146f2ff28b.png">
 
-<link rel="canonical" href="http://www.showbyte.cn/2021/05/07/golang/Go%20struct%20%E7%B1%BB%E5%9E%8B%E7%9A%84%20map%20%E7%BB%93%E6%9E%84%E4%BD%93%E6%88%90%E5%91%98%E4%B8%8D%E8%83%BD%E4%BF%AE%E6%94%B9%E7%9A%84%E9%97%AE%E9%A2%98/">
+<link rel="canonical" href="http://blog.showbyte.cn/2021/05/07/golang/Go%20struct%20%E7%B1%BB%E5%9E%8B%E7%9A%84%20map%20%E7%BB%93%E6%9E%84%E4%BD%93%E6%88%90%E5%91%98%E4%B8%8D%E8%83%BD%E4%BF%AE%E6%94%B9%E7%9A%84%E9%97%AE%E9%A2%98/">
 
 
 <script id="page-configurations">
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/golang/Go%20struct%20%E7%B1%BB%E5%9E%8B%E7%9A%84%20map%20%E7%BB%93%E6%9E%84%E4%BD%93%E6%88%90%E5%91%98%E4%B8%8D%E8%83%BD%E4%BF%AE%E6%94%B9%E7%9A%84%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2021/05/07/golang/Go%20struct%20%E7%B1%BB%E5%9E%8B%E7%9A%84%20map%20%E7%BB%93%E6%9E%84%E4%BD%93%E6%88%90%E5%91%98%E4%B8%8D%E8%83%BD%E4%BF%AE%E6%94%B9%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">

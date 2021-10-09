@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"blog.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="前言有两台服务器，S1和S2，Linux操作系统，S1和S2IP不同，但是可以相互访问。 S2需要访问S1的文件系统，换言之，S1中有文件夹被分享给S2使用。 准备工作假设 S1的ip为 192.168.1.2，要分享为公共文件夹的目录为 &#x2F;tmp&#x2F;share 假设 S2的ip为 192.168.1.3，接受上传文件的目录为 &#x2F;usr&#x2F;tomcat&#x2F;here 运行场景在实际使用中，直接向 192.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux访问远程服务器文件——NFS+mount挂载">
-<meta property="og:url" content="http://www.showbyte.cn/2021/05/07/Linux/Linux%E8%AE%BF%E9%97%AE%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%96%87%E4%BB%B6%E2%80%94%E2%80%94NFS+mount%E6%8C%82%E8%BD%BD/index.html">
+<meta property="og:url" content="http://blog.showbyte.cn/2021/05/07/Linux/Linux%E8%AE%BF%E9%97%AE%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%96%87%E4%BB%B6%E2%80%94%E2%80%94NFS+mount%E6%8C%82%E8%BD%BD/index.html">
 <meta property="og:site_name" content="冯晟的博客">
 <meta property="og:description" content="前言有两台服务器，S1和S2，Linux操作系统，S1和S2IP不同，但是可以相互访问。 S2需要访问S1的文件系统，换言之，S1中有文件夹被分享给S2使用。 准备工作假设 S1的ip为 192.168.1.2，要分享为公共文件夹的目录为 &#x2F;tmp&#x2F;share 假设 S2的ip为 192.168.1.3，接受上传文件的目录为 &#x2F;usr&#x2F;tomcat&#x2F;here 运行场景在实际使用中，直接向 192.">
 <meta property="og:locale" content="zh_CN">
@@ -38,7 +38,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/28568478/129548625-3bf0255e-f506-4651-a1a6-ee67e9f078b5.png">
 
-<link rel="canonical" href="http://www.showbyte.cn/2021/05/07/Linux/Linux%E8%AE%BF%E9%97%AE%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%96%87%E4%BB%B6%E2%80%94%E2%80%94NFS+mount%E6%8C%82%E8%BD%BD/">
+<link rel="canonical" href="http://blog.showbyte.cn/2021/05/07/Linux/Linux%E8%AE%BF%E9%97%AE%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%96%87%E4%BB%B6%E2%80%94%E2%80%94NFS+mount%E6%8C%82%E8%BD%BD/">
 
 
 <script id="page-configurations">
@@ -201,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.showbyte.cn/2021/05/07/Linux/Linux%E8%AE%BF%E9%97%AE%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%96%87%E4%BB%B6%E2%80%94%E2%80%94NFS+mount%E6%8C%82%E8%BD%BD/">
+    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2021/05/07/Linux/Linux%E8%AE%BF%E9%97%AE%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%96%87%E4%BB%B6%E2%80%94%E2%80%94NFS+mount%E6%8C%82%E8%BD%BD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
