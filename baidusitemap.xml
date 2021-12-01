@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://blog.showbyte.cn/2021/12/01/K8S/day5/Kubernetes%E7%AC%AC5%E5%A4%A9/</loc>
+    <lastmod>2021-12-01</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.showbyte.cn/2021/12/01/K8S/day4/Kubernetes%E7%AC%AC4%E5%A4%A9/</loc>
+    <lastmod>2021-12-01</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.showbyte.cn/2021/12/01/K8S/day3/Kubernetes%E7%AC%AC3%E5%A4%A9/</loc>
+    <lastmod>2021-12-01</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.showbyte.cn/2021/12/01/K8S/day1/Kubernetes%E7%AC%AC1%E5%A4%A9/</loc>
+    <lastmod>2021-12-01</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.showbyte.cn/2021/12/01/K8S/day2/Kubernetes%E7%AC%AC2%E5%A4%A9/</loc>
+    <lastmod>2021-12-01</lastmod>
+  </url>
+  <url>
     <loc>http://blog.showbyte.cn/2021/11/03/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%20%E5%90%8C%E6%AD%A5%E6%8A%A5%E9%94%99/</loc>
     <lastmod>2021-11-03</lastmod>
   </url>
