@@ -20,21 +20,20 @@
     var CONFIG = {"hostname":"blog.showbyte.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="什么是webpack? webpack安装的两种方式 webpack的使用">
+  <meta name="description" content="在前面的几篇文章中，介绍了MYSQL主从复制相关的内容，包括主从环境搭建，具体文章可参考： 使用传统方式搭建MySQL 5.7 异步复制环境：http:&#x2F;&#x2F;www.seiang.com&#x2F;?p&#x3D;296 基于GTID方式搭建MySQL 5.7 主从复制环境：http:&#x2F;&#x2F;www.seiang.com&#x2F;?p&#x3D;334  最近遇到mysql开启gtid做复制时，主从同步断开，从库出现1236错误，导致同步">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue.js - Day5">
-<meta property="og:url" content="http://blog.showbyte.cn/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day5/index.html">
+<meta property="og:title" content="The slave is connecting using CHANGE MASTER TO MASTER_AUTO_POSITION &#x3D; 1, but the master has purged binary logs containing GTIDs that the slave requires.">
+<meta property="og:url" content="http://blog.showbyte.cn/2021/12/06/%E6%95%B0%E6%8D%AE%E5%BA%93/%20%E8%A7%A3%E5%86%B3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8C%E6%AD%A51236%E9%94%99%E8%AF%AF/index.html">
 <meta property="og:site_name" content="冯晟的博客">
-<meta property="og:description" content="什么是webpack? webpack安装的两种方式 webpack的使用">
+<meta property="og:description" content="在前面的几篇文章中，介绍了MYSQL主从复制相关的内容，包括主从环境搭建，具体文章可参考： 使用传统方式搭建MySQL 5.7 异步复制环境：http:&#x2F;&#x2F;www.seiang.com&#x2F;?p&#x3D;296 基于GTID方式搭建MySQL 5.7 主从复制环境：http:&#x2F;&#x2F;www.seiang.com&#x2F;?p&#x3D;334  最近遇到mysql开启gtid做复制时，主从同步断开，从库出现1236错误，导致同步">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-04T14:39:23.756Z">
-<meta property="article:modified_time" content="2021-05-06T03:35:54.638Z">
+<meta property="article:published_time" content="2021-12-06T09:29:33.398Z">
+<meta property="article:modified_time" content="2021-12-06T10:01:39.088Z">
 <meta property="article:author" content="show">
-<meta property="article:tag" content="vue2.0基础课程">
-<meta property="article:tag" content="Webpack">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://blog.showbyte.cn/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day5/">
+<link rel="canonical" href="http://blog.showbyte.cn/2021/12/06/%E6%95%B0%E6%8D%AE%E5%BA%93/%20%E8%A7%A3%E5%86%B3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8C%E6%AD%A51236%E9%94%99%E8%AF%AF/">
 
 
 <script id="page-configurations">
@@ -47,7 +46,7 @@
   };
 </script>
 
-  <title>Vue.js - Day5 | 冯晟的博客</title>
+  <title>The slave is connecting using CHANGE MASTER TO MASTER_AUTO_POSITION = 1, but the master has purged binary logs containing GTIDs that the slave requires. | 冯晟的博客</title>
   
 
 
@@ -197,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2021/05/04/vue/vue2.0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/day5/">
+    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2021/12/06/%E6%95%B0%E6%8D%AE%E5%BA%93/%20%E8%A7%A3%E5%86%B3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8C%E6%AD%A51236%E9%94%99%E8%AF%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -210,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Vue.js - Day5
+          The slave is connecting using CHANGE MASTER TO MASTER_AUTO_POSITION = 1, but the master has purged binary logs containing GTIDs that the slave requires.
         </h1>
 
         <div class="post-meta">
@@ -219,23 +218,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-05-04 22:39:23" itemprop="dateCreated datePublished" datetime="2021-05-04T22:39:23+08:00">2021-05-04</time>
+              <time title="创建时间：2021-12-06 17:29:33 / 修改时间：18:01:39" itemprop="dateCreated datePublished" datetime="2021-12-06T17:29:33+08:00">2021-12-06</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-06 11:35:54" itemprop="dateModified" datetime="2021-05-06T11:35:54+08:00">2021-05-06</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">vue2.0基础课程</span></a>
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
             </span>
 
@@ -252,16 +245,15 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.7k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>2 分钟</span>
             </span>
-            <div class="post-description">什么是webpack?<br> webpack安装的两种方式<br> webpack的使用<br></div>
 
         </div>
       </header>
@@ -272,124 +264,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Vue-js-Day5-Webpack"><a href="#Vue-js-Day5-Webpack" class="headerlink" title="Vue.js - Day5 - Webpack"></a>Vue.js - Day5 - Webpack</h1><h2 id="在网页中会引用哪些常见的静态资源？"><a href="#在网页中会引用哪些常见的静态资源？" class="headerlink" title="在网页中会引用哪些常见的静态资源？"></a>在网页中会引用哪些常见的静态资源？</h2><ul>
-<li>JS</li>
-</ul>
-<ul>
-<li>.js  .jsx  .coffee  .ts（TypeScript  类 C# 语言）</li>
-</ul>
-<ul>
-<li>CSS</li>
-</ul>
-<ul>
-<li>.css  .less   .sass  .scss</li>
-</ul>
-<ul>
-<li>Images</li>
-</ul>
-<ul>
-<li>.jpg   .png   .gif   .bmp   .svg</li>
-</ul>
-<ul>
-<li>字体文件（Fonts）</li>
-</ul>
-<ul>
-<li>.svg   .ttf   .eot   .woff   .woff2</li>
-</ul>
-<ul>
-<li>模板文件</li>
-</ul>
-<ul>
-<li>.ejs   .jade  .vue【这是在webpack中定义组件的方式，推荐这么用】</li>
-</ul>
-<h2 id="网页中引入的静态资源多了以后有什么问题？？？"><a href="#网页中引入的静态资源多了以后有什么问题？？？" class="headerlink" title="网页中引入的静态资源多了以后有什么问题？？？"></a>网页中引入的静态资源多了以后有什么问题？？？</h2><ol>
-<li>网页加载速度慢， 因为 我们要发起很多的二次请求；</li>
-<li>要处理错综复杂的依赖关系</li>
-</ol>
-<h2 id="如何解决上述两个问题"><a href="#如何解决上述两个问题" class="headerlink" title="如何解决上述两个问题"></a>如何解决上述两个问题</h2><ol>
-<li>合并、压缩、精灵图、图片的Base64编码</li>
-<li>可以使用之前学过的requireJS、也可以使用webpack可以解决各个包之间的复杂依赖关系；</li>
-</ol>
-<h2 id="什么是webpack"><a href="#什么是webpack" class="headerlink" title="什么是webpack?"></a>什么是webpack?</h2><p>webpack 是前端的一个项目构建工具，它是基于 Node.js 开发出来的一个前端工具；</p>
-<h2 id="如何完美实现上述的2种解决方案"><a href="#如何完美实现上述的2种解决方案" class="headerlink" title="如何完美实现上述的2种解决方案"></a>如何完美实现上述的2种解决方案</h2><ol>
-<li>使用Gulp， 是基于 task 任务的；</li>
-<li>使用Webpack， 是基于整个项目进行构建的；</li>
-</ol>
-<ul>
-<li>借助于webpack这个前端自动化构建工具，可以完美实现资源的合并、打包、压缩、混淆等诸多功能。</li>
-<li>根据官网的图片介绍webpack打包的过程</li>
-<li><a target="_blank" rel="noopener" href="http://webpack.github.io/">webpack官网</a></li>
-<li><a target="_blank" rel="noopener" href="https://webpack.docschina.org/">webpack中文文档</a></li>
-</ul>
-<h2 id="webpack安装的两种方式"><a href="#webpack安装的两种方式" class="headerlink" title="webpack安装的两种方式"></a>webpack安装的两种方式</h2><ol>
-<li>运行<code>npm i webpack -g</code>全局安装webpack，这样就能在全局使用webpack的命令</li>
-<li>在项目根目录中运行<code>npm i webpack --save-dev</code>安装到项目依赖中</li>
-</ol>
-<h2 id="初步使用webpack打包构建列表隔行变色案例"><a href="#初步使用webpack打包构建列表隔行变色案例" class="headerlink" title="初步使用webpack打包构建列表隔行变色案例"></a>初步使用webpack打包构建列表隔行变色案例</h2><ol>
-<li>运行<code>npm init</code>初始化项目，使用npm管理项目中的依赖包 (npm init -y 一键初始化) 自动生成package.json文件</li>
-<li>创建项目基本的目录结构 src:存放源代码  dist: 项目发布后的文件存放目录</li>
-<li>使用<code>cnpm i jquery --save</code>安装jquery类库 （npm i jquery -s） 安装包后自动生成node_modules文件夹，并把包安装到这个文件夹</li>
-<li>创建<code>main.js</code>并书写各行变色的代码逻辑：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 导入jquery类库</span><br><span class="line">   import $ from &#39;jquery&#39;</span><br><span class="line"></span><br><span class="line">   &#x2F;&#x2F; 设置偶数行背景色，索引从0开始，0是偶数</span><br><span class="line">   $(&#39;#list li:even&#39;).css(&#39;backgroundColor&#39;,&#39;lightblue&#39;);</span><br><span class="line">   &#x2F;&#x2F; 设置奇数行背景色</span><br><span class="line">   $(&#39;#list li:odd&#39;).css(&#39;backgroundColor&#39;,&#39;pink&#39;);</span><br></pre></td></tr></table></figure></li>
-<li>直接在页面上引用<code>main.js</code>会报错，因为浏览器不认识<code>import</code>这种高级的JS语法，需要使用webpack进行处理，webpack默认会把这种高级的语法转换为低级的浏览器能识别的语法；</li>
-<li>运行<code>webpack 入口文件路径 输出文件路径</code>对<code>main.js</code>进行处理：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack src&#x2F;js&#x2F;main.js dist&#x2F;bundle.js</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="使用webpack的配置文件简化打包时候的命令"><a href="#使用webpack的配置文件简化打包时候的命令" class="headerlink" title="使用webpack的配置文件简化打包时候的命令"></a>使用webpack的配置文件简化打包时候的命令</h2><ol>
-<li>在项目根目录中创建<code>webpack.config.js</code></li>
-<li>由于运行webpack命令的时候，webpack需要指定入口文件和输出文件的路径，所以，我们需要在<code>webpack.config.js</code>中配置这两个路径：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 导入处理路径的模块</span><br><span class="line">var path &#x3D; require(&#39;path&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 导出一个配置对象，将来webpack在启动的时候，会默认来查找webpack.config.js，并读取这个文件中导出的配置对象，来进行打包处理</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    entry: path.resolve(__dirname, &#39;src&#x2F;js&#x2F;main.js&#39;), &#x2F;&#x2F; 项目入口文件</span><br><span class="line">    output: &#123; &#x2F;&#x2F; 配置输出选项</span><br><span class="line">        path: path.resolve(__dirname, &#39;dist&#39;), &#x2F;&#x2F; 配置输出的路径</span><br><span class="line">        filename: &#39;bundle.js&#39; &#x2F;&#x2F; 配置输出的文件名</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="实现webpack的实时打包构建"><a href="#实现webpack的实时打包构建" class="headerlink" title="实现webpack的实时打包构建"></a>实现webpack的实时打包构建</h2><ol>
-<li>由于每次重新修改代码之后，都需要手动运行webpack打包的命令，比较麻烦，所以使用<code>webpack-dev-server</code>来实现代码实时打包编译，当修改代码之后，会自动进行打包构建。</li>
-<li>运行<code>cnpm i webpack-dev-server --save-dev</code>安装到开发依赖</li>
-<li>安装完成之后，在命令行直接运行<code>webpack-dev-server</code>来进行打包，发现报错，此时需要借助于<code>package.json</code>文件中的指令，来进行运行<code>webpack-dev-server</code>命令，在<code>scripts</code>节点下新增<code>&quot;dev&quot;: &quot;webpack-dev-server&quot;</code>指令，发现可以进行实时打包，但是dist目录下并没有生成<code>bundle.js</code>文件，这是因为<code>webpack-dev-server</code>将打包好的文件放在了内存中</li>
-</ol>
-<ul>
-<li>把<code>bundle.js</code>放在内存中的好处是：由于需要实时打包编译，所以放在内存中速度会非常快</li>
-<li>这个时候访问webpack-dev-server启动的<code>http://localhost:8080/</code>网站，发现是一个文件夹的面板，需要点击到src目录下，才能打开我们的index首页，此时引用不到bundle.js文件，需要修改index.html中script的src属性为:<code>&lt;script src=&quot;../bundle.js&quot;&gt;&lt;/script&gt;</code></li>
-<li>为了能在访问<code>http://localhost:8080/</code>的时候直接访问到index首页，可以使用<code>--contentBase src</code>指令来修改dev指令，指定启动的根目录：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;dev&quot;: &quot;webpack-dev-server --contentBase src&quot;</span><br></pre></td></tr></table></figure>
-同时修改index页面中script的src属性为<code>&lt;script src=&quot;bundle.js&quot;&gt;&lt;/script&gt;</code></li>
-</ul>
-<h2 id="使用html-webpack-plugin插件配置启动页面"><a href="#使用html-webpack-plugin插件配置启动页面" class="headerlink" title="使用html-webpack-plugin插件配置启动页面"></a>使用<code>html-webpack-plugin</code>插件配置启动页面</h2><p>由于使用<code>--contentBase</code>指令的过程比较繁琐，需要指定启动的目录，同时还需要修改index.html中script标签的src属性，所以推荐大家使用<code>html-webpack-plugin</code>插件配置启动页面.</p>
-<ol>
-<li>运行<code>cnpm i html-webpack-plugin --save-dev</code>安装到开发依赖</li>
-<li>修改<code>webpack.config.js</code>配置文件如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 导入处理路径的模块</span><br><span class="line">var path &#x3D; require(&#39;path&#39;);</span><br><span class="line">&#x2F;&#x2F; 导入自动生成HTMl文件的插件</span><br><span class="line">var htmlWebpackPlugin &#x3D; require(&#39;html-webpack-plugin&#39;);</span><br><span class="line"></span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    entry: path.resolve(__dirname, &#39;src&#x2F;js&#x2F;main.js&#39;), &#x2F;&#x2F; 项目入口文件</span><br><span class="line">    output: &#123; &#x2F;&#x2F; 配置输出选项</span><br><span class="line">        path: path.resolve(__dirname, &#39;dist&#39;), &#x2F;&#x2F; 配置输出的路径</span><br><span class="line">        filename: &#39;bundle.js&#39; &#x2F;&#x2F; 配置输出的文件名</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins:[ &#x2F;&#x2F; 添加plugins节点配置插件</span><br><span class="line">        new htmlWebpackPlugin(&#123;</span><br><span class="line">            template:path.resolve(__dirname, &#39;src&#x2F;index.html&#39;),&#x2F;&#x2F;模板路径</span><br><span class="line">            filename:&#39;index.html&#39;&#x2F;&#x2F;自动生成的HTML文件的名称</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>修改<code>package.json</code>中<code>script</code>节点中的dev指令如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;dev&quot;: &quot;webpack-dev-server&quot;</span><br></pre></td></tr></table></figure></li>
-<li>将index.html中script标签注释掉，因为<code>html-webpack-plugin</code>插件会自动把bundle.js注入到index.html页面中！</li>
-</ol>
-<h2 id="实现自动打开浏览器、热更新和配置浏览器的默认端口号"><a href="#实现自动打开浏览器、热更新和配置浏览器的默认端口号" class="headerlink" title="实现自动打开浏览器、热更新和配置浏览器的默认端口号"></a>实现自动打开浏览器、热更新和配置浏览器的默认端口号</h2><p><strong>注意：热更新在JS中表现的不明显，可以从一会儿要讲到的CSS身上进行介绍说明！</strong></p>
-<h3 id="方式1："><a href="#方式1：" class="headerlink" title="方式1："></a>方式1：</h3><ul>
-<li>修改<code>package.json</code>的script节点如下，其中<code>--open</code>表示自动打开浏览器，<code>--port 4321</code>表示打开的端口号为4321，<code>--hot</code>表示启用浏览器热更新：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;dev&quot;: &quot;webpack-dev-server --hot --port 4321 --open&quot;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="方式2："><a href="#方式2：" class="headerlink" title="方式2："></a>方式2：</h3><ol>
-<li>修改<code>webpack.config.js</code>文件，新增<code>devServer</code>节点如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">devServer:&#123;</span><br><span class="line">        hot:true,</span><br><span class="line">        open:true,</span><br><span class="line">        port:4321</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-<li>在头部引入<code>webpack</code>模块：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var webpack &#x3D; require(&#39;webpack&#39;);</span><br></pre></td></tr></table></figure></li>
-<li>在<code>plugins</code>节点下新增：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new webpack.HotModuleReplacementPlugin()</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="使用webpack打包css文件"><a href="#使用webpack打包css文件" class="headerlink" title="使用webpack打包css文件"></a>使用webpack打包css文件</h2><ol>
-<li>运行<code>cnpm i style-loader css-loader --save-dev</code></li>
-<li>修改<code>webpack.config.js</code>这个配置文件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module: &#123; &#x2F;&#x2F; 用来配置第三方loader模块的</span><br><span class="line">        rules: [ &#x2F;&#x2F; 文件的匹配规则</span><br><span class="line">            &#123; test: &#x2F;\.css$&#x2F;, use: [&#39;style-loader&#39;, &#39;css-loader&#39;] &#125;&#x2F;&#x2F;处理css文件的规则</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-<li>注意：<code>use</code>表示使用哪些模块来处理<code>test</code>所匹配到的文件；<code>use</code>中相关loader模块的调用顺序是从后向前调用的；</li>
-</ol>
-<h2 id="使用webpack打包less文件"><a href="#使用webpack打包less文件" class="headerlink" title="使用webpack打包less文件"></a>使用webpack打包less文件</h2><ol>
-<li>运行<code>cnpm i less-loader less -D</code></li>
-<li>修改<code>webpack.config.js</code>这个配置文件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; test: &#x2F;\.less$&#x2F;, use: [&#39;style-loader&#39;, &#39;css-loader&#39;, &#39;less-loader&#39;] &#125;,</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="使用webpack打包sass文件"><a href="#使用webpack打包sass文件" class="headerlink" title="使用webpack打包sass文件"></a>使用webpack打包sass文件</h2><ol>
-<li>运行<code>cnpm i sass-loader node-sass --save-dev</code></li>
-<li>在<code>webpack.config.js</code>中添加处理sass文件的loader模块：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; test: &#x2F;\.scss$&#x2F;, use: [&#39;style-loader&#39;, &#39;css-loader&#39;, &#39;sass-loader&#39;] &#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="使用webpack处理css中的路径"><a href="#使用webpack处理css中的路径" class="headerlink" title="使用webpack处理css中的路径"></a>使用webpack处理css中的路径</h2><ol>
-<li>运行<code>cnpm i url-loader file-loader --save-dev</code></li>
-<li>在<code>webpack.config.js</code>中添加处理url路径的loader模块：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; test: &#x2F;\.(png|jpg|gif)$&#x2F;, use: &#39;url-loader&#39; &#125;</span><br></pre></td></tr></table></figure></li>
-<li>可以通过<code>limit</code>指定进行base64编码的图片大小；只有小于指定字节（byte）的图片才会进行base64编码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; test: &#x2F;\.(png|jpg|gif)$&#x2F;, use: &#39;url-loader?limit&#x3D;43960&#39; &#125;,</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="使用babel处理高级JS语法"><a href="#使用babel处理高级JS语法" class="headerlink" title="使用babel处理高级JS语法"></a>使用babel处理高级JS语法</h2><ol>
-<li>运行<code>cnpm i babel-core babel-loader babel-plugin-transform-runtime --save-dev</code>安装babel的相关loader包</li>
-<li>运行<code>cnpm i babel-preset-es2015 babel-preset-stage-0 --save-dev</code>安装babel转换的语法</li>
-<li>在<code>webpack.config.js</code>中添加相关loader模块，其中需要注意的是，一定要把<code>node_modules</code>文件夹添加到排除项：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; test: &#x2F;\.js$&#x2F;, use: &#39;babel-loader&#39;, exclude: &#x2F;node_modules&#x2F; &#125;</span><br></pre></td></tr></table></figure></li>
-<li>在项目根目录中添加<code>.babelrc</code>文件，并修改这个配置文件如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;:[&quot;es2015&quot;, &quot;stage-0&quot;],</span><br><span class="line">    &quot;plugins&quot;:[&quot;transform-runtime&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><strong>注意：语法插件<code>babel-preset-es2015</code>可以更新为<code>babel-preset-env</code>，它包含了所有的ES相关的语法；</strong></li>
-</ol>
-<h2 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h2><p><a target="_blank" rel="noopener" href="https://segmentfault.com/p/1210000008466178">babel-preset-env：你需要的唯一Babel插件</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000009065987">Runtime transform 运行时编译es6</a></p>
+        <blockquote>
+<p>在前面的几篇文章中，介绍了MYSQL主从复制相关的内容，包括主从环境搭建，具体文章可参考：</p>
+<p>使用传统方式搭建MySQL 5.7 异步复制环境：<a target="_blank" rel="noopener" href="http://www.seiang.com/?p=296">http://www.seiang.com/?p=296</a></p>
+<p>基于GTID方式搭建MySQL 5.7 主从复制环境：<a target="_blank" rel="noopener" href="http://www.seiang.com/?p=334">http://www.seiang.com/?p=334</a></p>
+</blockquote>
+<p>最近遇到mysql开启gtid做复制时，主从同步断开，从库出现1236错误，导致同步无法进行，本文就这问题记录下处理步骤</p>
+<figure class="highlight plain"><figcaption><span>Basic</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Last_IO_Errno: 1236</span><br><span class="line"></span><br><span class="line">Last_IO_Error: Got fatal error 1236 from master when reading data from binary log: &#39;The slave is connecting using CHANGE MASTER TO MASTER_AUTO_POSITION &#x3D; 1, but the master has purged binary logs containing GTIDs that the slave requires.&#39;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>一般两种情况会出现以上现象</p>
+<p>1.在主库上手动执行清除二进制日志文件</p>
+<p>2.主库重启，重新同步时</p>
+</blockquote>
+<span id="more"></span>
+<p>解决方法：</p>
+<p>1、在主库上执行以下命令，查询gtid_purged，记录下改值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global variables like &#39;%gtid%&#39; \G;</span><br></pre></td></tr></table></figure>
+
+<p>2、在从库上执行以下命令，查询已经执行过的gtid即gtid_executed，记录下主库的值，本机的不需</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global variables like &#39;%gtid%&#39; \G;</span><br></pre></td></tr></table></figure>
+<p>3、在从库上执行以下命令停止同步线程及重置同步相关信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@localhost [(none)]&gt; stop slave;</span><br><span class="line">root@localhost [(none)]&gt; reset slave;</span><br><span class="line">root@localhost [(none)]&gt; reset master;</span><br></pre></td></tr></table></figure>
+<p>4、在从库上设置gtid_purged</p>
+<p>该值有两个来源，一是在主库上查询的gtid_purged，二是在从库上查询的已经执行过的gtid_executed值（本机的就不需要，主库上gtid）</p>
+<p>注意：一定记得加上从库上已经执行过的gtid，若只设置了主库上的gtid_purged，此时从库会重新拉取主库上所有的二进制日志文件，同步过程会出现其他错误，导致同步无法进行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;  set @@global.gtid_purged&#x3D;&#39;你的GITD值&#39;;</span><br><span class="line">Query OK, 0 rows affected (2.12 sec)</span><br></pre></td></tr></table></figure>
+<p>具体如下所示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@localhost [(none)]&gt; set @@global.gtid_purged&#x3D;&#39;dc299ff4-79e5-11e8-8d10-525400cf9369:1-2,dc299ff4-79e5-11e8-8d10-525400cf9369:1-64566&#39;;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br></pre></td></tr></table></figure>
+<p>注意：设置gtid_purged值时，gtid_executed值必须为空否则报错，该值清空的方法就是reset master命令</p>
+<p>执行完，再次查看相关信息</p>
+<p>5、重新开启同步</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; change master to master_host&#x3D;&#39;MASTER_IP&#39;,master_port&#x3D;PORT,master_user&#x3D;&#39;USERNAME&#39;,master_password&#x3D;&#39;PASSWORD&#39;,master_auto_position&#x3D;1;</span><br><span class="line">Query OK, 0 rows affected, 2 warnings (5.55 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; start slave;</span><br><span class="line">Query OK, 0 rows affected (0.40 sec)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>解决完要验证是否有数据丢失，我做完同步后有少量<strong>数据丢失</strong>！！！！</p>
+<p>参考文档：<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dukuan/p/8744295.html">https://www.cnblogs.com/dukuan/p/8744295.html</a><br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1796099">https://cloud.tencent.com/developer/article/1796099</a><br><a target="_blank" rel="noopener" href="https://blog.51cto.com/hnr520/1883282">https://blog.51cto.com/hnr520/1883282</a></p>
 
     </div>
 
@@ -407,8 +317,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" rel="tag"> <!--fa fa-tag --> vue2.0基础课程</a>
-              <a href="/tags/Webpack/" rel="tag"> <!--fa fa-tag --> Webpack</a>
+              <a href="/tags/mysql/" rel="tag"> <!--fa fa-tag --> mysql</a>
           </div>
 
         
@@ -417,13 +326,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/05/04/python/%E5%AE%89%E8%A3%85Python/" rel="prev" title="安装Python">
-      <i class="fa fa-chevron-left"></i> 安装Python
+    <a href="/2021/12/01/K8S/day5/k8s_day5/" rel="prev" title="k8s教程day5-数据存储、安全认证和dashboard">
+      <i class="fa fa-chevron-left"></i> k8s教程day5-数据存储、安全认证和dashboard
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/05/07/proxy/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%20shadowsocks/" rel="next" title="linux服务器搭建 shadowsocks">
-      linux服务器搭建 shadowsocks <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -483,7 +389,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue-js-Day5-Webpack"><span class="nav-number">1.</span> <span class="nav-text">Vue.js - Day5 - Webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BC%9A%E5%BC%95%E7%94%A8%E5%93%AA%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">在网页中会引用哪些常见的静态资源？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E9%A1%B5%E4%B8%AD%E5%BC%95%E5%85%A5%E7%9A%84%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%A4%9A%E4%BA%86%E4%BB%A5%E5%90%8E%E6%9C%89%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">网页中引入的静态资源多了以后有什么问题？？？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E4%B8%8A%E8%BF%B0%E4%B8%A4%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">如何解决上述两个问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFwebpack"><span class="nav-number">1.4.</span> <span class="nav-text">什么是webpack?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%8C%E7%BE%8E%E5%AE%9E%E7%8E%B0%E4%B8%8A%E8%BF%B0%E7%9A%842%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.5.</span> <span class="nav-text">如何完美实现上述的2种解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack%E5%AE%89%E8%A3%85%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">1.6.</span> <span class="nav-text">webpack安装的两种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8webpack%E6%89%93%E5%8C%85%E6%9E%84%E5%BB%BA%E5%88%97%E8%A1%A8%E9%9A%94%E8%A1%8C%E5%8F%98%E8%89%B2%E6%A1%88%E4%BE%8B"><span class="nav-number">1.7.</span> <span class="nav-text">初步使用webpack打包构建列表隔行变色案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8webpack%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%AE%80%E5%8C%96%E6%89%93%E5%8C%85%E6%97%B6%E5%80%99%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="nav-number">1.8.</span> <span class="nav-text">使用webpack的配置文件简化打包时候的命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0webpack%E7%9A%84%E5%AE%9E%E6%97%B6%E6%89%93%E5%8C%85%E6%9E%84%E5%BB%BA"><span class="nav-number">1.9.</span> <span class="nav-text">实现webpack的实时打包构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8html-webpack-plugin%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE%E5%90%AF%E5%8A%A8%E9%A1%B5%E9%9D%A2"><span class="nav-number">1.10.</span> <span class="nav-text">使用html-webpack-plugin插件配置启动页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E3%80%81%E7%83%AD%E6%9B%B4%E6%96%B0%E5%92%8C%E9%85%8D%E7%BD%AE%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="nav-number">1.11.</span> <span class="nav-text">实现自动打开浏览器、热更新和配置浏览器的默认端口号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F1%EF%BC%9A"><span class="nav-number">1.11.1.</span> <span class="nav-text">方式1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F2%EF%BC%9A"><span class="nav-number">1.11.2.</span> <span class="nav-text">方式2：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8webpack%E6%89%93%E5%8C%85css%E6%96%87%E4%BB%B6"><span class="nav-number">1.12.</span> <span class="nav-text">使用webpack打包css文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8webpack%E6%89%93%E5%8C%85less%E6%96%87%E4%BB%B6"><span class="nav-number">1.13.</span> <span class="nav-text">使用webpack打包less文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8webpack%E6%89%93%E5%8C%85sass%E6%96%87%E4%BB%B6"><span class="nav-number">1.14.</span> <span class="nav-text">使用webpack打包sass文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8webpack%E5%A4%84%E7%90%86css%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-number">1.15.</span> <span class="nav-text">使用webpack处理css中的路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8babel%E5%A4%84%E7%90%86%E9%AB%98%E7%BA%A7JS%E8%AF%AD%E6%B3%95"><span class="nav-number">1.16.</span> <span class="nav-text">使用babel处理高级JS语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%96%87%E7%AB%A0"><span class="nav-number">1.17.</span> <span class="nav-text">相关文章</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -770,7 +675,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'myblog_comments',
       owner       : 'showfuture',
       admin       : ['showfuture'],
-      id          : '365d12829924d09baaad4c7aeb8a2570',
+      id          : '556c9d40f6712c2721ed8ea74fd94388',
         language: 'zh-CN',
       distractionFreeMode: true
     });
