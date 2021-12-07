@@ -2,12 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.showbyte.cn/2021/12/06/%E6%95%B0%E6%8D%AE%E5%BA%93/%20%E8%A7%A3%E5%86%B3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8C%E6%AD%A51236%E9%94%99%E8%AF%AF/</loc>
+    <loc>http://blog.showbyte.cn/2021/12/01/K8S/day2/k8s_day2/</loc>
     
-    <lastmod>2021-12-06T10:01:39.088Z</lastmod>
+    <lastmod>2021-12-07T02:41:25.910Z</lastmod>
     
-    <date>1638782973398</date>
-    <title>The slave is connecting using CHANGE MASTER TO MASTER_AUTO_POSITION = 1, but the master has purged binary logs containing GTIDs that the slave requires. | 冯晟的博客</title>
+    <date>1638347149417</date>
+    <title>k8s教程day2-namespace、pod、label、development、service | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2021/12/01/K8S/day1/k8s_day1/</loc>
+    
+    <lastmod>2021-12-07T02:41:13.027Z</lastmod>
+    
+    <date>1638346530108</date>
+    <title>k8s教程day1-k8s介绍及环境搭建和YAML语言介绍 | 冯晟的博客</title>
     
     <desc></desc>
   </url>
@@ -15,7 +26,7 @@
   <url>
     <loc>http://blog.showbyte.cn/2021/12/01/K8S/day3/k8s_day3/</loc>
     
-    <lastmod>2021-12-03T10:40:11.900Z</lastmod>
+    <lastmod>2021-12-07T02:40:22.426Z</lastmod>
     
     <date>1638347471085</date>
     <title>k8s教程day3-Pod详解 | 冯晟的博客</title>
@@ -26,7 +37,7 @@
   <url>
     <loc>http://blog.showbyte.cn/2021/12/01/K8S/day5/k8s_day5/</loc>
     
-    <lastmod>2021-12-03T10:32:08.017Z</lastmod>
+    <lastmod>2021-12-07T02:37:41.016Z</lastmod>
     
     <date>1638347505011</date>
     <title>k8s教程day5-数据存储、安全认证和dashboard | 冯晟的博客</title>
@@ -37,7 +48,7 @@
   <url>
     <loc>http://blog.showbyte.cn/2021/12/01/K8S/day4/k8s_day4/</loc>
     
-    <lastmod>2021-12-03T10:30:44.512Z</lastmod>
+    <lastmod>2021-12-07T02:33:42.440Z</lastmod>
     
     <date>1638347493894</date>
     <title>k8s教程day4-pod控制器和service及ingress讲解 | 冯晟的博客</title>
@@ -46,23 +57,12 @@
   </url>
   
   <url>
-    <loc>http://blog.showbyte.cn/2021/12/01/K8S/day1/k8s_day1/</loc>
+    <loc>http://blog.showbyte.cn/2021/12/06/%E6%95%B0%E6%8D%AE%E5%BA%93/%20%E8%A7%A3%E5%86%B3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8C%E6%AD%A51236%E9%94%99%E8%AF%AF/</loc>
     
-    <lastmod>2021-12-03T10:29:12.432Z</lastmod>
+    <lastmod>2021-12-06T10:01:39.088Z</lastmod>
     
-    <date>1638346530108</date>
-    <title>k8s教程day1-k8s介绍及环境搭建和YAML语言介绍 | 冯晟的博客</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>http://blog.showbyte.cn/2021/12/01/K8S/day2/k8s_day2/</loc>
-    
-    <lastmod>2021-12-03T10:27:26.172Z</lastmod>
-    
-    <date>1638347149417</date>
-    <title>k8s教程day2-namespace、pod、label、development、service | 冯晟的博客</title>
+    <date>1638782973398</date>
+    <title>The slave is connecting using CHANGE MASTER TO MASTER_AUTO_POSITION = 1, but the master has purged binary logs containing GTIDs that the slave requires. | 冯晟的博客</title>
     
     <desc></desc>
   </url>
