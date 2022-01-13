@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://blog.showbyte.cn/2022/01/11/Linux/CentOS%20%E5%AE%89%E8%A3%85Nvidia%E9%A9%B1%E5%8A%A8+CUDA+cuDNN/</loc>
+    <lastmod>2022-01-13</lastmod>
+  </url>
+  <url>
     <loc>http://blog.showbyte.cn/2021/12/01/K8S/day5/k8s_day5/</loc>
     <lastmod>2021-12-07</lastmod>
   </url>
