@@ -118,7 +118,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">89</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">90</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -128,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">94</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">95</span></a>
 
   </li>
         <li class="menu-item menu-item-playlist">
@@ -192,6 +192,106 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2022/04/27/windows/%E6%97%A0%E6%B3%95%E9%80%9A%E8%BF%87ssh%E5%91%BD%E4%BB%A4%E5%9C%A8windows%E4%B8%8A%E5%90%AF%E5%8A%A8GUI%E6%88%96%E8%80%85exe%E6%9C%8D%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/27/windows/%E6%97%A0%E6%B3%95%E9%80%9A%E8%BF%87ssh%E5%91%BD%E4%BB%A4%E5%9C%A8windows%E4%B8%8A%E5%90%AF%E5%8A%A8GUI%E6%88%96%E8%80%85exe%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">无法通过ssh命令在windows上启动GUI或者exe服务</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-04-27 18:14:02 / 修改时间：18:37:03" itemprop="dateCreated datePublished" datetime="2022-04-27T18:14:02+08:00">2022-04-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="无法通过ssh命令在windows上启动GUI或者exe服务"><a href="#无法通过ssh命令在windows上启动GUI或者exe服务" class="headerlink" title="无法通过ssh命令在windows上启动GUI或者exe服务"></a>无法通过ssh命令在windows上启动GUI或者exe服务</h1><p>通过schtasks方创建任务去执行<br><img src="https://user-images.githubusercontent.com/28568478/165497430-e2a39577-9e49-4d4a-83d5-fc87bd43f2d7.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@echo &quot;开始通过schtasks启动test。。。&quot;</span><br><span class="line">schtasks &#x2F;create &#x2F;SC ONCE &#x2F;TN test-build &#x2F;TR C:\server\windows-bat-code\start-test.bat  &#x2F;ST 00:00</span><br><span class="line">schtasks &#x2F;run &#x2F;TN test-build</span><br><span class="line">schtasks &#x2F;delete &#x2F;TN test-build &#x2F;F</span><br><span class="line">exit 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>start-test.bat<br>启动git-bash命令执行</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> &quot;开始启动test。。。&quot;</span><br><span class="line"><span class="built_in">start</span> &quot;&quot; &quot;C:\Program Files\Git\git-bash.exe&quot; -c &quot;<span class="built_in">cd</span> /c/server/test-<span class="number">3</span>d/build &amp;&amp; export BUILD_ID=dontKillMe &amp;&amp; export test_3D_LOG_DIR=&#x27;D:\app\extra_work_log\test-<span class="number">3</span>d\<span class="variable">%computername%</span>&#x27; &amp;&amp; <span class="built_in">start</span> test-build.exe &#x27;-logfile -&#x27;&quot;</span><br><span class="line"><span class="keyword">exit</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="powershell-命令执行脚本"><a href="#powershell-命令执行脚本" class="headerlink" title="powershell 命令执行脚本"></a>powershell 命令执行脚本</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i &#x2F;keystore&#x2F;ssh -o &#39;StrictHostKeyChecking no&#39; Administrator@-windows.xxx.com &#39;Powershell.exe -ExecutionPolicy Unrestricted -command &quot;C:\\server\\windows-bat-code\\update-code.bat&quot;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>update-code.bat</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> &quot;开始更新代码&quot;</span><br><span class="line"><span class="built_in">cd</span> C:\server\monet-parent\</span><br><span class="line">git clean -fdx</span><br><span class="line">git checkout -- ./</span><br><span class="line">git pull --rebase</span><br><span class="line">@<span class="built_in">echo</span> &quot;开始安装python依赖包&quot;</span><br><span class="line">pip install -r C:\server\monet-parent\blender-<span class="number">3</span>d\requirements.txt -i  https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"><span class="keyword">exit</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>参考文档</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/59880794/starting-gui-programs-via-openssh-on-windows">Starting GUI programs via OpenSSH on Windows?</a></p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/70380040/starting-application-gui-on-remote-windows-from-ssh-linux">Starting application GUI on remote windows from SSH linux</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/onlyAngel521/article/details/121268315">bat脚本在特定目录中启动git bash窗口，并执行命令</a></p>
+
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2022/04/27/windows/windows%E7%A6%81%E6%AD%A2%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -217,7 +317,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-04-27 17:48:02 / 修改时间：18:03:55" itemprop="dateCreated datePublished" datetime="2022-04-27T17:48:02+08:00">2022-04-27</time>
+              <time title="创建时间：2022-04-27 17:48:02 / 修改时间：18:34:21" itemprop="dateCreated datePublished" datetime="2022-04-27T17:48:02+08:00">2022-04-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,7 +335,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>566</span>
+              <span>619</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -276,7 +376,7 @@
 <p>⑥：然后双击鼠标进入配置自动更新属性</p>
 <p>把【已禁用】选项勾上，按确定，即可关闭Windows自动更新了<br><img src="https://pic3.zhimg.com/80/v2-3d65b6ef3419873f392f124718e3a19e_1440w.jpg"></p>
 <p>但是关闭自动更新在系统功能完善，安全性方面会有点差别。当你想更新系统了，那么可以用同样的方法，启动更新程序。</p>
-<p>参考文档</p>
+<h1 id="注意-当关闭更新的时候-有些服务可能也会出现问题-比如windows安装openssh-server的时候-就会报错"><a href="#注意-当关闭更新的时候-有些服务可能也会出现问题-比如windows安装openssh-server的时候-就会报错" class="headerlink" title="注意 当关闭更新的时候 有些服务可能也会出现问题 比如windows安装openssh server的时候 就会报错"></a>注意 当关闭更新的时候 有些服务可能也会出现问题 比如windows安装openssh server的时候 就会报错</h1><p>参考文档</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38070514">https://zhuanlan.zhihu.com/p/38070514</a></p>
 
       
@@ -414,7 +514,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-04-27 17:29:33 / 修改时间：17:40:52" itemprop="dateCreated datePublished" datetime="2022-04-27T17:29:33+08:00">2022-04-27</time>
+              <time title="创建时间：2022-04-27 17:29:33 / 修改时间：18:35:09" itemprop="dateCreated datePublished" datetime="2022-04-27T17:29:33+08:00">2022-04-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -432,7 +532,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>937</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -451,31 +551,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="安装openssh-server否则无法通过ssh登录windows（一定要在禁止系统更新前安装，否则无法安装）"><a href="#安装openssh-server否则无法通过ssh登录windows（一定要在禁止系统更新前安装，否则无法安装）" class="headerlink" title="安装openssh server否则无法通过ssh登录windows（一定要在禁止系统更新前安装，否则无法安装）"></a>安装openssh server否则无法通过ssh登录windows（一定要在禁止系统更新前安装，否则无法安装）</h1><h2 id="windows的openssh-server默认是没有安装的-需要手动安装"><a href="#windows的openssh-server默认是没有安装的-需要手动安装" class="headerlink" title="windows的openssh server默认是没有安装的 需要手动安装"></a>windows的openssh server默认是没有安装的 需要手动安装</h2><p>方法1：</p>
-<blockquote>
-<p>windows-开始-设置-应用-可选功能-添加功能-openSSH 服务端，选择安装即可<br>方法2：</p>
+          <h1 id="安装openssh-server否则无法通过ssh登录windows（一定要在禁止系统更新前安装，否则无法安装）"><a href="#安装openssh-server否则无法通过ssh登录windows（一定要在禁止系统更新前安装，否则无法安装）" class="headerlink" title="安装openssh server否则无法通过ssh登录windows（一定要在禁止系统更新前安装，否则无法安装）"></a>安装openssh server否则无法通过ssh登录windows（一定要在禁止系统更新前安装，否则无法安装）</h1><h2 id="windows的openssh-server默认是没有安装的-需要手动安装"><a href="#windows的openssh-server默认是没有安装的-需要手动安装" class="headerlink" title="windows的openssh server默认是没有安装的 需要手动安装"></a>windows的openssh server默认是没有安装的 需要手动安装</h2><h3 id="方法1：界面安装"><a href="#方法1：界面安装" class="headerlink" title="方法1：界面安装"></a>方法1：界面安装</h3><blockquote>
+<p>windows-开始-设置-应用-可选功能-添加功能-openSSH 服务端，选择安装即可</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 粘贴以下命令以安装 OpenSSH 服务器：</span><br><span class="line"></span><br><span class="line">Add-WindowsCapability -Online -Name OpenSSH.Server</span><br><span class="line"></span><br><span class="line"># 安装 OpenSSH 客户端：(默认已安装)</span><br><span class="line"></span><br><span class="line">Add-WindowsCapability -Online -Name OpenSSH.Client</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="方法2：命令行"><a href="#方法2：命令行" class="headerlink" title="方法2：命令行"></a>方法2：命令行</h3><p>首先需要用管理员身份启动 PowerShell，使用如下命令看一下，要确保 OpenSSH 可用于安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-WindowsCapability -Online | ? Name -like &#39;OpenSSH*&#39;</span><br></pre></td></tr></table></figure>
 
+<p>输出应该是类似的结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Name  : OpenSSH.Client~~~~0.0.1.0</span><br><span class="line">State : NotPresent</span><br><span class="line">Name  : OpenSSH.Server~~~~0.0.1.0</span><br><span class="line">State : NotPresent</span><br></pre></td></tr></table></figure>
+
+<p>然后使用 PowerShell 安装服务器即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0</span><br></pre></td></tr></table></figure>
+<p>输出结果类似：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Path          :</span><br><span class="line">Online        : True</span><br><span class="line">RestartNeeded : False</span><br></pre></td></tr></table></figure>
+
+<p>这样也可以完成 OpenSSH 的安装。</p>
+<p>安装完成之后，就需要进行一些初始化配置了，还是以管理员身份，使用 PowerShell 执行即可。</p>
+<p>首先需要开启 SSHD 服务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Start-Service sshd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后设置服务的自动启动：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Set-Service -Name sshd -StartupType &#39;Automatic&#39;</span><br></pre></td></tr></table></figure>
+
+<p>最后确认一下防火墙是否是放开的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-NetFirewallRule -Name *ssh*</span><br></pre></td></tr></table></figure>
+
+<p>如果是放开的，那么结果会提示 OpenSSH-Server-In-TCP这个状态是 enabled。</p>
+<p>好了，完成如上操作之后我们就可以使用 SSH 来连接我们的 Windows 服务器了。</p>
 <p>自动后台启动不符合业务场景，自动启动会是openssh server默认成windows的服务，无法通过代码调用服务器上的exe服务，所有要手动启动，<br>即：通过命令行的方式启动<br><strong>通过此命令运行前 需要通过”服务管理器”找到OpenSSH SSH Server 服务去启动一次sshd，不然无法通过此命令启动</strong></p>
 <blockquote>
 <p>start C:\Windows\System32\OpenSSH\sshd.exe</p>
 </blockquote>
-<p>Openssh agent 是windows自带安装好的 但是没有启动，需要手动启动</p>
+<p><strong>Openssh agent</strong> 是windows自带安装好的 但是没有启动，需要手动启动</p>
 <blockquote>
 <p>启动方法：开始–windows管理工具-服务  找到 OpenSSH Authentication Agent 右键属性，启动类型调为”自动”，点击确定，右键启动即可</p>
 </blockquote>
 <hr>
-<h1 id="手动启动的方法"><a href="#手动启动的方法" class="headerlink" title="手动启动的方法"></a>手动启动的方法</h1><p>SSH server 安装好后需要手动启动<br>启动方法：开始- 服务管理器-所有服务器-服务  搜索OpenSSH找到服务后 手动启动</p>
-<pre><code> 默认是手动启动 所以要改成服务器重启后的自动启动(业务场景中不再使用这个方法)
-</code></pre>
-<p>①：使用快捷键Win+R，打开运行<br>②：输入命令：services.msc，打开系统服务界面<br><img src="https://user-images.githubusercontent.com/28568478/165488593-c9e17ab5-66e8-4b69-993a-a4f4f8ef691a.png" alt="image"></p>
+<h1 id="自动启动的方法"><a href="#自动启动的方法" class="headerlink" title="自动启动的方法"></a>自动启动的方法</h1><p>SSH server 安装好后需要手动启动<br>启动方法：开始- 服务管理器-所有服务器-服务  搜索OpenSSH找到服务后 手动启动</p>
+<p>默认是手动启动 所以要改成服务器重启后的自动启动(业务场景中不再使用这个方法)<br>①：使用快捷键Win+R，打开运行<br>②：输入命令：services.msc，打开系统服务界面<br><img src="https://user-images.githubusercontent.com/28568478/165488593-c9e17ab5-66e8-4b69-993a-a4f4f8ef691a.png" alt="image"></p>
 <p>③：按确定之后，我们打开系统服务界面，找到【OpenSSH SSH Server】</p>
 <p><img src="https://user-images.githubusercontent.com/28568478/165488609-b13acdb6-42c8-45c7-9bb6-a27b5146c8ae.png" alt="image"></p>
 <p>④：鼠标右击找到进入属性<br>把启动类型更改为：自动</p>
 <p><img src="https://user-images.githubusercontent.com/28568478/165488640-bd237ef1-cba1-4754-90e6-cf0c89dbc77c.png" alt="image"></p>
 <p>参考文档：<br><a target="_blank" rel="noopener" href="https://bynss.com/windows/803763.html">https://bynss.com/windows/803763.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse">https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ygunoil/p/15767529.html">https://www.cnblogs.com/ygunoil/p/15767529.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38689346/article/details/103727674">无法启动服务，原因可能是已被禁用或与其他关联的设备没有启动</a></p>
 
       
     </div>
@@ -1009,7 +1129,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-27 18:10:57" itemprop="dateModified" datetime="2022-04-27T18:10:57+08:00">2022-04-27</time>
+                <time title="修改时间：2022-04-27 18:23:12" itemprop="dateModified" datetime="2022-04-27T18:23:12+08:00">2022-04-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1027,14 +1147,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -1056,118 +1176,9 @@
 <p>参考文档：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/onlyAngel521/article/details/121268315">https://blog.csdn.net/onlyAngel521/article/details/121268315</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/159641100">https://zhuanlan.zhihu.com/p/159641100</a></p>
-
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2022/03/29/Linux/centos%E6%8D%A2%E6%BA%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="show">
-      <meta itemprop="description" content="ShowByte">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="冯晟的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/29/Linux/centos%E6%8D%A2%E6%BA%90/" class="post-title-link" itemprop="url">centos8 换源</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-29 17:00:48" itemprop="dateCreated datePublished" datetime="2022-03-29T17:00:48+08:00">2022-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-06 16:10:33" itemprop="dateModified" datetime="2022-04-06T16:10:33+08:00">2022-04-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="centos8-换源"><a href="#centos8-换源" class="headerlink" title="centos8 换源"></a>centos8 换源</h1><p>1、运行以下命令备份之前的repo文件。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rename &#x27;.repo&#x27; &#x27;.repo.bak&#x27; /etc/yum.repos.d/*.repo</span><br></pre></td></tr></table></figure>
-<p>2、运行以下命令下载最新的repo文件。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo -O /etc/yum.repos.d/Centos-vault-8.5.2111.repo</span><br><span class="line">wget https://mirrors.aliyun.com/repo/epel-archive-8.repo -O /etc/yum.repos.d/epel-archive-8.repo</span><br></pre></td></tr></table></figure>
-<p>3、运行以下命令替换repo文件中的链接。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s/mirrors.cloud.aliyuncs.com/url_tmp/g&#x27;  /etc/yum.repos.d/Centos-vault-8.5.2111.repo &amp;&amp;  sed -i &#x27;s/mirrors.aliyun.com/mirrors.cloud.aliyuncs.com/g&#x27; /etc/yum.repos.d/Centos-vault-8.5.2111.repo &amp;&amp; sed -i &#x27;s/url_tmp/mirrors.aliyun.com/g&#x27; /etc/yum.repos.d/Centos-vault-8.5.2111.repo</span><br><span class="line">sed -i &#x27;s/mirrors.aliyun.com/mirrors.cloud.aliyuncs.com/g&#x27; /etc/yum.repos.d/epel-archive-8.repo</span><br></pre></td></tr></table></figure>
-<p>4、运行以下命令重新创建缓存。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum clean all &amp;&amp; yum makecache</span><br></pre></td></tr></table></figure>
-<p>yum源和epel源切换完成后，即可使用yum install命令在实例上安装您所需要的软件包。</p>
-<h3 id="可能会报错"><a href="#可能会报错" class="headerlink" title="可能会报错"></a>可能会报错</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster ~]# yum clean all &amp;&amp; yum makecache</span><br><span class="line"></span><br><span class="line">Errors during downloading metadata for repository &#39;epel-archive&#39;:</span><br><span class="line">  - Curl error (6): Couldn&#39;t resolve host name for http:&#x2F;&#x2F;mirrors.cloud.aliyuncs.com&#x2F;epel-archive&#x2F;8&#x2F;Everything&#x2F;x86_64&#x2F;repodata&#x2F;repomd.xml [Could not resolve host: mirrors.cloud.aliyuncs.com]</span><br><span class="line">错误：为仓库 &#39;epel-archive&#39; 下载元数据失败 : Cannot download repomd.xml: Cannot download repodata&#x2F;repomd.xml: All mirrors were tried</span><br></pre></td></tr></table></figure>
-
-<p>运行以下命令替换repo文件中的链接，就是这一步出错了<br>官方提供的命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#39;s&#x2F;mirrors.cloud.aliyuncs.com&#x2F;url_tmp&#x2F;g&#39; &#x2F;etc&#x2F;yum.repos.d&#x2F;Centos-vault-8.5.2111.repo &amp;&amp; sed -i &#39;s&#x2F;mirrors.aliyun.com&#x2F;mirrors.cloud.aliyuncs.com&#x2F;g&#39; &#x2F;etc&#x2F;yum.repos.d&#x2F;Centos-vault-8.5.2111.repo &amp;&amp; sed -i &#39;s&#x2F;url_tmp&#x2F;mirrors.aliyun.com&#x2F;g&#39; &#x2F;etc&#x2F;yum.repos.d&#x2F;Centos-vault-8.5.2111.repo</span><br><span class="line">sed -i &#39;s&#x2F;mirrors.aliyun.com&#x2F;mirrors.cloud.aliyuncs.com&#x2F;g&#39; &#x2F;etc&#x2F;yum.repos.d&#x2F;epel-archive-8.repo</span><br></pre></td></tr></table></figure>
-
-<p><code>http://mirrors.cloud.aliyuncs.com</code> 需要替换为<code>http://mirrors.aliyun.com</code>，但是官方提供的命令没替换完，如果有执行官方提供的命令还是不行的话执行下面的命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#39;s&#x2F;mirrors.cloud.aliyuncs.com&#x2F;mirrors.aliyun.com&#x2F;g&#39; &#x2F;etc&#x2F;yum.repos.d&#x2F;Centos-vault-8.5.2111.repo</span><br><span class="line">sed -i &#39;s&#x2F;mirrors.cloud.aliyuncs.com&#x2F;mirrors.aliyun.com&#x2F;g&#39; &#x2F;etc&#x2F;yum.repos.d&#x2F;epel-archive-8.repo</span><br></pre></td></tr></table></figure>
-
-<p>运行以下命令重新创建缓存<br>yum clean all &amp;&amp; yum makecache<br>1</p>
-<p>执行成果，yum install也可以正常使用了</p>
-<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p>[CentOS 8 EOL如何切换源？](<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/405635.html?spm=5176.21213303.J_6704733920.7.5f853edaVvXmqu&amp;scm=20140722.S_help@@%E6%96%87%E6%A1%A3@@405635.S_os+hot.ID_405635-RL_centos8%20%20All%20mirrors%20were%20tried-LOC_helpmain-OR_ser-V_2-P0_0">https://help.aliyun.com/document_detail/405635.html?spm=5176.21213303.J_6704733920.7.5f853edaVvXmqu&amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40405635.S_os%2Bhot.ID_405635-RL_centos8%20%20All%20mirrors%20were%20tried-LOC_helpmain-OR_ser-V_2-P0_0</a>_</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wjma/p/15926966.html">https://www.cnblogs.com/wjma/p/15926966.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_36147027/article/details/113413250?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.pc_relevant_default&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=3">https://blog.csdn.net/weixin_36147027/article/details/113413250?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.pc_relevant_default&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=3</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/luozhihuinet2020/article/details/82799848">https://blog.csdn.net/luozhihuinet2020/article/details/82799848</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/visoeclipse/archive/2009/08/29/1556240.html">https://www.cnblogs.com/visoeclipse/archive/2009/08/29/1556240.html</a></p>
 
       
     </div>
@@ -1256,7 +1267,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-count">95</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1269,7 +1280,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-count">90</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1306,7 +1317,7 @@ translateInitilization();
         <h3 class="widget-title">标签云</h3>
         <div id="myCanvasContainer" class="widget tagcloud">
           <canvas width="250" height="250" id="resCanvas" style="width:100%">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS-%E5%AE%89%E8%A3%85Nvidia%E9%A9%B1%E5%8A%A8-CUDA-cuDNN/" rel="tag">CentOS 安装Nvidia驱动+CUDA+cuDNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Charles/" rel="tag">Charles</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAS-nas/" rel="tag">NAS nas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NFS-mount%E6%8C%82%E8%BD%BD/" rel="tag">NFS+mount挂载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDK/" rel="tag">SDK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-%E8%87%AA%E5%90%AF%E5%8A%A8/" rel="tag">Windows 自启动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/abstract/" rel="tag">abstract</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/" rel="tag">aws</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos8-%E6%8D%A2%E6%BA%90/" rel="tag">centos8 换源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cryptography/" rel="tag">cryptography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/df/" rel="tag">df</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-%E5%91%BD%E4%BB%A4/" rel="tag">docker 命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-%E9%85%8D%E7%BD%AE/" rel="tag">docker 配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-compose/" rel="tag">docker-compose</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/du/" rel="tag">du</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etcd/" rel="tag">etcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free/" rel="tag">free</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gen-secret/" rel="tag">gen-secret</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-flink/" rel="tag">k8s flink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-helm/" rel="tag">k8s helm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-Nginx%E8%BD%AC%E5%8F%91/" rel="tag">k8s ingress Nginx转发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E4%B8%BA%E7%B3%BB%E7%BB%9F%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E9%A2%84%E7%95%99%E8%AE%A1%E7%AE%97%E8%B5%84%E6%BA%90/" rel="tag">k8s 为系统守护进程预留计算资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" rel="tag">k8s 安装教程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E6%95%99%E7%A8%8B/" rel="tag">k8s 教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka-python/" rel="tag">kafka-python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka%E5%BC%82%E5%B8%B8/" rel="tag">kafka异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netstat/" rel="tag">netstat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nohup/" rel="tag">nohup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overlay2/" rel="tag">overlay2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paramiko/" rel="tag">paramiko</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/percona-toolkit/" rel="tag">percona-toolkit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycharm/" rel="tag">pycharm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pypi/" rel="tag">pypi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">python 深拷贝浅拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" rel="tag">python内置函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">python生成器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" rel="tag">python迭代器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rz-sz/" rel="tag">rz sz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-openssh/" rel="tag">ssh openssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" rel="tag">ssh 免密登录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/" rel="tag">struct</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/" rel="tag">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/volumes/" rel="tag">volumes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" rel="tag">vue2.0基础课程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows-utf-8/" rel="tag">windows utf-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows-%E7%A6%81%E6%AD%A2%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0/" rel="tag">windows 禁止系统更新</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E8%87%B4%E6%80%A7/" rel="tag">一致性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" rel="tag">不可变类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E6%A0%87/" rel="tag">图标</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81/" rel="tag">密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%9C%BA/" rel="tag">开机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85/" rel="tag">手机抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" rel="tag">抽象类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9B%AE%E5%BD%95%E8%BD%AF%E8%BF%9E/" rel="tag">服务器之间目录软连</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%85%E7%90%86/" rel="tag">清理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag">监测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD/" rel="tag">硬盘挂载</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%81%E4%B9%A6/" rel="tag">证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0/" rel="tag">配置参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%95%9C%E5%83%8F%E6%BA%90/" rel="tag">镜像源</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS-%E5%AE%89%E8%A3%85Nvidia%E9%A9%B1%E5%8A%A8-CUDA-cuDNN/" rel="tag">CentOS 安装Nvidia驱动+CUDA+cuDNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Charles/" rel="tag">Charles</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAS-nas/" rel="tag">NAS nas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NFS-mount%E6%8C%82%E8%BD%BD/" rel="tag">NFS+mount挂载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDK/" rel="tag">SDK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-%E8%87%AA%E5%90%AF%E5%8A%A8/" rel="tag">Windows 自启动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/abstract/" rel="tag">abstract</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/" rel="tag">aws</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos8-%E6%8D%A2%E6%BA%90/" rel="tag">centos8 换源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cryptography/" rel="tag">cryptography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/df/" rel="tag">df</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-%E5%91%BD%E4%BB%A4/" rel="tag">docker 命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-%E9%85%8D%E7%BD%AE/" rel="tag">docker 配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-compose/" rel="tag">docker-compose</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/du/" rel="tag">du</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etcd/" rel="tag">etcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free/" rel="tag">free</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gen-secret/" rel="tag">gen-secret</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-flink/" rel="tag">k8s flink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-helm/" rel="tag">k8s helm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-Nginx%E8%BD%AC%E5%8F%91/" rel="tag">k8s ingress Nginx转发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E4%B8%BA%E7%B3%BB%E7%BB%9F%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E9%A2%84%E7%95%99%E8%AE%A1%E7%AE%97%E8%B5%84%E6%BA%90/" rel="tag">k8s 为系统守护进程预留计算资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" rel="tag">k8s 安装教程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E6%95%99%E7%A8%8B/" rel="tag">k8s 教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka-python/" rel="tag">kafka-python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka%E5%BC%82%E5%B8%B8/" rel="tag">kafka异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netstat/" rel="tag">netstat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nohup/" rel="tag">nohup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overlay2/" rel="tag">overlay2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paramiko/" rel="tag">paramiko</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/percona-toolkit/" rel="tag">percona-toolkit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycharm/" rel="tag">pycharm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pypi/" rel="tag">pypi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">python 深拷贝浅拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" rel="tag">python内置函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">python生成器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" rel="tag">python迭代器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rz-sz/" rel="tag">rz sz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-exe-GUI/" rel="tag">ssh exe GUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-openssh/" rel="tag">ssh openssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" rel="tag">ssh 免密登录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/" rel="tag">struct</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/" rel="tag">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/volumes/" rel="tag">volumes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" rel="tag">vue2.0基础课程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows-utf-8/" rel="tag">windows utf-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows-%E7%A6%81%E6%AD%A2%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0/" rel="tag">windows 禁止系统更新</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E8%87%B4%E6%80%A7/" rel="tag">一致性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" rel="tag">不可变类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E6%A0%87/" rel="tag">图标</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81/" rel="tag">密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%9C%BA/" rel="tag">开机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85/" rel="tag">手机抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" rel="tag">抽象类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9B%AE%E5%BD%95%E8%BD%AF%E8%BF%9E/" rel="tag">服务器之间目录软连</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%85%E7%90%86/" rel="tag">清理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag">监测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD/" rel="tag">硬盘挂载</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%81%E4%B9%A6/" rel="tag">证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0/" rel="tag">配置参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%95%9C%E5%83%8F%E6%BA%90/" rel="tag">镜像源</a><span class="tag-list-count">1</span></li></ul>
           </canvas>
         </div>
       </div>
@@ -1343,12 +1354,12 @@ translateInitilization();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">345k</span>
+    <span title="站点总字数">347k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:13</span>
+    <span title="站点阅读时长">5:15</span>
 </div>
 
 

@@ -2,12 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.showbyte.cn/2022/04/13/windows/Windows%20%E5%A1%AB%E5%8A%A0%E8%87%AA%E5%90%AF%E5%8A%A8%E9%A1%B9/</loc>
+    <loc>http://blog.showbyte.cn/2022/04/27/windows/%E6%97%A0%E6%B3%95%E9%80%9A%E8%BF%87ssh%E5%91%BD%E4%BB%A4%E5%9C%A8windows%E4%B8%8A%E5%90%AF%E5%8A%A8GUI%E6%88%96%E8%80%85exe%E6%9C%8D%E5%8A%A1/</loc>
     
-    <lastmod>2022-04-27T10:10:57.568Z</lastmod>
+    <lastmod>2022-04-27T10:37:03.994Z</lastmod>
     
-    <date>1649834200908</date>
-    <title>Windows 填加自启动项 | 冯晟的博客</title>
+    <date>1651054442485</date>
+    <title>无法通过ssh命令在windows上启动GUI或者exe服务 | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2022/04/27/windows/windows%20%E4%BD%BF%E7%94%A8ssh/</loc>
+    
+    <lastmod>2022-04-27T10:35:09.451Z</lastmod>
+    
+    <date>1651051773257</date>
+    <title>windows 使用ssh openssh | 冯晟的博客</title>
     
     <desc></desc>
   </url>
@@ -15,10 +26,21 @@
   <url>
     <loc>http://blog.showbyte.cn/2022/04/27/windows/windows%E7%A6%81%E6%AD%A2%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0/</loc>
     
-    <lastmod>2022-04-27T10:03:55.027Z</lastmod>
+    <lastmod>2022-04-27T10:34:21.259Z</lastmod>
     
     <date>1651052882816</date>
     <title>windows禁止系统更新 | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2022/04/13/windows/Windows%20%E5%A1%AB%E5%8A%A0%E8%87%AA%E5%90%AF%E5%8A%A8%E9%A1%B9/</loc>
+    
+    <lastmod>2022-04-27T10:23:12.491Z</lastmod>
+    
+    <date>1649834200908</date>
+    <title>Windows 填加自启动项 | 冯晟的博客</title>
     
     <desc></desc>
   </url>
@@ -30,17 +52,6 @@
     
     <date>1651052550282</date>
     <title>windows 设置全局utf-8 | 冯晟的博客</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>http://blog.showbyte.cn/2022/04/27/windows/windows%20%E4%BD%BF%E7%94%A8ssh/</loc>
-    
-    <lastmod>2022-04-27T09:40:52.125Z</lastmod>
-    
-    <date>1651051773257</date>
-    <title>windows 使用ssh openssh | 冯晟的博客</title>
     
     <desc></desc>
   </url>
