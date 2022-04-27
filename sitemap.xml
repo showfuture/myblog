@@ -2,20 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.showbyte.cn/2022/04/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress-nginx%E7%9A%84%E8%BD%AC%E5%8F%91/</loc>
-    
-    <lastmod>2022-04-22T03:49:05.040Z</lastmod>
-    
-    <date>1650597110289</date>
-    <title>k8s ingress-nginx的转发配置 | 冯晟的博客</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
     <loc>http://blog.showbyte.cn/2022/04/13/windows/Windows%20%E5%A1%AB%E5%8A%A0%E8%87%AA%E5%90%AF%E5%8A%A8%E9%A1%B9/</loc>
     
-    <lastmod>2022-04-15T08:34:25.117Z</lastmod>
+    <lastmod>2022-04-27T10:10:57.568Z</lastmod>
     
     <date>1649834200908</date>
     <title>Windows 填加自启动项 | 冯晟的博客</title>
@@ -24,12 +13,89 @@
   </url>
   
   <url>
+    <loc>http://blog.showbyte.cn/2022/04/27/windows/windows%E7%A6%81%E6%AD%A2%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0/</loc>
+    
+    <lastmod>2022-04-27T10:03:55.027Z</lastmod>
+    
+    <date>1651052882816</date>
+    <title>windows禁止系统更新 | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2022/04/27/windows/windows%20%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80utf-8/</loc>
+    
+    <lastmod>2022-04-27T09:45:24.820Z</lastmod>
+    
+    <date>1651052550282</date>
+    <title>windows 设置全局utf-8 | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2022/04/27/windows/windows%20%E4%BD%BF%E7%94%A8ssh/</loc>
+    
+    <lastmod>2022-04-27T09:40:52.125Z</lastmod>
+    
+    <date>1651051773257</date>
+    <title>windows 使用ssh openssh | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2022/04/27/windows/ssh%20%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/</loc>
+    
+    <lastmod>2022-04-27T09:28:46.398Z</lastmod>
+    
+    <date>1651051593321</date>
+    <title>ssh 免密登录windows服务器 | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>http://blog.showbyte.cn/2022/04/13/windows/windows%20%E6%8C%82%E8%BD%BDNAS%E7%9B%98/</loc>
     
-    <lastmod>2022-04-15T08:34:04.760Z</lastmod>
+    <lastmod>2022-04-27T09:25:13.889Z</lastmod>
     
     <date>1649836607145</date>
     <title>windows、linux 挂载NAS盘 | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2022/04/27/flink/k8s%E5%AE%89%E8%A3%85flink/</loc>
+    
+    <lastmod>2022-04-27T07:53:45.534Z</lastmod>
+    
+    <date>1651045966856</date>
+    <title>k8s安装flink | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2022/04/27/K8S/k8s%E4%BD%BF%E7%94%A8/k8s%E5%AE%89%E8%A3%85helm/</loc>
+    
+    <lastmod>2022-04-27T07:52:15.393Z</lastmod>
+    
+    <date>1651045874047</date>
+    <title>k8s安装helm | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2022/04/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress-nginx%E7%9A%84%E8%BD%AC%E5%8F%91/</loc>
+    
+    <lastmod>2022-04-22T03:49:05.040Z</lastmod>
+    
+    <date>1650597110289</date>
+    <title>k8s ingress-nginx的转发配置 | 冯晟的博客</title>
     
     <desc></desc>
   </url>
