@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://blog.showbyte.cn/2022/04/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress-nginx%E7%9A%84%E8%BD%AC%E5%8F%91/</loc>
+    <lastmod>2022-06-07</lastmod>
+  </url>
+  <url>
     <loc>http://blog.showbyte.cn/2022/05/31/K8S/k8s%E4%BD%BF%E7%94%A8/ingress%E7%9A%84%E5%8F%82%E6%95%B0/</loc>
     <lastmod>2022-05-31</lastmod>
   </url>
@@ -39,10 +43,6 @@
   <url>
     <loc>http://blog.showbyte.cn/2022/04/27/K8S/k8s%E4%BD%BF%E7%94%A8/k8s%E5%AE%89%E8%A3%85helm/</loc>
     <lastmod>2022-04-27</lastmod>
-  </url>
-  <url>
-    <loc>http://blog.showbyte.cn/2022/04/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress-nginx%E7%9A%84%E8%BD%AC%E5%8F%91/</loc>
-    <lastmod>2022-04-22</lastmod>
   </url>
   <url>
     <loc>http://blog.showbyte.cn/2022/03/29/Linux/centos%E6%8D%A2%E6%BA%90/</loc>
