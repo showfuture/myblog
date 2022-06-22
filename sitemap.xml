@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.showbyte.cn/2022/06/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress%E7%9A%84%E6%B7%BB%E5%8A%A0gzip/</loc>
+    
+    <lastmod>2022-06-22T04:43:42.117Z</lastmod>
+    
+    <date>1655872899509</date>
+    <title>k8s ingress的添加gzip | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>http://blog.showbyte.cn/2022/04/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress-nginx%E7%9A%84%E8%BD%AC%E5%8F%91/</loc>
     
     <lastmod>2022-06-07T02:04:13.199Z</lastmod>
