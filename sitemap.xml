@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.showbyte.cn/2022/06/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress%E7%9A%84%E6%B7%BB%E5%8A%A0gzip/</loc>
+    <loc>http://blog.showbyte.cn/2022/06/28/Git/git%20lfs%20%E4%BD%BF%E7%94%A8/</loc>
     
-    <lastmod>2022-06-22T04:43:42.117Z</lastmod>
+    <lastmod>2022-06-28T06:28:51.758Z</lastmod>
     
-    <date>1655872899509</date>
-    <title>k8s ingress的添加gzip | 冯晟的博客</title>
+    <date>1656397668322</date>
+    <title>git lfs 使用 | 冯晟的博客</title>
     
     <desc></desc>
   </url>
@@ -15,10 +15,21 @@
   <url>
     <loc>http://blog.showbyte.cn/2022/04/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress-nginx%E7%9A%84%E8%BD%AC%E5%8F%91/</loc>
     
-    <lastmod>2022-06-07T02:04:13.199Z</lastmod>
+    <lastmod>2022-06-24T10:32:40.365Z</lastmod>
     
     <date>1650597110289</date>
     <title>k8s ingress-nginx的转发配置 | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2022/06/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress%E7%9A%84%E6%B7%BB%E5%8A%A0gzip/</loc>
+    
+    <lastmod>2022-06-24T10:30:07.097Z</lastmod>
+    
+    <date>1655872899509</date>
+    <title>k8s ingress的添加gzip | 冯晟的博客</title>
     
     <desc></desc>
   </url>
