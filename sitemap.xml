@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.showbyte.cn/2022/06/30/Git/Git%20%E5%88%A0%E9%99%A4%E5%A4%A7%E6%96%87%E4%BB%B6%E5%90%8E%E8%BF%9B%E8%A1%8C%E5%88%86%E6%94%AF%E7%98%A6%E8%BA%AB/</loc>
+    
+    <lastmod>2022-07-01T02:54:20.218Z</lastmod>
+    
+    <date>1656587716442</date>
+    <title>Git 删除大文件后进行分支瘦身 | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>http://blog.showbyte.cn/2022/06/28/Git/git%20lfs%20%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2022-06-28T06:28:51.758Z</lastmod>
