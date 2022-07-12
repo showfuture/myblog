@@ -2,6 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.showbyte.cn/2021/05/04/python/%E5%AE%89%E8%A3%85Python/</loc>
+    
+    <lastmod>2022-07-12T10:27:40.595Z</lastmod>
+    
+    <date>1620131370339</date>
+    <title>安装Python | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2022/07/12/python/pip%20install%20%E4%B8%8D%E4%BD%BF%E7%94%A8%20cache/</loc>
+    
+    <lastmod>2022-07-12T10:19:31.921Z</lastmod>
+    
+    <date>1657620962818</date>
+    <title>pip install 不使用 cache | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2022/06/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress%E7%9A%84%E6%B7%BB%E5%8A%A0gzip/</loc>
+    
+    <lastmod>2022-07-12T10:14:15.844Z</lastmod>
+    
+    <date>1655872899509</date>
+    <title>k8s ingress的添加gzip | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>http://blog.showbyte.cn/2022/06/30/Git/Git%20%E5%88%A0%E9%99%A4%E5%A4%A7%E6%96%87%E4%BB%B6%E5%90%8E%E8%BF%9B%E8%A1%8C%E5%88%86%E6%94%AF%E7%98%A6%E8%BA%AB/</loc>
     
     <lastmod>2022-07-01T02:54:20.218Z</lastmod>
@@ -30,17 +63,6 @@
     
     <date>1650597110289</date>
     <title>k8s ingress-nginx的转发配置 | 冯晟的博客</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>http://blog.showbyte.cn/2022/06/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress%E7%9A%84%E6%B7%BB%E5%8A%A0gzip/</loc>
-    
-    <lastmod>2022-06-24T10:30:07.097Z</lastmod>
-    
-    <date>1655872899509</date>
-    <title>k8s ingress的添加gzip | 冯晟的博客</title>
     
     <desc></desc>
   </url>
@@ -956,17 +978,6 @@
     <title>Vue.js - Day4 | 冯晟的博客</title>
     
     <desc>Vue基本的语法和概念三： Vue 父组件向子组件传值 Vue 子组件向父组件传值 Vue 组件中data和props的区别 Vue 什么是路由 Vue 使用 `children` 属性实现路由嵌套 Vue 命名视图实现经典布局 Vue `watch`、 `computed`计算属性的使用 nrm的安装使用</desc>
-  </url>
-  
-  <url>
-    <loc>http://blog.showbyte.cn/2021/05/04/python/%E5%AE%89%E8%A3%85Python/</loc>
-    
-    <lastmod>2021-05-04T12:32:49.263Z</lastmod>
-    
-    <date>1620131370339</date>
-    <title>安装Python | 冯晟的博客</title>
-    
-    <desc></desc>
   </url>
   
   <url>
