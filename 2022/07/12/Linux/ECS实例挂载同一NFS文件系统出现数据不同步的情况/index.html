@@ -28,7 +28,7 @@
 <meta property="og:description" content="问题描述当您使用两个ECS实例挂载同一个NFS文件系统，在ECS A实例上追加写文件，在ECS B实例上使用tail -f命令查看文件内容的变化时，在ECS A实例上写完之后，在ECS B实例上查看文件内容变化会有10~30秒的延时。然而相同的场景下，如果直接在ECS B实例上写文件（比如vi）可以立即看到更新的内容。 问题原因该现象与mount的选项和tail -f命令的实现相关：  挂载使用的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-12T11:01:45.204Z">
-<meta property="article:modified_time" content="2022-07-12T11:03:27.799Z">
+<meta property="article:modified_time" content="2022-07-13T02:37:01.781Z">
 <meta property="article:author" content="show">
 <meta property="article:tag" content="NAS 日志">
 <meta name="twitter:card" content="summary">
@@ -218,10 +218,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-07-12 19:01:45 / 修改时间：19:03:27" itemprop="dateCreated datePublished" datetime="2022-07-12T19:01:45+08:00">2022-07-12</time>
+              <time title="创建时间：2022-07-12 19:01:45" itemprop="dateCreated datePublished" datetime="2022-07-12T19:01:45+08:00">2022-07-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-13 10:37:01" itemprop="dateModified" datetime="2022-07-13T10:37:01+08:00">2022-07-13</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -245,7 +251,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>597</span>
+              <span>811</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -273,7 +279,7 @@
 </li>
 </ul>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>使用mount的noac选项可以关闭文件和目录属性的缓存。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t nfs4 -o noac &#x2F;mnt&#x2F;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount -t nfs4 -o noac &#x2F;mnt&#x2F;</span><br><span class="line"></span><br><span class="line">sudo mount -t nfs -o noac,vers&#x3D;3,nolock,proto&#x3D;tcp,rsize&#x3D;1048576,wsize&#x3D;1048576,hard,timeo&#x3D;600,retrans&#x3D;2,noresvport xxxxxx.cn-beijing.nas.aliyuncs.com:&#x2F;app&#x2F;work_log &#x2F;worker_log</span><br></pre></td></tr></table></figure>
 
 <h2 id="适用于"><a href="#适用于" class="headerlink" title="适用于"></a>适用于</h2><p>文件存储NAS</p>
 
