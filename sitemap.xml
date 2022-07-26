@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.showbyte.cn/2022/07/25/Linux%20web/Nginx%20%E8%BD%AC%E5%8F%91%20url%20%E7%9A%842%E7%A7%8D%E6%96%B9%E5%BC%8F/</loc>
+    <loc>http://blog.showbyte.cn/2022/07/25/Linux%20web/Nginx%E9%85%8D%E7%BD%AE%E8%BD%AC%E5%8F%91/</loc>
     
-    <lastmod>2022-07-25T10:25:56.161Z</lastmod>
+    <lastmod>2022-07-25T10:47:33.185Z</lastmod>
     
     <date>1658744684225</date>
-    <title>Nginx 转发 url 的2种方式 | 冯晟的博客</title>
+    <title>Nginx配置转发 | 冯晟的博客</title>
     
     <desc></desc>
   </url>
