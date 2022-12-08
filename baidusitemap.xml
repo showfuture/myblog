@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://blog.showbyte.cn/2022/07/25/Linux%20web/Nginx%E9%85%8D%E7%BD%AE%E8%BD%AC%E5%8F%91/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <loc>http://blog.showbyte.cn/2022/12/08/%E9%9D%A2%E8%AF%95/Charles%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2022-12-08</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.showbyte.cn/2021/12/01/K8S/day1/k8s_day1/</loc>
+    <lastmod>2022-07-29</lastmod>
   </url>
   <url>
     <loc>http://blog.showbyte.cn/2022/04/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress-nginx%E7%9A%84%E8%BD%AC%E5%8F%91/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.showbyte.cn/2022/07/25/Linux%20web/Nginx%E9%85%8D%E7%BD%AE%E8%BD%AC%E5%8F%91/</loc>
     <lastmod>2022-07-25</lastmod>
   </url>
   <url>
@@ -114,10 +122,6 @@
   </url>
   <url>
     <loc>http://blog.showbyte.cn/2021/12/01/K8S/day2/k8s_day2/</loc>
-    <lastmod>2021-12-07</lastmod>
-  </url>
-  <url>
-    <loc>http://blog.showbyte.cn/2021/12/01/K8S/day1/k8s_day1/</loc>
     <lastmod>2021-12-07</lastmod>
   </url>
   <url>

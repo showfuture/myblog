@@ -2,12 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.showbyte.cn/2022/07/25/Linux%20web/Nginx%E9%85%8D%E7%BD%AE%E8%BD%AC%E5%8F%91/</loc>
+    <loc>http://blog.showbyte.cn/2022/12/08/%E9%9D%A2%E8%AF%95/Charles%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
     
-    <lastmod>2022-07-25T10:47:33.185Z</lastmod>
+    <lastmod>2022-12-08T08:32:53.082Z</lastmod>
     
-    <date>1658744684225</date>
-    <title>Nginx配置转发 | 冯晟的博客</title>
+    <date>1670488196000</date>
+    <title>公司有n个组，每组人数相同，>=1人，需要进行随机的组队吃饭 | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2021/12/01/K8S/day1/k8s_day1/</loc>
+    
+    <lastmod>2022-07-29T03:29:41.319Z</lastmod>
+    
+    <date>1638346530108</date>
+    <title>k8s教程day1-k8s介绍及环境搭建和YAML语言介绍 | 冯晟的博客</title>
     
     <desc></desc>
   </url>
@@ -15,10 +26,21 @@
   <url>
     <loc>http://blog.showbyte.cn/2022/04/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress-nginx%E7%9A%84%E8%BD%AC%E5%8F%91/</loc>
     
-    <lastmod>2022-07-25T08:05:05.642Z</lastmod>
+    <lastmod>2022-07-28T09:57:22.160Z</lastmod>
     
     <date>1650597110289</date>
     <title>k8s ingress-nginx的转发配置 | 冯晟的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>http://blog.showbyte.cn/2022/07/25/Linux%20web/Nginx%E9%85%8D%E7%BD%AE%E8%BD%AC%E5%8F%91/</loc>
+    
+    <lastmod>2022-07-25T10:47:33.185Z</lastmod>
+    
+    <date>1658744684225</date>
+    <title>Nginx配置转发 | 冯晟的博客</title>
     
     <desc></desc>
   </url>
@@ -316,17 +338,6 @@
     
     <date>1638347149417</date>
     <title>k8s教程day2-namespace、pod、label、development、service | 冯晟的博客</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>http://blog.showbyte.cn/2021/12/01/K8S/day1/k8s_day1/</loc>
-    
-    <lastmod>2021-12-07T02:41:13.027Z</lastmod>
-    
-    <date>1638346530108</date>
-    <title>k8s教程day1-k8s介绍及环境搭建和YAML语言介绍 | 冯晟的博客</title>
     
     <desc></desc>
   </url>
