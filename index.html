@@ -118,7 +118,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">98</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">99</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -128,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">104</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">106</span></a>
 
   </li>
         <li class="menu-item menu-item-playlist">
@@ -188,6 +188,515 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2023/03/15/python/python%E7%9A%84json%E4%B8%8D%E8%83%BD%E5%BA%8F%E5%88%97%E5%8C%96datetime%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/15/python/python%E7%9A%84json%E4%B8%8D%E8%83%BD%E5%BA%8F%E5%88%97%E5%8C%96datetime%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">python的json不能序列化datetime类型数据问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-15 16:27:28 / 修改时间：16:36:59" itemprop="dateCreated datePublished" datetime="2023-03-15T16:27:28+08:00">2023-03-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="一、json序列化时默认支持的数据类型"><a href="#一、json序列化时默认支持的数据类型" class="headerlink" title="一、json序列化时默认支持的数据类型"></a>一、json序列化时默认支持的数据类型</h3><table>
+<thead>
+<tr>
+<th align="left">Python</th>
+<th align="right">JSON</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">dict</td>
+<td align="right">object</td>
+</tr>
+<tr>
+<td align="left">list, tuple</td>
+<td align="right">array</td>
+</tr>
+<tr>
+<td align="left">str</td>
+<td align="right">string</td>
+</tr>
+<tr>
+<td align="left">int, float, int- &amp; float-derived Enums</td>
+<td align="right">number</td>
+</tr>
+<tr>
+<td align="left">True</td>
+<td align="right">true</td>
+</tr>
+<tr>
+<td align="left">False</td>
+<td align="right">false</td>
+</tr>
+<tr>
+<td align="left">None</td>
+<td align="right">null</td>
+</tr>
+<tr>
+<td align="left">除此之外的数据类型，就需要我们个性化定制。</td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<h3 id="二、定制支持datetime类型"><a href="#二、定制支持datetime类型" class="headerlink" title="二、定制支持datetime类型"></a>二、定制支持datetime类型</h3><p>官方文档中关于json.dumps方法的一个参数(cls)说明：</p>
+<blockquote>
+<p>To use a custom JSONEncoder subclass (e.g. one that overrides the default() method to serialize additional types), specify it with the cls kwarg; otherwise JSONEncoder is used.</p>
+</blockquote>
+<p>官方文档中的一个Demo：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import json</span><br><span class="line">&gt;&gt;&gt; class ComplexEncoder(json.JSONEncoder):</span><br><span class="line">...     def default(self, obj):</span><br><span class="line">...         if isinstance(obj, complex):</span><br><span class="line">...             return [obj.real, obj.imag]</span><br><span class="line">...         return json.JSONEncoder.default(self, obj)</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; dumps(2 + 1j, cls&#x3D;ComplexEncoder)</span><br><span class="line">&#39;[2.0, 1.0]&#39;</span><br><span class="line">&gt;&gt;&gt; ComplexEncoder().encode(2 + 1j)</span><br><span class="line">&#39;[2.0, 1.0]&#39;</span><br><span class="line">&gt;&gt;&gt; list(ComplexEncoder().iterencode(2 + 1j))</span><br><span class="line">[&#39;[&#39;, &#39;2.0&#39;, &#39;, &#39;, &#39;1.0&#39;, &#39;]&#39;]</span><br></pre></td></tr></table></figure>
+
+<p>定制支持datetime类型需要完成以下步骤：</p>
+<ul>
+<li>定义一个继承自JSONEncoder的类，重写里面的default方法，定义对datetime类型数据的处理方法</li>
+<li>在用dumps函数序列化时，参数cls的值就设为我们上面写的这个子类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import json</span><br><span class="line">from datetime import datetime</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">time &#x3D; datetime(1987,2,5)</span><br><span class="line"> </span><br><span class="line">class DatetimeJsonEncoder(json.JSONEncoder):</span><br><span class="line">    &#39;&#39;&#39;这是JSONEncoder的子类&#39;&#39;&#39;</span><br><span class="line">    def default(self,obj):     # pylint: disable &#x3D; method-hidden</span><br><span class="line">        &#39;&#39;&#39;这是重写的default方法</span><br><span class="line">        :参数 obj: 需要序列化的对象</span><br><span class="line">        &#39;&#39;&#39;</span><br><span class="line">        # 如果是datetime对象，就按照我们自定义的格式转化为列表</span><br><span class="line">        if isinstance(obj, datetime):</span><br><span class="line">            return obj.strftime(&#39;%Y-%m-%d %H:%M:%S&#39;)</span><br><span class="line">        elif isinstance(obj, date):</span><br><span class="line">            return obj.strftime(&#39;%Y-%m-%d&#39;)</span><br><span class="line">        else:</span><br><span class="line">            # 其他的基本类型数据，就按照JSONEncoder自己的方法处理</span><br><span class="line">            return json.JSONEncoder.default(self,obj)</span><br><span class="line"> </span><br><span class="line">string &#x3D; json.dumps(&#123;&#39;name&#39;:&#39;Alex Brightman&#39;,&#39;birthday&#39;:time&#125;,cls&#x3D;DatetimeJsonEncoder)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2023/03/15/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E6%B1%87%E6%80%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/15/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E6%B1%87%E6%80%BB/" class="post-title-link" itemprop="url">面试汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-15 15:27:46 / 修改时间：18:05:05" itemprop="dateCreated datePublished" datetime="2023-03-15T15:27:46+08:00">2023-03-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%A2%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">面试</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><blockquote>
+<p>django flask tornado 底层实现原理，三者使用场景</p>
+<p>gunicore 实现原理</p>
+<p>单例作用及应用场景，wraps修饰器的作用</p>
+<p>py3 和 py2有哪些区别，pep8 风格</p>
+<p>类方法，静态方法，实例方法 区别及应用场景</p>
+<p>深拷贝浅拷贝</p>
+<p>新式类和旧式类的区别</p>
+<p>python 常用的设计模式</p>
+<p>dict为什么无序，python3的 dict 是有序的</p>
+</blockquote>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/taizilongxu/interview_python">interview_python</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2c62d4e082a1">Tornado IOLoop</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/eliwang/p/14184857.html">tornado工作原理</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000038241863">聊一聊python和golang协程的区别</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/be5yond/article/details/119545119">Python中的数据类dataclass详解</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://article.itxueyuan.com/OwkvO6">Python3.7 dataclass使用指南</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.manongjc.com/detail/30-kzzhghbsmnksgxw.html">dataclass转字典</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a7619ad318b8">字典转dataclass</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43901998/article/details/114296369">Python中的__repr__和__str__</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://cuiqingcai.com/7071.html">Python 中 typing 模块和类型注解的使用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fanguangdexiaoyuer/p/10834737.html">python 进程、线程、协程</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.lmlphp.com/user/57793/article/item/1398048/">python框架(flask/django/tornado)比较</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qdPython/article/details/120974545">python中wraps的详解</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41248532/article/details/123246471">python之单例模式</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/shenh/p/13045035.html">python 实例方法、静态方法、类方法的区别</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jiajiren11/article/details/100576147">Python中新式类和经典类（旧式类）的区别</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq546770908/article/details/53082870">select、poll、epoll之间的区别总结[整理] + 知乎大神解答</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45455015/article/details/100113330">WSGI，uWSGI和uwsgi区别详解</a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+</ul>
+<h1 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7131717990558466062">GO必知必会面试题汇总</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/471490292">Go常见面试题【由浅入深】2022版</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/542596378">Go设计模式常见面试题【2022版】</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/lifei6671/interview-go">interview-go</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/865593">golang 面试总结</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/north1989/article/details/116740656">Go | struct 的比较</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1730052">Go语言||字符数据类型 rune和byte</a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+</ul>
+<h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><blockquote>
+<p>索引分类、失效、如何优化</p>
+<p>ACID的具体实现，隔离级别、mvcc 实现及作用，锁</p>
+<p>数据落盘，mysql 优化，</p>
+<p>redo log，binlog，undo log、buffer pool</p>
+</blockquote>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://xiaolincoding.com/mysql/">图解MySQL介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/mysql-different-nnodb-myisam.html">MySQL存储引擎InnoDB与Myisam的六大区别</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6987557227074846733">彻底搞懂MySQL的redo log，binlog，undo log</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/souyunku/p/15633392.html">110道 MySQL面试题及答案</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1331786">MySQL探秘(四):InnoDB的磁盘文件及落盘机制</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.51cto.com/article/705849.html">MySQL 表数据多久刷一次盘？</a></p>
+</li>
+<li><p><a href="6931752749545553933">史上最全MySQL各种锁详解</a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+</ul>
+<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h3 id="面试题-1"><a href="#面试题-1" class="headerlink" title="面试题"></a>面试题</h3><blockquote>
+<p>分布式锁</p>
+<p>数据类型,应用场景,底层结构</p>
+<p>持久化（aof、rdb、aof 和 rdb 混合使用）</p>
+<p>mysql 和 redis 事务的区别，redis 原子性和 pipline 的区别</p>
+<p>redis 多线程</p>
+</blockquote>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://xiaolincoding.com/redis/">图解Redis介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://kaito-kidd.com/2021/06/08/is-redis-distributed-lock-really-safe/">深度剖析：Redis分布式锁到底安全吗？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.51cto.com/course/5750053">Codis 和 Redis Cluster 这两种切片集群方案选择？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cfzy/p/15502994.html">redis三种集群模式</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangyingshuo/p/14510524.html">Redis实现分布式锁的7种方案，及正确使用姿势！</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/redis/bloom-filter.html">Redis布隆过滤器（原理+图解）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/396432069">Redis布隆过滤器应用场景</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jy02268879/article/details/105815729">redis之事务、事务特性、与pipeline比较，与Lua脚本比较</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.leftpocket.cn/post/redis/multithreading/">一文看懂Redis 6.0多线程IO</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_51435347/article/details/126955575">延时任务-基于redis zset实现</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7064557796762583047">Redis Cluster 为什么选哈希槽不选一致性哈希？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/souyunku/p/15634052.html">110道 Redis面试题及答案</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7011503283768393736">聊聊redis分布式锁的8大坑</a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+</ul>
+<h1 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h1><h3 id="面试题-2"><a href="#面试题-2" class="headerlink" title="面试题"></a>面试题</h3><blockquote>
+<p>kafka 如何保证不丢失不重复消费数据</p>
+<p>kafka 主副本挂掉后会不会丢失数据</p>
+<p>kafka 副本同步时主副本挂掉 同步了一个副本  其他副本会不会和已同步的副本数据不一致</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/334639167">Kafka如何保证不丢失不重复消费</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/483747691/answer/2832948006">kafka 如何保证不重复消费又不丢失数据？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42265640/article/details/128626473">Kafka副本机制以及副本同步</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8OAQzZ5jZYV2Fvtg0pfZoQ">Kafka 面试连环炮, 看看你能撑到哪一步?（上）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/CG93xB6ubjJRlYJlxhtcSg">Kafka 面试连环炮, 看看你能撑到哪一步?（中）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/HksQtlhYG2hRHMKD85ktnw">Kafka 面试连环炮, 看看你能撑到哪一步?（下）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/news/625424">Kafka和Redis的各自优缺点</a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+</ul>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://programmercarl.com/">代码随想录</a>  (算法学习博客)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6971340474778910728">怎么判断链表是否有环？</a></p>
+</li>
+<li><p><a href>链表翻转</a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+</ul>
+<h1 id="ES"><a href="#ES" class="headerlink" title="ES"></a>ES</h1><h3 id="面试题-3"><a href="#面试题-3" class="headerlink" title="面试题"></a>面试题</h3><blockquote>
+<p>倒排索引</p>
+<p>如何调优 es</p>
+</blockquote>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/740659">2019年常见ElasticSearch面试题解析（上）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/740770">2019年常见Elasticsearch 面试题答案详细解析（下）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/pony_maggie/article/details/105478557">ES分页看这篇就够了</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/souyunku/p/15635460.html">110道 Elasticsearch面试题及答案</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/a745233700/article/details/115585342">ElasticSearch搜索引擎常见面试题总结</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/a745233700/article/details/118076845">ElasticSearch搜索引擎：数据的写入流程</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/102500311">24道进阶必备Elasticsearch 面试真题</a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+</ul>
+<h1 id="Flink"><a href="#Flink" class="headerlink" title="Flink"></a>Flink</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43704599/article/details/113847416">64道企业真实Flink题目让你无惧Flink面试（带答案）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7127651465983688717">2万字50张图玩转Flink面试体系</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15277063/5163445">2022年Flink面试题整理</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138101642">Flink面试题</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sqf_csdn/article/details/109512772">Flink保证数据不丢失不重复、状态一致性</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://blog.wya1.com:8090/article/636697030/details/31541">Flink保证exactly-once机制介绍：checkpoint及TwoPhaseCommitSinkFunction</a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+</ul>
+<h1 id="K8S-Docker"><a href="#K8S-Docker" class="headerlink" title="K8S,Docker"></a>K8S,Docker</h1><h3 id="面试题-4"><a href="#面试题-4" class="headerlink" title="面试题"></a>面试题</h3><blockquote>
+<p>k8s 的 pod 的创建流程</p>
+<p>k8s 网络请求流程</p>
+<p>k8s切换 pod 会不会导致流量丢失</p>
+<p>docker命令</p>
+</blockquote>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2142412">Kubernetes 如何优雅的重启Pod</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012516914/article/details/119194188">K8S Pod流量的优雅无损切换实践</a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+</ul>
+<h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/">web前端面试 - 面试官系列</a></li>
+</ul>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/lovely_yoshino/article/details/120515346">Git rebase 和 merge讲解</a></li>
+</ul>
+<h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><h3 id="面试题-5"><a href="#面试题-5" class="headerlink" title="面试题"></a>面试题</h3><blockquote>
+<p>服务器状态码</p>
+<p>什么是 http 协议，http 常用的字段</p>
+</blockquote>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://xiaolincoding.com/network/">图解网络介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42171208/article/details/119265599">服务器状态502 503 504</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/80e25cb1d81a">关于HTTP协议，一篇就够了</a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+</ul>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://bbs.huaweicloud.com/blogs/327962">Linux面试题Top100</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904041483337741">linux TOP命令各参数详解</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.51cto.com/luckyshiliang/5215116">free -h</a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+</ul>
+<h1 id="设计题"><a href="#设计题" class="headerlink" title="设计题"></a>设计题</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU0OTE4MzYzMw==&mid=2247551305&idx=2&sn=19421d85cce101307c6daebf73c10f82&chksm=fbb180b7ccc609a1e33749264fe6d0b576b189a35344c950cff8e63ef9e2713c4115013f84c6&scene=27">高并发架构设计经验</a></li>
+</ul>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6990307911117307934">秒杀系统要如何设计？</a></p>
+</li>
+<li><p><a href></a></p>
+</li>
+</ul>
+<h1 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发"></a>敏捷开发</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/398276773">敏捷开发快速入门（四）：Scrum开发流程</a></li>
+</ul>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/73d2415956bd">restful风格API</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/28940451">CDN详解</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_67553250/article/details/128363833">设计一个接口务必考虑好这14个基本点</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -974,191 +1483,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2022/05/31/K8S/k8s%E4%BD%BF%E7%94%A8/ingress%E7%9A%84%E5%8F%82%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="show">
-      <meta itemprop="description" content="ShowByte">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="冯晟的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/05/31/K8S/k8s%E4%BD%BF%E7%94%A8/ingress%E7%9A%84%E5%8F%82%E6%95%B0/" class="post-title-link" itemprop="url">k8s ingress-nginx的参数配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-05-31 22:32:32 / 修改时间：22:34:22" itemprop="dateCreated datePublished" datetime="2022-05-31T22:32:32+08:00">2022-05-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/k8s/" itemprop="url" rel="index"><span itemprop="name">k8s</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>602</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="1-调整默认的-nginx-参数-client-max-body-size"><a href="#1-调整默认的-nginx-参数-client-max-body-size" class="headerlink" title="1.调整默认的 nginx 参数 client_max_body_size"></a>1.调整默认的 nginx 参数 client_max_body_size</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: &#123;&#123;ingApiVersion&#125;&#125;</span><br><span class="line">kind: Ingress</span><br><span class="line">metadata:</span><br><span class="line">  name: &#123;&#123;ingName&#125;&#125;</span><br><span class="line">  namespace: &#123;&#123;namespace&#125;&#125;</span><br><span class="line">  annotations:</span><br><span class="line">    nginx.ingress.kubernetes.io&#x2F;rewrite-target: &#x2F;</span><br><span class="line">    kubernetes.io&#x2F;ingress.class: &#123;&#123;ingClass&#125;&#125;</span><br><span class="line">    cert-manager.io&#x2F;cluster-issuer: &#123;&#123;clusterIssuer&#125;&#125;</span><br><span class="line">    nginx.ingress.kubernetes.io&#x2F;ssl-redirect: &#39;true&#39;</span><br><span class="line">    nginx.ingress.kubernetes.io&#x2F;force-ssl-redirect: &#39;true&#39;</span><br><span class="line">    nginx.ingress.kubernetes.io&#x2F;proxy-body-size: &#39;30m&#39; # 跳转 nginx 的上传大小</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2022/04/27/windows/%E6%97%A0%E6%B3%95%E9%80%9A%E8%BF%87ssh%E5%91%BD%E4%BB%A4%E5%9C%A8windows%E4%B8%8A%E5%90%AF%E5%8A%A8GUI%E6%88%96%E8%80%85exe%E6%9C%8D%E5%8A%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="show">
-      <meta itemprop="description" content="ShowByte">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="冯晟的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/27/windows/%E6%97%A0%E6%B3%95%E9%80%9A%E8%BF%87ssh%E5%91%BD%E4%BB%A4%E5%9C%A8windows%E4%B8%8A%E5%90%AF%E5%8A%A8GUI%E6%88%96%E8%80%85exe%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">无法通过ssh命令在windows上启动GUI或者exe服务</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-04-27 18:14:02 / 修改时间：18:37:03" itemprop="dateCreated datePublished" datetime="2022-04-27T18:14:02+08:00">2022-04-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="无法通过ssh命令在windows上启动GUI或者exe服务"><a href="#无法通过ssh命令在windows上启动GUI或者exe服务" class="headerlink" title="无法通过ssh命令在windows上启动GUI或者exe服务"></a>无法通过ssh命令在windows上启动GUI或者exe服务</h1><p>通过schtasks方创建任务去执行<br><img src="https://user-images.githubusercontent.com/28568478/165497430-e2a39577-9e49-4d4a-83d5-fc87bd43f2d7.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@echo &quot;开始通过schtasks启动test。。。&quot;</span><br><span class="line">schtasks &#x2F;create &#x2F;SC ONCE &#x2F;TN test-build &#x2F;TR C:\server\windows-bat-code\start-test.bat  &#x2F;ST 00:00</span><br><span class="line">schtasks &#x2F;run &#x2F;TN test-build</span><br><span class="line">schtasks &#x2F;delete &#x2F;TN test-build &#x2F;F</span><br><span class="line">exit 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>start-test.bat<br>启动git-bash命令执行</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> &quot;开始启动test。。。&quot;</span><br><span class="line"><span class="built_in">start</span> &quot;&quot; &quot;C:\Program Files\Git\git-bash.exe&quot; -c &quot;<span class="built_in">cd</span> /c/server/test-<span class="number">3</span>d/build &amp;&amp; export BUILD_ID=dontKillMe &amp;&amp; export test_3D_LOG_DIR=&#x27;D:\app\extra_work_log\test-<span class="number">3</span>d\<span class="variable">%computername%</span>&#x27; &amp;&amp; <span class="built_in">start</span> test-build.exe &#x27;-logfile -&#x27;&quot;</span><br><span class="line"><span class="keyword">exit</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="powershell-命令执行脚本"><a href="#powershell-命令执行脚本" class="headerlink" title="powershell 命令执行脚本"></a>powershell 命令执行脚本</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i &#x2F;keystore&#x2F;ssh -o &#39;StrictHostKeyChecking no&#39; Administrator@-windows.xxx.com &#39;Powershell.exe -ExecutionPolicy Unrestricted -command &quot;C:\\server\\windows-bat-code\\update-code.bat&quot;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>update-code.bat</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> &quot;开始更新代码&quot;</span><br><span class="line"><span class="built_in">cd</span> C:\server\monet-parent\</span><br><span class="line">git clean -fdx</span><br><span class="line">git checkout -- ./</span><br><span class="line">git pull --rebase</span><br><span class="line">@<span class="built_in">echo</span> &quot;开始安装python依赖包&quot;</span><br><span class="line">pip install -r C:\server\monet-parent\blender-<span class="number">3</span>d\requirements.txt -i  https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"><span class="keyword">exit</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<p>参考文档</p>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/59880794/starting-gui-programs-via-openssh-on-windows">Starting GUI programs via OpenSSH on Windows?</a></p>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/70380040/starting-application-gui-on-remote-windows-from-ssh-linux">Starting application GUI on remote windows from SSH linux</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/onlyAngel521/article/details/121268315">bat脚本在特定目录中启动git bash窗口，并执行命令</a></p>
-
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1228,7 +1552,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">104</span>
+          <span class="site-state-item-count">106</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1241,7 +1565,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">98</span>
+        <span class="site-state-item-count">99</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1278,7 +1602,7 @@ translateInitilization();
         <h3 class="widget-title">标签云</h3>
         <div id="myCanvasContainer" class="widget tagcloud">
           <canvas width="250" height="250" id="resCanvas" style="width:100%">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS-%E5%AE%89%E8%A3%85Nvidia%E9%A9%B1%E5%8A%A8-CUDA-cuDNN/" rel="tag">CentOS 安装Nvidia驱动+CUDA+cuDNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Charles/" rel="tag">Charles</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAS-nas/" rel="tag">NAS nas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAS-%E6%97%A5%E5%BF%97/" rel="tag">NAS 日志</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NFS-mount%E6%8C%82%E8%BD%BD/" rel="tag">NFS+mount挂载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDK/" rel="tag">SDK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-%E8%87%AA%E5%90%AF%E5%8A%A8/" rel="tag">Windows 自启动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/abstract/" rel="tag">abstract</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/" rel="tag">aws</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos8-%E6%8D%A2%E6%BA%90/" rel="tag">centos8 换源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cryptography/" rel="tag">cryptography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/df/" rel="tag">df</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-%E5%91%BD%E4%BB%A4/" rel="tag">docker 命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-%E9%85%8D%E7%BD%AE/" rel="tag">docker 配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-compose/" rel="tag">docker-compose</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/du/" rel="tag">du</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etcd/" rel="tag">etcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free/" rel="tag">free</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gen-secret/" rel="tag">gen-secret</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-lfs/" rel="tag">git lfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-flink/" rel="tag">k8s flink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-helm/" rel="tag">k8s helm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-Nginx%E5%8F%82%E6%95%B0/" rel="tag">k8s ingress Nginx参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-Nginx%E8%BD%AC%E5%8F%91/" rel="tag">k8s ingress Nginx转发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-gzip/" rel="tag">k8s ingress gzip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E4%B8%BA%E7%B3%BB%E7%BB%9F%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E9%A2%84%E7%95%99%E8%AE%A1%E7%AE%97%E8%B5%84%E6%BA%90/" rel="tag">k8s 为系统守护进程预留计算资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" rel="tag">k8s 安装教程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E6%95%99%E7%A8%8B/" rel="tag">k8s 教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka-python/" rel="tag">kafka-python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka%E5%BC%82%E5%B8%B8/" rel="tag">kafka异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netstat/" rel="tag">netstat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nohup/" rel="tag">nohup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overlay2/" rel="tag">overlay2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paramiko/" rel="tag">paramiko</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/percona-toolkit/" rel="tag">percona-toolkit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycharm/" rel="tag">pycharm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pypi/" rel="tag">pypi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">python 深拷贝浅拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" rel="tag">python内置函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">python生成器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" rel="tag">python迭代器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rz-sz/" rel="tag">rz sz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-exe-GUI/" rel="tag">ssh exe GUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-openssh/" rel="tag">ssh openssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" rel="tag">ssh 免密登录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/" rel="tag">struct</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/" rel="tag">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/volumes/" rel="tag">volumes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" rel="tag">vue2.0基础课程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows-utf-8/" rel="tag">windows utf-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows-%E7%A6%81%E6%AD%A2%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0/" rel="tag">windows 禁止系统更新</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E8%87%B4%E6%80%A7/" rel="tag">一致性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" rel="tag">不可变类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E6%A0%87/" rel="tag">图标</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81/" rel="tag">密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%9C%BA/" rel="tag">开机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85/" rel="tag">手机抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" rel="tag">抽象类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9B%AE%E5%BD%95%E8%BD%AF%E8%BF%9E/" rel="tag">服务器之间目录软连</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%85%E7%90%86/" rel="tag">清理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag">监测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD/" rel="tag">硬盘挂载</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%81%E4%B9%A6/" rel="tag">证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0/" rel="tag">配置参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%95%9C%E5%83%8F%E6%BA%90/" rel="tag">镜像源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS-%E5%AE%89%E8%A3%85Nvidia%E9%A9%B1%E5%8A%A8-CUDA-cuDNN/" rel="tag">CentOS 安装Nvidia驱动+CUDA+cuDNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Charles/" rel="tag">Charles</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAS-nas/" rel="tag">NAS nas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAS-%E6%97%A5%E5%BF%97/" rel="tag">NAS 日志</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NFS-mount%E6%8C%82%E8%BD%BD/" rel="tag">NFS+mount挂载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDK/" rel="tag">SDK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-%E8%87%AA%E5%90%AF%E5%8A%A8/" rel="tag">Windows 自启动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/abstract/" rel="tag">abstract</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/" rel="tag">aws</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos8-%E6%8D%A2%E6%BA%90/" rel="tag">centos8 换源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cryptography/" rel="tag">cryptography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/df/" rel="tag">df</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-%E5%91%BD%E4%BB%A4/" rel="tag">docker 命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-%E9%85%8D%E7%BD%AE/" rel="tag">docker 配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-compose/" rel="tag">docker-compose</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/du/" rel="tag">du</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etcd/" rel="tag">etcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free/" rel="tag">free</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gen-secret/" rel="tag">gen-secret</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-lfs/" rel="tag">git lfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-flink/" rel="tag">k8s flink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-helm/" rel="tag">k8s helm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-Nginx%E5%8F%82%E6%95%B0/" rel="tag">k8s ingress Nginx参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-Nginx%E8%BD%AC%E5%8F%91/" rel="tag">k8s ingress Nginx转发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-gzip/" rel="tag">k8s ingress gzip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E4%B8%BA%E7%B3%BB%E7%BB%9F%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E9%A2%84%E7%95%99%E8%AE%A1%E7%AE%97%E8%B5%84%E6%BA%90/" rel="tag">k8s 为系统守护进程预留计算资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" rel="tag">k8s 安装教程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E6%95%99%E7%A8%8B/" rel="tag">k8s 教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka-python/" rel="tag">kafka-python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka%E5%BC%82%E5%B8%B8/" rel="tag">kafka异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netstat/" rel="tag">netstat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nohup/" rel="tag">nohup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overlay2/" rel="tag">overlay2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paramiko/" rel="tag">paramiko</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/percona-toolkit/" rel="tag">percona-toolkit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycharm/" rel="tag">pycharm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pypi/" rel="tag">pypi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">python 深拷贝浅拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" rel="tag">python内置函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">python生成器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" rel="tag">python迭代器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rz-sz/" rel="tag">rz sz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-exe-GUI/" rel="tag">ssh exe GUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-openssh/" rel="tag">ssh openssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" rel="tag">ssh 免密登录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/" rel="tag">struct</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/" rel="tag">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/volumes/" rel="tag">volumes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" rel="tag">vue2.0基础课程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows-utf-8/" rel="tag">windows utf-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows-%E7%A6%81%E6%AD%A2%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0/" rel="tag">windows 禁止系统更新</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E8%87%B4%E6%80%A7/" rel="tag">一致性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" rel="tag">不可变类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E6%A0%87/" rel="tag">图标</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81/" rel="tag">密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%9C%BA/" rel="tag">开机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85/" rel="tag">手机抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" rel="tag">抽象类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9B%AE%E5%BD%95%E8%BD%AF%E8%BF%9E/" rel="tag">服务器之间目录软连</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%85%E7%90%86/" rel="tag">清理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag">监测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD/" rel="tag">硬盘挂载</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%81%E4%B9%A6/" rel="tag">证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0/" rel="tag">配置参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%95%9C%E5%83%8F%E6%BA%90/" rel="tag">镜像源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E6%B1%87%E6%80%BB/" rel="tag">面试汇总</a><span class="tag-list-count">1</span></li></ul>
           </canvas>
         </div>
       </div>
@@ -1306,7 +1630,7 @@ translateInitilization();
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="heart"></i>
   </span>
@@ -1315,12 +1639,12 @@ translateInitilization();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">360k</span>
+    <span title="站点总字数">364k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:27</span>
+    <span title="站点阅读时长">5:31</span>
 </div>
 
 
