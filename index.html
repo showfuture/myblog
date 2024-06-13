@@ -118,7 +118,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">99</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">100</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -128,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">106</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">107</span></a>
 
   </li>
         <li class="menu-item menu-item-playlist">
@@ -188,6 +188,168 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2024/06/13/webdav/webdav%20%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="show">
+      <meta itemprop="description" content="ShowByte">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冯晟的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/13/webdav/webdav%20%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">Linux下 webdav 服务器的安装</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-06-13 11:20:20 / 修改时间：11:45:33" itemprop="dateCreated datePublished" datetime="2024-06-13T11:20:20+08:00">2024-06-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>搭建一个 WebDAV 服务器，可以选择不同的服务器软件，比如 Apache、Nginx 或其他开源解决方案。下面我将详细介绍如何在 Ubuntu 上使用 Apache HTTP Server 来搭建 WebDAV 服务器。</p>
+<h1 id="1-安装-Apache-和-WebDAV-模块"><a href="#1-安装-Apache-和-WebDAV-模块" class="headerlink" title="1. 安装 Apache 和 WebDAV 模块"></a>1. 安装 Apache 和 WebDAV 模块</h1><p>首先，确保系统更新并安装 Apache HTTP Server 以及 WebDAV 所需的模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install apache2</span><br><span class="line">sudo a2enmod dav</span><br><span class="line">sudo a2enmod dav_fs</span><br></pre></td></tr></table></figure>
+<h1 id="2-配置-WebDAV-目录"><a href="#2-配置-WebDAV-目录" class="headerlink" title="2. 配置 WebDAV 目录"></a>2. 配置 WebDAV 目录</h1><p>接下来，配置一个目录来存储 WebDAV 文件，并在 Apache 中启用该目录的 WebDAV 功能。</p>
+<p>编辑 Apache 的默认配置文件（例如 /etc/apache2/sites-available/000-default.conf），添加以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Alias &#x2F;webdav &#x2F;var&#x2F;www&#x2F;webdav</span><br><span class="line"></span><br><span class="line">&lt;Directory &#x2F;var&#x2F;www&#x2F;webdav&gt;</span><br><span class="line">    DAV On</span><br><span class="line">    AuthType Basic</span><br><span class="line">    AuthName &quot;WebDAV&quot;</span><br><span class="line">    AuthUserFile &#x2F;etc&#x2F;apache2&#x2F;.htpasswd</span><br><span class="line">    Require valid-user</span><br><span class="line"></span><br><span class="line">    &lt;LimitExcept GET OPTIONS&gt;</span><br><span class="line">        Require valid-user</span><br><span class="line">    &lt;&#x2F;LimitExcept&gt;</span><br><span class="line">&lt;&#x2F;Directory&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-创建-WebDAV-目录并设置权限"><a href="#3-创建-WebDAV-目录并设置权限" class="headerlink" title="3. 创建 WebDAV 目录并设置权限"></a>3. 创建 WebDAV 目录并设置权限</h1><p>创建用于存储 WebDAV 文件的目录，并设置适当的权限：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir &#x2F;var&#x2F;www&#x2F;webdav</span><br><span class="line">sudo chown -R www-data:www-data &#x2F;var&#x2F;www&#x2F;webdav</span><br><span class="line">sudo chmod -R 755 &#x2F;var&#x2F;www&#x2F;webdav</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-设置用户认证"><a href="#4-设置用户认证" class="headerlink" title="4. 设置用户认证"></a>4. 设置用户认证</h1><p>为了保护 WebDAV 目录，需要设置基本的 HTTP 认证。创建一个认证文件并添加用户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo htpasswd -c &#x2F;etc&#x2F;apache2&#x2F;.htpasswd username</span><br></pre></td></tr></table></figure>
+<p>系统会提示输入并确认用户的密码。</p>
+<h1 id="5-重启-Apache-服务器"><a href="#5-重启-Apache-服务器" class="headerlink" title="5. 重启 Apache 服务器"></a>5. 重启 Apache 服务器</h1><p>完成上述配置后，重启 Apache 服务器以应用更改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart apache2</span><br><span class="line">sudo systemctl status apache2  # 查看是否正常运行</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id><a href="#" class="headerlink" title></a></h1><ol start="6">
+<li>访问 WebDAV 服务器<br>现在，WebDAV 服务器已经配置完成，可以通过以下 URL 访问：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;your-server-ip&#x2F;webdav</span><br></pre></td></tr></table></figure>
+<h2 id="验证配置"><a href="#验证配置" class="headerlink" title="验证配置"></a>验证配置</h2><p>你可以使用 Web 浏览器、命令行工具（如 curl）、或者 WebDAV 客户端（如 Cyberduck、WinSCP）来测试 WebDAV 服务器。</p>
+<p>使用 curl 命令行工具测试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 上传文件</span><br><span class="line">curl -u username:password -T localfile.txt http:&#x2F;&#x2F;your-server-ip&#x2F;webdav&#x2F;remote.txt</span><br><span class="line"></span><br><span class="line"># 下载文件</span><br><span class="line">curl -u username:password -O http:&#x2F;&#x2F;your-server-ip&#x2F;webdav&#x2F;remote.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="示例客户端访问（Python）"><a href="#示例客户端访问（Python）" class="headerlink" title="示例客户端访问（Python）"></a>示例客户端访问（Python）</h2><p>使用 Python 中的 requests 库来访问 WebDAV 服务器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from requests.auth import HTTPBasicAuth</span><br><span class="line"></span><br><span class="line">url &#x3D; &#39;http:&#x2F;&#x2F;your-server-ip&#x2F;webdav&#x2F;test.txt&#39;</span><br><span class="line">username &#x3D; &#39;your-username&#39;</span><br><span class="line">password &#x3D; &#39;your-password&#39;</span><br><span class="line"></span><br><span class="line"># 上传文件</span><br><span class="line">with open(&#39;localfile.txt&#39;, &#39;rb&#39;) as f:</span><br><span class="line">    response &#x3D; requests.put(url, data&#x3D;f, auth&#x3D;HTTPBasicAuth(username, password))</span><br><span class="line">print(response.status_code)</span><br><span class="line"></span><br><span class="line"># 下载文件</span><br><span class="line">response &#x3D; requests.get(url, auth&#x3D;HTTPBasicAuth(username, password))</span><br><span class="line">with open(&#39;downloaded_test.txt&#39;, &#39;wb&#39;) as f:</span><br><span class="line">    f.write(response.content)</span><br><span class="line">print(response.status_code)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>通过上述步骤，你已经成功在 Ubuntu 上使用 Apache HTTP Server 搭建了一个 WebDAV 服务器。WebDAV 服务器可以用于在线存储和管理文件，适用于协作编辑和文件同步。通过适当的认证和权限设置，可以确保数据的安全性。</p>
+<h1 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h1><h2 id="1、检查-Apache-错误日志"><a href="#1、检查-Apache-错误日志" class="headerlink" title="1、检查 Apache 错误日志"></a>1、检查 Apache 错误日志</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tail -f &#x2F;var&#x2F;log&#x2F;apache2&#x2F;error.log</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、测试本地连接"><a href="#2、测试本地连接" class="headerlink" title="2、测试本地连接"></a>2、测试本地连接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -u username:password http:&#x2F;&#x2F;localhost&#x2F;webdav&#x2F;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3、检查-Apache-配置文件语法"><a href="#3、检查-Apache-配置文件语法" class="headerlink" title="3、检查 Apache 配置文件语法"></a>3、检查 Apache 配置文件语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apache2ctl configtest</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如果输出包含 Syntax OK，则表示配置文件语法正确。如果有错误，请根据提示修正。</p>
+<h2 id="4、检查监听端口"><a href="#4、检查监听端口" class="headerlink" title="4、检查监听端口"></a>4、检查监听端口</h2><p>确保 Apache 正在监听端口 80：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tuln | grep :80</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>输出中应该有一行类似以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tcp6       0      0 :::80                   :::*                    LISTEN</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="5、清理现有配置："><a href="#5、清理现有配置：" class="headerlink" title="5、清理现有配置："></a>5、清理现有配置：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo a2dismod dav dav_fs</span><br><span class="line">sudo rm &#x2F;etc&#x2F;apache2&#x2F;.htpasswd</span><br><span class="line">sudo rm -rf &#x2F;var&#x2F;www&#x2F;webdav</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="6、修改-Apache-配置监听端口"><a href="#6、修改-Apache-配置监听端口" class="headerlink" title="6、修改 Apache 配置监听端口"></a>6、修改 Apache 配置监听端口</h2><p>首先，您需要确保 Apache 监听端口 8080。编辑 Apache 的主配置文件（通常是 ports.conf）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vi &#x2F;etc&#x2F;apache2&#x2F;ports.conf</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>添加以下行（如果已存在，确认其配置正确）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Listen 8080</span><br></pre></td></tr></table></figure>
+
+<p>配置虚拟主机以使用端口 8080</p>
+<p>编辑默认的虚拟主机配置文件（通常是 000-default.conf）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;apache2&#x2F;sites-available&#x2F;000-default.conf</span><br></pre></td></tr></table></figure>
+<p>将 <code>&lt;VirtualHost *:80&gt; 修改为 &lt;VirtualHost *:8080&gt;</code>，并确保配置正确：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:8080&gt;</span><br><span class="line">    ServerAdmin webmaster@localhost</span><br><span class="line">    DocumentRoot &#x2F;var&#x2F;www&#x2F;html</span><br><span class="line"></span><br><span class="line">    Alias &#x2F;webdav &#x2F;var&#x2F;www&#x2F;webdav</span><br><span class="line"></span><br><span class="line">    &lt;Directory &#x2F;var&#x2F;www&#x2F;webdav&gt;</span><br><span class="line">        DAV On</span><br><span class="line">        AuthType Basic</span><br><span class="line">        AuthName &quot;WebDAV&quot;</span><br><span class="line">        AuthUserFile &#x2F;etc&#x2F;apache2&#x2F;.htpasswd</span><br><span class="line">        Require valid-user</span><br><span class="line"></span><br><span class="line">        &lt;LimitExcept GET OPTIONS&gt;</span><br><span class="line">            Require valid-user</span><br><span class="line">        &lt;&#x2F;LimitExcept&gt;</span><br><span class="line">    &lt;&#x2F;Directory&gt;</span><br><span class="line"></span><br><span class="line">    ErrorLog $&#123;APACHE_LOG_DIR&#125;&#x2F;error.log</span><br><span class="line">    CustomLog $&#123;APACHE_LOG_DIR&#125;&#x2F;access.log combined</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="7、You-don’t-have-permission-to-access-this-resource"><a href="#7、You-don’t-have-permission-to-access-this-resource" class="headerlink" title="7、You don’t have permission to access this resource."></a>7、You don’t have permission to access this resource.</h2><p>访问 wevdav 服务器时，提示<code>You don&#39;t have permission to access this resource.</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:8080&gt;</span><br><span class="line">    ServerAdmin webmaster@localhost</span><br><span class="line">    DocumentRoot &#x2F;var&#x2F;www&#x2F;html</span><br><span class="line"></span><br><span class="line">    Alias &#x2F;webdav &#x2F;var&#x2F;www&#x2F;webdav</span><br><span class="line"></span><br><span class="line">    &lt;Directory &#x2F;var&#x2F;www&#x2F;webdav&gt;</span><br><span class="line">        # 添加如下 3 行配置</span><br><span class="line">        Options Indexes FollowSymLinks</span><br><span class="line">        AllowOverride None</span><br><span class="line">        Require all granted</span><br><span class="line"></span><br><span class="line">        DAV On</span><br><span class="line">        AuthType Basic</span><br><span class="line">        AuthName &quot;WebDAV&quot;</span><br><span class="line">        AuthUserFile &#x2F;etc&#x2F;apache2&#x2F;.htpasswd</span><br><span class="line">        Require valid-user</span><br><span class="line"></span><br><span class="line">        &lt;LimitExcept GET OPTIONS&gt;</span><br><span class="line">            Require valid-user</span><br><span class="line">        &lt;&#x2F;LimitExcept&gt;</span><br><span class="line">    &lt;&#x2F;Directory&gt;</span><br><span class="line"></span><br><span class="line">    ErrorLog $&#123;APACHE_LOG_DIR&#125;&#x2F;error.log</span><br><span class="line">    CustomLog $&#123;APACHE_LOG_DIR&#125;&#x2F;access.log combined</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="8、修改WebDAV-目录"><a href="#8、修改WebDAV-目录" class="headerlink" title="8、修改WebDAV 目录"></a>8、修改WebDAV 目录</h2><p>如果您不想使用 /var/www/webdav 作为 WebDAV 目录，可以选择其他目录并进行相应的配置。以下是详细步骤，以 /data/webdav 为例：</p>
+<p>首先，在您希望的位置创建新的 WebDAV 目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;data&#x2F;webdav</span><br><span class="line">sudo chown -R www-data:www-data &#x2F;data&#x2F;webdav</span><br><span class="line">sudo chmod -R 755 &#x2F;data&#x2F;webdav</span><br></pre></td></tr></table></figure>
+
+<p>修改/etc/apache2/sites-available/000-default.conf配置文件中的 WebDAV 目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;VirtualHost *:8080&gt;</span><br><span class="line">    ServerAdmin webmaster@localhost</span><br><span class="line">    DocumentRoot &#x2F;var&#x2F;www&#x2F;html</span><br><span class="line"></span><br><span class="line">    Alias &#x2F;webdav &#x2F;data&#x2F;webdav</span><br><span class="line"></span><br><span class="line">    &lt;Directory &#x2F;data&#x2F;webdav&gt;</span><br><span class="line">        Options Indexes FollowSymLinks</span><br><span class="line">        AllowOverride None</span><br><span class="line">        Require all granted</span><br><span class="line"></span><br><span class="line">        DAV On</span><br><span class="line">        AuthType Basic</span><br><span class="line">        AuthName &quot;WebDAV&quot;</span><br><span class="line">        AuthUserFile &#x2F;etc&#x2F;apache2&#x2F;.htpasswd</span><br><span class="line">        Require valid-user</span><br><span class="line"></span><br><span class="line">        &lt;LimitExcept GET OPTIONS&gt;</span><br><span class="line">            Require valid-user</span><br><span class="line">        &lt;&#x2F;LimitExcept&gt;</span><br><span class="line">    &lt;&#x2F;Directory&gt;</span><br><span class="line"></span><br><span class="line">    ErrorLog $&#123;APACHE_LOG_DIR&#125;&#x2F;error.log</span><br><span class="line">    CustomLog $&#123;APACHE_LOG_DIR&#125;&#x2F;access.log combined</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="9、确认目录权限和修改-Apache-用户"><a href="#9、确认目录权限和修改-Apache-用户" class="headerlink" title="9、确认目录权限和修改 Apache 用户"></a>9、确认目录权限和修改 Apache 用户</h2><p>确保 WebDAV 目录 /data/webdav 具有适当的权限，使得 Apache 用户（通常是 www-data）有读写权限。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R www-data:www-data &#x2F;data&#x2F;webdav</span><br><span class="line">sudo chmod -R 755 &#x2F;data&#x2F;webdav</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>确认 Apache 用户<br>确保 Apache 使用的用户和组是 www-data。这通常在 apache2.conf 或 envvars 文件中定义。</p>
+<p>编辑 envvars 文件（Ubuntu/Debian 通常位于 /etc/apache2/envvars）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi &#x2F;etc&#x2F;apache2&#x2F;envvars</span><br></pre></td></tr></table></figure>
+<p>确保以下行存在：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export APACHE_RUN_USER&#x3D;www-data</span><br><span class="line">export APACHE_RUN_GROUP&#x3D;www-data</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如果不想用 用户和组是 www-data, 则创建新的用户和用户组，并修改上述配置</p>
+<h2 id="10、上传文件到-WebDAV-服务器"><a href="#10、上传文件到-WebDAV-服务器" class="headerlink" title="10、上传文件到 WebDAV 服务器"></a>10、上传文件到 WebDAV 服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from requests.auth import HTTPBasicAuth</span><br><span class="line"></span><br><span class="line"># WebDAV 服务器的 URL 和目标路径</span><br><span class="line">webdav_url &#x3D; &#39;http:&#x2F;&#x2F;your-server-ip:8080&#x2F;webdav&#x2F;&#39;</span><br><span class="line">file_path &#x3D; &#39;localfile.txt&#39;  # 本地文件路径</span><br><span class="line">remote_path &#x3D; webdav_url + &#39;remote_file.txt&#39;  # 远程文件路径</span><br><span class="line"></span><br><span class="line"># WebDAV 用户名和密码</span><br><span class="line">username &#x3D; &#39;your_username&#39;</span><br><span class="line">password &#x3D; &#39;your_password&#39;</span><br><span class="line"></span><br><span class="line"># 打开本地文件</span><br><span class="line">with open(file_path, &#39;rb&#39;) as file:</span><br><span class="line">    # 使用 requests.put() 方法上传文件</span><br><span class="line">    response &#x3D; requests.put(remote_path, data&#x3D;file, auth&#x3D;HTTPBasicAuth(username, password))</span><br><span class="line"></span><br><span class="line"># 检查响应状态码</span><br><span class="line">if response.status_code &#x3D;&#x3D; 201 or response.status_code &#x3D;&#x3D; 204:</span><br><span class="line">    print(&#39;文件上传成功&#39;)</span><br><span class="line">else:</span><br><span class="line">    print(f&#39;文件上传失败，状态码: &#123;response.status_code&#125;&#39;)</span><br><span class="line">    print(response.text)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="11、上传文件夹到-WebDAV-服务器"><a href="#11、上传文件夹到-WebDAV-服务器" class="headerlink" title="11、上传文件夹到 WebDAV 服务器"></a>11、上传文件夹到 WebDAV 服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import requests</span><br><span class="line">from requests.auth import HTTPBasicAuth</span><br><span class="line"></span><br><span class="line"># WebDAV 服务器的 URL 和目标路径</span><br><span class="line">webdav_url &#x3D; &#39;http:&#x2F;&#x2F;your-server-ip:8080&#x2F;webdav&#x2F;&#39;</span><br><span class="line">local_folder &#x3D; &#39;local_folder&#x2F;&#39;  # 本地文件夹路径</span><br><span class="line"></span><br><span class="line"># WebDAV 用户名和密码</span><br><span class="line">username &#x3D; &#39;your_username&#39;</span><br><span class="line">password &#x3D; &#39;your_password&#39;</span><br><span class="line"></span><br><span class="line"># 上传单个文件</span><br><span class="line">def upload_file(local_file, remote_file):</span><br><span class="line">    with open(local_file, &#39;rb&#39;) as file:</span><br><span class="line">        response &#x3D; requests.put(remote_file, data&#x3D;file, auth&#x3D;HTTPBasicAuth(username, password))</span><br><span class="line">    return response.status_code</span><br><span class="line"></span><br><span class="line"># 递归上传文件夹中的所有文件</span><br><span class="line">def upload_folder(local_folder, remote_folder):</span><br><span class="line">    for root, _, files in os.walk(local_folder):</span><br><span class="line">        for file in files:</span><br><span class="line">            local_file &#x3D; os.path.join(root, file)</span><br><span class="line">            relative_path &#x3D; os.path.relpath(local_file, local_folder)</span><br><span class="line">            remote_file &#x3D; os.path.join(remote_folder, relative_path).replace(&quot;\\&quot;, &quot;&#x2F;&quot;)</span><br><span class="line">            response_code &#x3D; upload_file(local_file, remote_file)</span><br><span class="line">            if response_code in [201, 204]:</span><br><span class="line">                print(f&#39;文件上传成功: &#123;local_file&#125;&#39;)</span><br><span class="line">            else:</span><br><span class="line">                print(f&#39;文件上传失败: &#123;local_file&#125;，状态码: &#123;response_code&#125;&#39;)</span><br><span class="line"></span><br><span class="line"># 上传文件夹</span><br><span class="line">upload_folder(local_folder, webdav_url)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -352,10 +514,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-15 15:27:46 / 修改时间：21:31:06" itemprop="dateCreated datePublished" datetime="2023-03-15T15:27:46+08:00">2023-03-15</time>
+              <time title="创建时间：2023-03-15 15:27:46" itemprop="dateCreated datePublished" datetime="2023-03-15T15:27:46+08:00">2023-03-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-16 10:30:22" itemprop="dateModified" datetime="2023-03-16T10:30:22+08:00">2023-03-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -402,6 +570,7 @@
 <p>新式类和旧式类的区别</p>
 <p>python 常用的设计模式</p>
 <p>dict为什么无序，python3的 dict 是有序的</p>
+<p>装饰器传参</p>
 </blockquote>
 <ul>
 <li><p><a target="_blank" rel="noopener" href="https://github.com/taizilongxu/interview_python">interview_python</a></p>
@@ -1398,102 +1567,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.showbyte.cn/2022/06/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress%E7%9A%84%E6%B7%BB%E5%8A%A0gzip/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="show">
-      <meta itemprop="description" content="ShowByte">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="冯晟的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/06/22/K8S/k8s%E4%BD%BF%E7%94%A8/ingress%E7%9A%84%E6%B7%BB%E5%8A%A0gzip/" class="post-title-link" itemprop="url">k8s ingress的添加gzip</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-06-22 12:41:39" itemprop="dateCreated datePublished" datetime="2022-06-22T12:41:39+08:00">2022-06-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-12 18:14:15" itemprop="dateModified" datetime="2022-07-12T18:14:15+08:00">2022-07-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/k8s/" itemprop="url" rel="index"><span itemprop="name">k8s</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>267</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="1-ingress的添加gzip"><a href="#1-ingress的添加gzip" class="headerlink" title="1.ingress的添加gzip"></a>1.ingress的添加gzip</h3><p>$ kubectl edit configmap -n ingress-nginx ingress-nginx-controller</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data: # ADD IF NOT PRESENT</span><br><span class="line">  use-gzip: &quot;true&quot; # ENABLE GZIP COMPRESSION</span><br><span class="line">  gzip-types: &quot;*&quot; # SPECIFY MIME TYPES TO COMPRESS (&quot;*&quot; FOR ALL)</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h4><p><a target="_blank" rel="noopener" href="http://string.quest/read/16327566">kubernetes - 使用 nginx-ingress 在 gke 中使用 gzip - 探索字符串</a>c</p>
-
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1563,7 +1636,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1576,7 +1649,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">99</span>
+        <span class="site-state-item-count">100</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1613,7 +1686,7 @@ translateInitilization();
         <h3 class="widget-title">标签云</h3>
         <div id="myCanvasContainer" class="widget tagcloud">
           <canvas width="250" height="250" id="resCanvas" style="width:100%">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS-%E5%AE%89%E8%A3%85Nvidia%E9%A9%B1%E5%8A%A8-CUDA-cuDNN/" rel="tag">CentOS 安装Nvidia驱动+CUDA+cuDNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Charles/" rel="tag">Charles</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAS-nas/" rel="tag">NAS nas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAS-%E6%97%A5%E5%BF%97/" rel="tag">NAS 日志</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NFS-mount%E6%8C%82%E8%BD%BD/" rel="tag">NFS+mount挂载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDK/" rel="tag">SDK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-%E8%87%AA%E5%90%AF%E5%8A%A8/" rel="tag">Windows 自启动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/abstract/" rel="tag">abstract</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/" rel="tag">aws</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos8-%E6%8D%A2%E6%BA%90/" rel="tag">centos8 换源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cryptography/" rel="tag">cryptography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/df/" rel="tag">df</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-%E5%91%BD%E4%BB%A4/" rel="tag">docker 命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-%E9%85%8D%E7%BD%AE/" rel="tag">docker 配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-compose/" rel="tag">docker-compose</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/du/" rel="tag">du</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etcd/" rel="tag">etcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free/" rel="tag">free</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gen-secret/" rel="tag">gen-secret</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-lfs/" rel="tag">git lfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-flink/" rel="tag">k8s flink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-helm/" rel="tag">k8s helm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-Nginx%E5%8F%82%E6%95%B0/" rel="tag">k8s ingress Nginx参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-Nginx%E8%BD%AC%E5%8F%91/" rel="tag">k8s ingress Nginx转发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-gzip/" rel="tag">k8s ingress gzip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E4%B8%BA%E7%B3%BB%E7%BB%9F%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E9%A2%84%E7%95%99%E8%AE%A1%E7%AE%97%E8%B5%84%E6%BA%90/" rel="tag">k8s 为系统守护进程预留计算资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" rel="tag">k8s 安装教程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E6%95%99%E7%A8%8B/" rel="tag">k8s 教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka-python/" rel="tag">kafka-python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka%E5%BC%82%E5%B8%B8/" rel="tag">kafka异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netstat/" rel="tag">netstat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nohup/" rel="tag">nohup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overlay2/" rel="tag">overlay2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paramiko/" rel="tag">paramiko</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/percona-toolkit/" rel="tag">percona-toolkit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycharm/" rel="tag">pycharm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pypi/" rel="tag">pypi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">python 深拷贝浅拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" rel="tag">python内置函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">python生成器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" rel="tag">python迭代器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rz-sz/" rel="tag">rz sz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-exe-GUI/" rel="tag">ssh exe GUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-openssh/" rel="tag">ssh openssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" rel="tag">ssh 免密登录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/" rel="tag">struct</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/" rel="tag">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/volumes/" rel="tag">volumes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" rel="tag">vue2.0基础课程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows-utf-8/" rel="tag">windows utf-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows-%E7%A6%81%E6%AD%A2%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0/" rel="tag">windows 禁止系统更新</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E8%87%B4%E6%80%A7/" rel="tag">一致性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" rel="tag">不可变类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E6%A0%87/" rel="tag">图标</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81/" rel="tag">密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%9C%BA/" rel="tag">开机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85/" rel="tag">手机抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" rel="tag">抽象类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9B%AE%E5%BD%95%E8%BD%AF%E8%BF%9E/" rel="tag">服务器之间目录软连</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%85%E7%90%86/" rel="tag">清理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag">监测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD/" rel="tag">硬盘挂载</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%81%E4%B9%A6/" rel="tag">证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0/" rel="tag">配置参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%95%9C%E5%83%8F%E6%BA%90/" rel="tag">镜像源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E6%B1%87%E6%80%BB/" rel="tag">面试汇总</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS-%E5%AE%89%E8%A3%85Nvidia%E9%A9%B1%E5%8A%A8-CUDA-cuDNN/" rel="tag">CentOS 安装Nvidia驱动+CUDA+cuDNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Charles/" rel="tag">Charles</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAS-nas/" rel="tag">NAS nas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAS-%E6%97%A5%E5%BF%97/" rel="tag">NAS 日志</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NFS-mount%E6%8C%82%E8%BD%BD/" rel="tag">NFS+mount挂载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDK/" rel="tag">SDK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-%E8%87%AA%E5%90%AF%E5%8A%A8/" rel="tag">Windows 自启动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/abstract/" rel="tag">abstract</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aliyun/" rel="tag">aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/" rel="tag">aws</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos8-%E6%8D%A2%E6%BA%90/" rel="tag">centos8 换源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cryptography/" rel="tag">cryptography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/df/" rel="tag">df</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-%E5%91%BD%E4%BB%A4/" rel="tag">docker 命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-%E9%85%8D%E7%BD%AE/" rel="tag">docker 配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-compose/" rel="tag">docker-compose</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/du/" rel="tag">du</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etcd/" rel="tag">etcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free/" rel="tag">free</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gen-secret/" rel="tag">gen-secret</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-lfs/" rel="tag">git lfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-flink/" rel="tag">k8s flink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-helm/" rel="tag">k8s helm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-Nginx%E5%8F%82%E6%95%B0/" rel="tag">k8s ingress Nginx参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-Nginx%E8%BD%AC%E5%8F%91/" rel="tag">k8s ingress Nginx转发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-ingress-gzip/" rel="tag">k8s ingress gzip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E4%B8%BA%E7%B3%BB%E7%BB%9F%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E9%A2%84%E7%95%99%E8%AE%A1%E7%AE%97%E8%B5%84%E6%BA%90/" rel="tag">k8s 为系统守护进程预留计算资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" rel="tag">k8s 安装教程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s-%E6%95%99%E7%A8%8B/" rel="tag">k8s 教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka-python/" rel="tag">kafka-python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka%E5%BC%82%E5%B8%B8/" rel="tag">kafka异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netstat/" rel="tag">netstat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nohup/" rel="tag">nohup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overlay2/" rel="tag">overlay2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paramiko/" rel="tag">paramiko</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/percona-toolkit/" rel="tag">percona-toolkit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycharm/" rel="tag">pycharm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pypi/" rel="tag">pypi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">python 深拷贝浅拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" rel="tag">python内置函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">python生成器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" rel="tag">python迭代器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rz-sz/" rel="tag">rz sz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-exe-GUI/" rel="tag">ssh exe GUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-openssh/" rel="tag">ssh openssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" rel="tag">ssh 免密登录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/" rel="tag">struct</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/" rel="tag">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/volumes/" rel="tag">volumes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" rel="tag">vue2.0基础课程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webdav/" rel="tag">webdav</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows-utf-8/" rel="tag">windows utf-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows-%E7%A6%81%E6%AD%A2%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0/" rel="tag">windows 禁止系统更新</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E8%87%B4%E6%80%A7/" rel="tag">一致性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/" rel="tag">不可变类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E6%A0%87/" rel="tag">图标</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81/" rel="tag">密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%9C%BA/" rel="tag">开机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85/" rel="tag">手机抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" rel="tag">抽象类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9B%AE%E5%BD%95%E8%BD%AF%E8%BF%9E/" rel="tag">服务器之间目录软连</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%85%E7%90%86/" rel="tag">清理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag">监测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD/" rel="tag">硬盘挂载</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%81%E4%B9%A6/" rel="tag">证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0/" rel="tag">配置参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%95%9C%E5%83%8F%E6%BA%90/" rel="tag">镜像源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E6%B1%87%E6%80%BB/" rel="tag">面试汇总</a><span class="tag-list-count">1</span></li></ul>
           </canvas>
         </div>
       </div>
@@ -1641,7 +1714,7 @@ translateInitilization();
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="heart"></i>
   </span>
@@ -1650,12 +1723,12 @@ translateInitilization();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">364k</span>
+    <span title="站点总字数">372k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:31</span>
+    <span title="站点阅读时长">5:38</span>
 </div>
 
 
